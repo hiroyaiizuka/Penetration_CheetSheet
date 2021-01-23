@@ -10,8 +10,6 @@ Hack the Box の攻略や、OSCP 取得を目指すためのチートシート�
 
 - [Network Scan](#Network_scan)
   - [Nmap](#nmap)
-- [SMB Scan](#SMB_scan)
-  - [smbclient](#smbclient)
 - [侵入](#侵入)
   - [reverse_shell](#reverse_shell)
     - [msfvenom_reverse_shell](#msfvenom_reverse_shell)
@@ -77,8 +75,6 @@ nmap -A -p- -Pn 10.10.10.3
 
 
 
-
-### WebScan
 
 # 侵入
 
