@@ -75,8 +75,15 @@ nmap -A -p- -Pn 10.10.10.3
 
 ```
 
+
+
+
 ### WebScan
 
-### 侵入
+# 侵入
 
-- reverse_shell
+## reverse_shell
+
+### msfvenom
+
+[CheetSheet](https://redteamtutorials.com/2018/10/24/msfvenom-cheatsheet/)
