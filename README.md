@@ -20,10 +20,6 @@ Hack the Box の攻略や、OSCP 取得を目指すためのチートシート�
     - [Handlers](#Handlers)
 - [特権エスカレーション](#特権エスカレーション)
   - [metasploit local_exploit_suggester](#metasploit(local_exploit_suggester))
-  - [Windows](#windows)
-    - [windows-exploit-suggester](#windows-exploit-suggester)
-  - [Linux](#linux)
-    - [linux-exploit-suggester](#linux-exploit-suggester)
 - [その他](#その他)
   - [便利コマンド](#便利コマンド)
     
