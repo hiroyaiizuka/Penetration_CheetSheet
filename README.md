@@ -27,10 +27,7 @@ Hack the Box の攻略や、OSCP 取得を目指すためのチートシート�
   - [Linux](#linux)
     - [linux-exploit-suggester](#linux-exploit-suggester)
 - [その他](#その他)
-  - [ツールまとめ](#ツールまとめ)
-    - [NetCat](#netcat)
-    - [searchsploit](#searchsploit)
-  - [便利コマンド]
+  - [便利コマンド](#便利コマンド)
     
   
 
