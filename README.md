@@ -84,6 +84,6 @@ nmap -A -p- -Pn 10.10.10.3
 
 ## reverse_shell
 
-### msfvenom
+### msfvenom_reverse_shell
 
 [CheetSheet](https://redteamtutorials.com/2018/10/24/msfvenom-cheatsheet/)
