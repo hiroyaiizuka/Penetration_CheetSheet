@@ -77,7 +77,21 @@ nmap -A -p- -Pn 10.10.10.3
 ```
 
 
+ known vulnerabilitiesに対して、調査したいとき
 
+```
+ex: port 445 に対して、
+
+nmap -p 445 --script vuln 10.10.10.4
+
+-p: Set destination port(s)
+
+445: The open port we've discovered earlier
+
+--script vuln: Check for specific known vulnerabilities and generally only report results if they are found
+```
+
+[参考](https://www.freecodecamp.org/news/keep-calm-and-hack-the-box-legacy/)
 
 # 侵入
 
