@@ -82,7 +82,7 @@ nmap -A -p- -Pn 10.10.10.3
 ```
 ex: port 445 に対して、
 
-nmap -p 445 --script vuln 10.10.10.4
+nmap -Pn -p 445 --script vuln 10.10.10.4
 
 -p: Set destination port(s)
 
