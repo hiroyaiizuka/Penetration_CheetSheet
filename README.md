@@ -165,7 +165,7 @@ pty.spawn: プロセスを生成して制御端末を現在のプロセスの標
             これは制御端末を読もうとするプログラムをごまかすために利用される。
 
 
-ファイル探索
+### ファイル探索
 
 Windws:
 
@@ -173,3 +173,17 @@ Windws:
 search -f user.txt
 ```
 
+
+### python のlibrary がない
+
+```
+ex: impacket
+ 
+github のreleases へいき、
+wget https://github.com/SecureAuthCorp/impacket/releases/download/impacket_0_9_21/impacket-0.9.21.tar.gz
+
+tar -zxvf impacket-0.9.21.tar.gz
+cd impacket-0.9.21
+pip install .
+
+```
