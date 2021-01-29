@@ -39,7 +39,7 @@ nmap -Pn -A 10.10.10.11
 -A : OSの種類とそのバージョンを検知
 
 
-nmap -sV -sC -Pn -oN 10.10.10.5
+nmap -sV -sC -Pn -oN sample.txt 10.10.10.5
 
 -sC : デフォルトスクリプトでスキャン
 -sV : バージョン検出
