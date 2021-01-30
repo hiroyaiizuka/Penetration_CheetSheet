@@ -174,6 +174,11 @@ search -f user.txt
 ```
 
 
+### PsExec
+コマンドラインを、リモートで実行できる。
+[リンク](https://medium.com/@jjlovesstudying/windows-version-of-ssh-using-psexec-bff7942db91b)
+
+
 ### python のlibrary がない
 
 ```
@@ -187,3 +192,4 @@ cd impacket-0.9.21
 pip install .
 
 ```
+
