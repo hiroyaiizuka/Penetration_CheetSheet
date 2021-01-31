@@ -148,6 +148,23 @@ use post/multi/recon/local_exploit_suggester
 
 # 便利コマンド
 
+### searchsploit -m で、sploit を current directory へ copy
+
+```
+─$ searchsploit PRTG             
+------------------------------------------------------------------------------------------- ---------------------------------
+ Exploit Title                                                                             |  Path
+------------------------------------------------------------------------------------------- ---------------------------------
+PRTG Network Monitor 18.2.38 - (Authenticated) Remote Code Execution                       | windows/webapps/46527.sh
+PRTG Network Monitor < 18.1.39.1648 - Stack Overflow (Denial of Service)                   | windows_x86/dos/44500.py
+PRTG Traffic Grapher 6.2.1 - 'url' Cross-Site Scripting                                    | java/webapps/34108.txt
+
+
+searchsploit -m windows/webapps/46527.sh
+
+  -m, --mirror   [EDB-ID]    Mirror (aka copies) an exploit to the current working directory.
+
+```
 
 ### シェル整形
 
