@@ -10,6 +10,7 @@ Hack the Box の攻略や、OSCP 取得を目指すためのチートシート�
 
 - [Network Scan](#Network_scan)
   - [Nmap](#nmap)
+- [Web Scan](#Web_scan)
 - [侵入](#侵入)
   - [reverse_shell](#reverse_shell)
     - [msfvenom_reverse_shell](#msfvenom_reverse_shell)
@@ -92,6 +93,30 @@ nmap -Pn -p 445 --script vuln 10.10.10.4
 ```
 
 [参考](https://www.freecodecamp.org/news/keep-calm-and-hack-the-box-legacy/)
+
+# Web_scan
+
+ディレクトリスキャナー。  
+隠されたディレクトリや公開範囲が間違えて設定されているものはないかを調べるために使用。
+
+```
+gobuster dir -t 100 -u <target url> -w /usr/share/wordlists/dirbuster/directory-list-2.3-small.txt -x php,txt,py -o <output filename>
+```
+
+- dir...ディレクトリ総当たり
+- -t...スレッド数
+- -u...URL指定
+- -w...wordlistの指定
+- -o...ファイル出力
+- -x...拡張子指定
+
+
+```
+実際の使用例
+gobuster dir -u http://10.10.10.37 -w /usr/share/wordlists/dirbuster/directory-list-2.3-small.txt -o blocky_gobuster
+
+```
+
 
 # 侵入
 
