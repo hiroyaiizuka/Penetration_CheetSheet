@@ -11,6 +11,8 @@ Hack the Box の攻略や、OSCP 取得を目指すためのチートシート�
 - [Network Scan](#Network_scan)
   - [Nmap](#nmap)
 - [Web Scan](#Web_scan)
+  - [gobuster](#gobuster)
+  - [WPScan](#WPScan)
 - [侵入](#侵入)
   - [reverse_shell](#reverse_shell)
     - [msfvenom_reverse_shell](#msfvenom_reverse_shell)
@@ -96,6 +98,7 @@ nmap -Pn -p 445 --script vuln 10.10.10.4
 
 # Web_scan
 
+### gobuster
 ディレクトリスキャナー。  
 隠されたディレクトリや公開範囲が間違えて設定されているものはないかを調べるために使用。
 
@@ -117,6 +120,25 @@ gobuster dir -u http://10.10.10.37 -w /usr/share/wordlists/dirbuster/directory-l
 
 ```
 
+### WPScan
+WordPressの脆弱性診断ツール。
+
+```
+wpscan -url <target url> -e u -t -vp --log <output filename>
+```
+
+- -url...対象のURL指定
+- -e u...usernameの列挙
+- -t...テーマを列挙
+- -vp...脆弱性のあるプラグインを列挙
+- --log...ファイル出力
+
+
+```
+実際の使用例
+
+ wpscan --url 10.10.10.37 -e u
+```
 
 # 侵入
 
