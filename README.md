@@ -237,6 +237,10 @@ Windws:
 search -f user.txt
 ```
 
+### Windows コマンド集
+[リンク](https://windows.command-ref.com/cmd-dir.html)
+
+
 
 ### PsExec
 コマンドラインを、リモートで実行できる。
