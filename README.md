@@ -193,6 +193,16 @@ background
 use post/multi/recon/local_exploit_suggester
 ```
 
+```
+session を interactive に戻す時
+sessions -i 1
+
+access denied の時、プロセスが原因？
+
+ps　
+migrate コマンド使う
+```
+
 # 便利コマンド
 
 ### searchsploit -m で、sploit を current directory へ copy
