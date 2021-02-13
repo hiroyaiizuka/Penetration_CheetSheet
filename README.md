@@ -200,7 +200,7 @@ sessions -i 1
 access denied の時、プロセスが原因？
 
 ps　で root 権限で動いているプロセスを確認し、
-migrate コマンド使う  ex: migrate 1836
+[migrate コマンド](https://security.stackexchange.com/questions/90578/how-does-process-migration-work-in-meterpreter)使う  ex: migrate 1836
 
 meterpreterプロンプト下でmigrateコマンドを使うことで、
 バックドアを既存のプロセスに統合させることが出来る
