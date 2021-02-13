@@ -12,6 +12,7 @@ Hack the Box の攻略や、OSCP 取得を目指すためのチートシート�
   - [Nmap](#nmap)
 - [Web Scan](#Web_scan)
   - [gobuster](#gobuster)
+  - [davtest](#davtest)
   - [WPScan](#WPScan)
 - [侵入](#侵入)
   - [reverse_shell](#reverse_shell)
@@ -117,6 +118,18 @@ gobuster dir -t 100 -u <target url> -w /usr/share/wordlists/dirbuster/directory-
 ```
 実際の使用例
 gobuster dir -u http://10.10.10.37 -w /usr/share/wordlists/dirbuster/directory-list-2.3-small.txt -o blocky_gobuster
+
+```
+
+### davtest
+
+[リンク](https://tools.kali.org/web-applications/davtest)
+
+DAVTest tests WebDAV enabled servers by uploading test executable files, and then (optionally) uploading files which allow for command execution or other actions directly on the target. It is meant for penetration testers to quickly and easily determine if enabled DAV services are exploitable.
+
+```
+
+davtest --url 10.10.10.14   
 
 ```
 
