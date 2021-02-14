@@ -139,7 +139,8 @@ davtest --url 10.10.10.14
 
 [リンク](https://qiita.com/bezeklik/items/12643654dc0c45f4eb29)
 
-Web 脆弱性スキャナ
+Web 脆弱性スキャナ。
+任意のWebサーバー（Apache、Nginx、IHS、OHS、Litespeedなど）で使用できる。
 Webサイトのセキュリティ上の欠陥を識別して、見つかった各問題の詳細な参照を提供する。
 
 ```
