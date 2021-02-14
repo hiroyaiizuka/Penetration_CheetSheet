@@ -13,6 +13,7 @@ Hack the Box の攻略や、OSCP 取得を目指すためのチートシート�
 - [Web Scan](#Web_scan)
   - [gobuster](#gobuster)
   - [davtest](#davtest)
+  - [Nikto](#Nikto)
   - [WPScan](#WPScan)
 - [侵入](#侵入)
   - [reverse_shell](#reverse_shell)
@@ -130,6 +131,27 @@ DAVTest tests WebDAV enabled servers by uploading test executable files, and the
 ```
 
 davtest --url 10.10.10.14   
+
+```
+
+
+### Nikto
+
+[リンク](https://qiita.com/bezeklik/items/12643654dc0c45f4eb29)
+
+Web 脆弱性スキャナ
+Webサイトのセキュリティ上の欠陥を識別して、見つかった各問題の詳細な参照を提供する。
+
+```
+nikto -h <target url> -Format txt -o <output filename>
+
+-h...url指定
+-Format...出力するファイルの拡張子を指定
+-o...ファイルへ出力する
+-ssl...SSLを使用するサイトで使用
+
+
+ex): nikto -h http://10.10.10.15
 
 ```
 
