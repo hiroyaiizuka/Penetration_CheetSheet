@@ -225,7 +225,11 @@ meterpreterプロンプト下でmigrateコマンドを使うことで、バッ�
 
 # 便利コマンド
 
-### searchsploit -m で、sploit を current directory へ copy
+### searchsploit -m で、
+
+- searchsploit -m
+
+exploit を current directory へ copy
 
 ```
 ─$ searchsploit PRTG             
@@ -241,6 +245,13 @@ searchsploit -m windows/webapps/46527.sh
 
   -m, --mirror   [EDB-ID]    Mirror (aka copies) an exploit to the current working directory.
 
+```
+
+- searchsploit -x
+
+```
+searchsploit -x windows/remote/41738.py
+-x エクスプロイトの中身を見る
 ```
 
 ### シェル整形
