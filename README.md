@@ -318,10 +318,13 @@ search -f user.txt
 sudo id 
 sudo groups
 
-root になる
-sudo su
+・sudo -l 
+-l:	sudoを実行するユーザーに許可されているコマンドを一覧表示する。
 
+・root になる
+sudo su
 su: switch user
+
 ```
 
 ### python のlibrary がない
