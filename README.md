@@ -311,6 +311,19 @@ search -f user.txt
 [リンク](https://medium.com/@jjlovesstudying/windows-version-of-ssh-using-psexec-bff7942db91b)
 
 
+## root 権限か確かめる
+
+```
+
+sudo id 
+sudo groups
+
+root になる
+sudo su
+
+su: switch user
+```
+
 ### python のlibrary がない
 
 ```
@@ -324,4 +337,5 @@ cd impacket-0.9.21
 pip install .
 
 ```
+
 
