@@ -325,6 +325,9 @@ sudo groups
 sudo su
 su: switch user
 
+sudo -i  でもできる
+i: rootユーザーのデフォルトのシェルをログインシェルとして実行する
+
 ```
 
 ### python のlibrary がない
