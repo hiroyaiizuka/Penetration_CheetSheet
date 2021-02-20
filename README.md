@@ -122,6 +122,20 @@ gobuster dir -u http://10.10.10.37 -w /usr/share/wordlists/dirbuster/directory-l
 
 ```
 
+### dirb コマンド
+
+[リンク](https://medium.com/tech-zoom/dirb-a-web-content-scanner-bc9cba624c86)
+
+```
+　dirb http://172.17.0.2/mutillidae
+
+ DIRB IS a Web Content Scanner.  It  looks  for  existing
+ (and/or  hidden)  Web  Objects. 
+ It  basically  works by launching a  dictionary  basesd  attack 
+ against  a  web server and analizing the response.
+
+```
+
 ### davtest
 
 [リンク](https://tools.kali.org/web-applications/davtest)
