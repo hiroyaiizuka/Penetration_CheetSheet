@@ -12,8 +12,9 @@ Hack the Box の攻略や、OSCP 取得を目指すためのチートシート�
   - [Nmap](#nmap)
 - [Web Scan](#Web_scan)
   - [gobuster](#gobuster)
-  - [davtest](#davtest)
+  - [dirb](#dirb)
   - [Nikto](#Nikto)
+  - [davtest](#davtest)
   - [WPScan](#WPScan)
 - [侵入](#侵入)
   - [reverse_shell](#reverse_shell)
@@ -122,7 +123,7 @@ gobuster dir -u http://10.10.10.37 -w /usr/share/wordlists/dirbuster/directory-l
 
 ```
 
-### dirb コマンド
+### dirb 
 
 [リンク](https://medium.com/tech-zoom/dirb-a-web-content-scanner-bc9cba624c86)
 
@@ -135,19 +136,6 @@ gobuster dir -u http://10.10.10.37 -w /usr/share/wordlists/dirbuster/directory-l
  against  a  web server and analizing the response.
 
 ```
-
-### davtest
-
-[リンク](https://tools.kali.org/web-applications/davtest)
-
-DAVTest tests WebDAV enabled servers by uploading test executable files, and then (optionally) uploading files which allow for command execution or other actions directly on the target. It is meant for penetration testers to quickly and easily determine if enabled DAV services are exploitable.
-
-```
-
-davtest --url 10.10.10.14   
-
-```
-
 
 ### Nikto
 
@@ -169,6 +157,20 @@ nikto -h <target url> -Format txt -o <output filename>
 ex): nikto -h http://10.10.10.15
 
 ```
+
+
+### davtest
+
+[リンク](https://tools.kali.org/web-applications/davtest)
+
+DAVTest tests WebDAV enabled servers by uploading test executable files, and then (optionally) uploading files which allow for command execution or other actions directly on the target. It is meant for penetration testers to quickly and easily determine if enabled DAV services are exploitable.
+
+```
+
+davtest --url 10.10.10.14   
+
+```
+
 
 ### WPScan
 WordPressの脆弱性診断ツール。
