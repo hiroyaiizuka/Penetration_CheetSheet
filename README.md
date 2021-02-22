@@ -277,8 +277,10 @@ meterpreterプロンプト下でmigrateコマンドを使うことで、バッ�
 
 ### Burp
 [リンク](https://persol-tech-s.co.jp/corporate/security/article.html?id=10)
+
 ブラウザとサーバ間のHTTP通信をキャプチャし、通信内容を閲覧および改竄できるツール
-BurpのProxy機能とはWebアプリケーションの通信でサーバにリクエストを送信する際に、BurpがHTTP通信をキャプチャして、通信内容の閲覧や通信内容の書き換えができる機能。
+BurpのProxy機能とはWebアプリケーションの通信でサーバにリクエストを送信する際に、BurpがHTTP通信をキャプチャして
+通信内容の閲覧や通信内容の書き換えができる機能。
 
 
 # 便利コマンド
