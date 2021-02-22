@@ -292,6 +292,21 @@ BurpのProxy機能とはWebアプリケーションの通信でサーバにリ�
 そのためWebアプリケーションセキュリティ診断ではプロキシツールを使用して作業を行います
 ```
 
+実践例:
+
+```
+Proxy → Option で、
+アドレス、port、redirect 先のアドレスとport(nmap で開いていたport)を記入
+
+127.0.0.1:1212  redirect: 10.10.10.56:80
+
+curl http://127.0.0.1:1212/cgi-bin/user.sh
+
+これで、intercept　される
+
+```
+
+
 # 便利コマンド
 
 ### searchsploit -m で、
