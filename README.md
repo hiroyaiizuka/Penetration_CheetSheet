@@ -26,7 +26,8 @@ Hack the Box の攻略や、OSCP 取得を目指すためのチートシート�
     - [Handlers](#Handlers)
 - [特権エスカレーション](#特権エスカレーション)
   - [metasploit local_exploit_suggester](#metasploit(local_exploit_suggester))
-
+- [セキュリティ診断ツール](#セキュリティ診断ツール)
+  - [Burp](#burp)
 - [便利コマンド](#便利コマンド)
     
   
@@ -272,6 +273,14 @@ migrate 1836
 meterpreterプロンプト下でmigrateコマンドを使うことで、バックドアを既存のプロセスに統合させることが出来る
 ```
 
+# セキュリティ診断ツール
+
+### Burp
+[リンク](https://persol-tech-s.co.jp/corporate/security/article.html?id=10)
+ブラウザとサーバ間のHTTP通信をキャプチャし、通信内容を閲覧および改竄できるツール
+BurpのProxy機能とはWebアプリケーションの通信でサーバにリクエストを送信する際に、BurpがHTTP通信をキャプチャして、通信内容の閲覧や通信内容の書き換えができる機能。
+
+
 # 便利コマンド
 
 ### searchsploit -m で、
@@ -331,13 +340,7 @@ search -f user.txt
 [リンク](https://windows.command-ref.com/cmd-dir.html)
 
 
-
-### PsExec
-コマンドラインを、リモートで実行できる。
-[リンク](https://medium.com/@jjlovesstudying/windows-version-of-ssh-using-psexec-bff7942db91b)
-
-
-## root 権限か確かめる
+### root 権限か確かめる
 
 ```
 
@@ -371,3 +374,6 @@ pip install .
 ```
 
 
+### PsExec
+コマンドラインを、リモートで実行できる。
+[リンク](https://medium.com/@jjlovesstudying/windows-version-of-ssh-using-psexec-bff7942db91b)
