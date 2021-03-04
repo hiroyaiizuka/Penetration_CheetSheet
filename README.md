@@ -69,21 +69,23 @@ nmap -sV -O -F --version-light 10.10.10.3
 --version-light: Limit to most likely probes (intensity 2)
 
 
-集中して大量にみたいときは、
+・集中して大量にみたいときは、
 nmap -A -v 10.10.10.3
 
 -v  冗長性をあげる
 
-早く結果を見たい
+・早く結果を見たい
 nmap -Pn -T4 -A -v 10.10.10.3
 
--T 2
+-T2:
 polite
 スキャン速度を落とす
--T 3
+
+-T3:
 normal
 デフォルト
--T 4
+
+-T4:
 aggressive
 スキャン速度を上げる
 
