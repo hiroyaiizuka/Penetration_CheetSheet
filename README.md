@@ -38,6 +38,8 @@ Hack the Box の攻略や、OSCP 取得を目指すためのチートシート�
 
 ### Nmap
 
+オプションは、[こちら](https://www.checksite.jp/nmap-command-option/) がわかりやすい
+
 基本コマンド
 
 ```
