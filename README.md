@@ -74,6 +74,19 @@ nmap -A -v 10.10.10.3
 
 -v  冗長性をあげる
 
+早く結果を見たい
+nmap -Pn -T4 -A -v 10.10.10.3
+
+-T 2
+polite
+スキャン速度を落とす
+-T 3
+normal
+デフォルト
+-T 4
+aggressive
+スキャン速度を上げる
+
 ```
 
 全 port scan
