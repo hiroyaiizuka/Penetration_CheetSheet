@@ -383,6 +383,7 @@ crunch 1 3 0123456789
 
 /home/kali に作成
 crunch 3 3 12345 >> /home/kali/pass.txt
+crunch 3 3 12345 -o pass.txt (これでもおk、pwd が /home/kali の場合)
 
 /usr/share/wordlists に作成 (巨大なファイルになるため、実行要注意)
 crunch 3 5 0123456789abcdefghijklmnopqrstuvwxyz >> /usr/share/wordlists/rockyou.txt
