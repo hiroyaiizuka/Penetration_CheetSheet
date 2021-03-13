@@ -227,7 +227,7 @@ wpscan -url <target url> -e u -t -vp --log <output filename>
 
 ### msfvenom_reverse_shell
 
-[CheetSheet](https://redteamtutorials.com/2018/10/24/msfvenom-cheatsheet/)
+[CheetSheet](https://github.com/frizb/MSF-Venom-Cheatsheet)
 
 #### Windows(meterpreter)
 ```
