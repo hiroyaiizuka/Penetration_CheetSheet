@@ -29,7 +29,9 @@ Hack the Box の攻略や、OSCP 取得を目指すためのチートシート�
   - [metasploit local_exploit_suggester](#metasploit(local_exploit_suggester))
 - [セキュリティ診断ツール](#セキュリティ診断ツール)
   - [Burp](#burp)
-- [パスワードクラック](#Hydra)
+- [パスワードクラック](#パスワードクラック)
+  - hydra
+  - John the Ripper
 - [便利コマンド](#便利コマンド)
     
   
@@ -390,6 +392,10 @@ crunch 3 3 12345 -o pass.txt (これでもおk、pwd が /home/kali の場合)
 crunch 3 5 0123456789abcdefghijklmnopqrstuvwxyz >> /usr/share/wordlists/rockyou.txt
 ```
 
+
+### John the Ripper
+
+[リンク](https://nekotosec.com/try-using-john-the-ripper/)
 
 # 便利コマンド
 
