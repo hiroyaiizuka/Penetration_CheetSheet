@@ -19,6 +19,7 @@ Hack the Box の攻略や、OSCP 取得を目指すためのチートシート�
   - [WPScan](#WPScan)
 - [侵入](#侵入)
   - [reverse_shell](#reverse_shell)
+    - [PayloadAllTheThings](#payload_all_the_things)
     - [msfvenom_reverse_shell](#msfvenom_reverse_shell)
       - Windows(meterpreter)
       - Windows(netcatなど)
@@ -226,6 +227,13 @@ wpscan -url <target url> -e u -t -vp --log <output filename>
 # 侵入
 
 ## reverse_shell
+
+### PayloadAllTheThings
+
+[リンク](https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Methodology%20and%20Resources/Reverse%20Shell%20Cheatsheet.md)
+
+reverse_shell 全部乗ってて、大変便利
+
 
 ### msfvenom_reverse_shell
 
