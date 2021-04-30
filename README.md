@@ -33,6 +33,7 @@ Hack the Box の攻略や、OSCP 取得を目指すためのチートシート�
 - [パスワードクラック](#パスワードクラック)
   - hydra
   - John the Ripper
+- [SQL injection](#SQLインジェクション)
 - [便利コマンド](#便利コマンド)
     
   
@@ -404,6 +405,27 @@ crunch 3 5 0123456789abcdefghijklmnopqrstuvwxyz >> /usr/share/wordlists/rockyou.
 ### John the Ripper
 
 [リンク](https://nekotosec.com/try-using-john-the-ripper/)
+
+
+# SQLインジェクション
+
+[リンク](https://github.com/sqlmapproject/sqlmap/blob/master/doc/translations/README-ja-JP.md)
+
+```
+
+sqlmap -u 'http://localhost:5000/users?name=Alice' --dump
+
+u: target url 
+dump:  脆弱性があった時に、DB の内容をdumpする
+
+
+
+パラメータをテストするときは --data オプションを使う。
+
+sqlmap -u 'http://localhost:5000/users' --data 'name=Alice' --dump
+```
+
+[実例machine](https://medium.com/@zlkidda/hack-the-box-popcorn-11f5c7f77f5e)
 
 # 便利コマンド
 
