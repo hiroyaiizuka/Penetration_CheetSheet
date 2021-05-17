@@ -409,6 +409,8 @@ crunch 3 5 0123456789abcdefghijklmnopqrstuvwxyz >> /usr/share/wordlists/rockyou.
 
 ### hashcat
 
+[hash analyzer](https://www.tunnelsup.com/hash-analyzer/) でhash の type を調べる。
+
 [リンク1](https://www.iestudy.work/entry/2020/11/20/215526)
 
 [リンク2](https://hiziriai.hatenablog.com/entry/2018/09/03/103116)
