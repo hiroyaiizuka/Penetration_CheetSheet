@@ -33,6 +33,7 @@ Hack the Box の攻略や、OSCP 取得を目指すためのチートシート�
 - [パスワードクラック](#パスワードクラック)
   - hydra
   - John the Ripper
+  - hashcat
 - [SQL injection](#SQLインジェクション)
 - [便利コマンド](#便利コマンド)
     
@@ -406,6 +407,34 @@ crunch 3 5 0123456789abcdefghijklmnopqrstuvwxyz >> /usr/share/wordlists/rockyou.
 
 [リンク](https://nekotosec.com/try-using-john-the-ripper/)
 
+### hashcat
+
+[リンク1](https://www.iestudy.work/entry/2020/11/20/215526)
+
+[リンク2](https://hiziriai.hatenablog.com/entry/2018/09/03/103116)
+
+hashcatはパスワードクラックのツール。
+
+hashcatで行うパスワードクラックは稼働しているシステムに対してアカウントがロックされるまでログイン試行を行うようなものではなく、
+
+パスワードのハッシュ値から元のパスワードを割り出すもの。
+
+JohnTheRipperだとハッシュファイルを作成して形式を合わせる必要があってやや面倒。 
+
+hashcatだとハッシュ値を直接引数に渡せて便利。
+
+```
+基本的には-mオプションでハッシュ形式の指定、-aオプションで攻撃モードの指定、そしてハッシュ値を渡す。 
+
+結果の表示には--showオプションを使用する。
+
+hashcat -a 3 -m 0 5d41402abc4b2a76b9719d911017c592 --show
+
+# -m 0: md5
+# -a 3: ブルートフォース
+# hashcat --helpでハッシュの種類のIDが見れる
+
+```
 
 # SQLインジェクション
 
