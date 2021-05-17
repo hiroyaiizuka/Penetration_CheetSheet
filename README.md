@@ -411,6 +411,8 @@ crunch 3 5 0123456789abcdefghijklmnopqrstuvwxyz >> /usr/share/wordlists/rockyou.
 
 [hash analyzer](https://www.tunnelsup.com/hash-analyzer/) でhash の type を調べる。
 
+[free password hash cracker](https://crackstation.net/) で、crack できるかチェック、だめそうなら、以下の hashcat を考える。
+
 [リンク1](https://www.iestudy.work/entry/2020/11/20/215526)
 
 [リンク2](https://hiziriai.hatenablog.com/entry/2018/09/03/103116)
