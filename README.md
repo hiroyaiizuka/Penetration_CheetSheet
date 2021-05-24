@@ -348,6 +348,7 @@ curl http://127.0.0.1:1212/cgi-bin/user.sh
 
 # パスワードクラック
 
+
 ### Hydra
 
 [公式リンク](https://tools.kali.org/password-attacks/hydra)
@@ -441,6 +442,8 @@ hashcat -a 3 -m 0 5d41402abc4b2a76b9719d911017c592 --show
 ```
 
 # SQLインジェクション
+
+[CheetSheet](https://pentestlab.blog/2012/12/24/sql-injection-authentication-bypass-cheat-sheet/)
 
 [リンク](https://github.com/sqlmapproject/sqlmap/blob/master/doc/translations/README-ja-JP.md)
 
