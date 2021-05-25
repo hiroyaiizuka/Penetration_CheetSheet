@@ -355,7 +355,11 @@ curl http://127.0.0.1:1212/cgi-bin/user.sh
 SSHやFTPなどのサービスや、webアプリのログインフォーム(Basic認証)に対して攻撃が出来る。(ssh, ftp, http, imap, pop3)
 攻撃時は、あらかじめ攻撃する値を記載したファイルを利用することが出来る
 
-[参考記事](https://linuxconfig.org/ssh-password-testing-with-hydra-on-kali-linux)
+[参考記事1](https://linuxconfig.org/ssh-password-testing-with-hydra-on-kali-linux)
+
+
+[参考記事2](https://medium.com/swlh/hack-the-box-cronos-writeup-w-o-metasploit-7b9453e557d0)
+
 
 ```
 hydra -l <username or user.txt> -p <password or password.txt> 192.168.56.1 -t 4 ssh
