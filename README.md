@@ -28,6 +28,7 @@ Hack the Box の攻略や、OSCP 取得を目指すためのチートシート�
     - [Handlers](#Handlers)
 - [特権エスカレーション](#特権エスカレーション)
   - [metasploit local_exploit_suggester](#metasploit(local_exploit_suggester))
+  - [LinEnum](#LinEnum)
 - [セキュリティ診断ツール](#セキュリティ診断ツール)
   - [Burp](#burp)
 - [パスワードクラック](#パスワードクラック)
@@ -313,6 +314,19 @@ migrate 1836
 meterpreterプロンプト下でmigrateコマンドを使うことで、バックドアを既存のプロセスに統合させることが出来る
 ```
 
+## LinEnum
+
+権限昇格が行える箇所がないかチェックするシェルスクリプト
+
+[Linux 権限昇格ツール解説一覧](https://www.hackingarticles.in/linux-privilege-escalation-automated-script/)
+
+[Github](https://github.com/rebootuser/LinEnum/blob/master/LinEnum.sh)
+
+[リンク](https://www.shutingrz.com/post/ad_hack-linux_priv_escalation/)
+
+[machine](https://medium.com/swlh/hack-the-box-cronos-writeup-w-o-metasploit-7b9453e557d0)
+
+
 # セキュリティ診断ツール
 
 ### Burp
@@ -571,3 +585,12 @@ pip install .
 ### PsExec
 コマンドラインを、リモートで実行できる。
 [リンク](https://medium.com/@jjlovesstudying/windows-version-of-ssh-using-psexec-bff7942db91b)
+
+
+# その他
+
+github のremote のコードを、local に落としたい。
+
+→ 欲しいディレクトリにあるファイルに移動
+→ raw をクリック
+→ ex: wget https://raw.githubusercontent.com/rebootuser/LinEnum/master/LinEnum.sh
