@@ -330,6 +330,8 @@ meterpreterプロンプト下でmigrateコマンドを使うことで、バッ�
 # セキュリティ診断ツール
 
 ### Burp
+
+[設定方法](https://www.as-lab.net/howto-use-localproxy/)
 [リンク](https://persol-tech-s.co.jp/corporate/security/article.html?id=10)
 
 ブラウザとサーバ間のHTTP通信をキャプチャし、通信内容を閲覧および改竄できるツール
