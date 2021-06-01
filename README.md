@@ -524,6 +524,11 @@ searchsploit -x windows/remote/41738.py
 
 ### シェル整形
 
+[コマンド 一覧](https://netsec.ws/?p=337)
+
+
+
+
 ```
 python -c 'import pty; pty.spawn("/bin/bash")'
 ```
