@@ -327,6 +327,22 @@ meterpreterプロンプト下でmigrateコマンドを使うことで、バッ�
 [machine](https://medium.com/swlh/hack-the-box-cronos-writeup-w-o-metasploit-7b9453e557d0)
 
 
+## コマンド
+
+```
+uname -a
+
+cat /etc/*release
+
+```
+
+<img width="384" alt="スクリーンショット 2021-01-28 17 39 05" src="https://user-images.githubusercontent.com/39001773/120716155-970fd080-c500-11eb-8d10-b4e7ed95910b.png">
+
+
+で情報を掴み、exproit db で、local priviledge escalation などを探す。
+
+
+
 # セキュリティ診断ツール
 
 ### Burp
