@@ -286,6 +286,10 @@ run
 
 # 特権エスカレーション
 
+とっかかりは、ps aux で良さそう。
+ps -auxww | grep vnc　とかで、細かく情報見る。
+
+
 ## metasploit(local_exploit_suggester)
 
 [https://github.com/rapid7/metasploit-framework/blob/master/documentation/modules/post/multi/recon/local_exploit_suggester.md](https://github.com/rapid7/metasploit-framework/blob/master/documentation/modules/post/multi/recon/local_exploit_suggester.md)
