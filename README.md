@@ -138,6 +138,8 @@ AutoReconは、まずTCPのデフォルト1000ポートスキャンのNmapScan�
 # Web_scan
 
 ### gobuster
+
+[リンク](https://tools.kali.org/web-applications/gobuster)
 ディレクトリスキャナー。  
 隠されたディレクトリや公開範囲が間違えて設定されているものはないかを調べるために使用。
 
