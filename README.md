@@ -291,6 +291,13 @@ run
 とっかかりは、ps aux で良さそう。
 ps -auxww | grep vnc　とかで、細かく情報見る。
 
+LIPEAS で、SUID ファイルがついたファイルを見たり
+
+```
+find / -perm -u=s -type f 2>/dev/null
+```
+もあり。
+
 
 ## metasploit(local_exploit_suggester)
 
