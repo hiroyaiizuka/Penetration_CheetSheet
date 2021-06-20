@@ -639,6 +639,13 @@ ctrl + z
 stty raw -echo; fg
 enter
 
+
+・TERM variable not set と言われたら・・・
+kali terminal で、
+
+echo $TERM  (example response: xterm-256color)
+侵入先のshellで、  export TERM=xterm-256color
+
 ```
 
 
