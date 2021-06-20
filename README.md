@@ -629,7 +629,17 @@ pty: pty モジュールは擬似端末(他のプロセスを実行してその�
 pty.spawn: プロセスを生成して制御端末を現在のプロセスの標準入出力に接続する。
             これは制御端末を読もうとするプログラムをごまかすために利用される。
             
-            
+
+```
+
+python -c 'import pty; pty.spawn("/bin/bash")'
+
+ctrl + z
+
+stty raw -echo; fg
+enter
+
+```
 
 
 ### ファイル探索
