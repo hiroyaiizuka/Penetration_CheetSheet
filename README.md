@@ -491,6 +491,34 @@ hashcat -a 3 -m 0 5d41402abc4b2a76b9719d911017c592 --show
 
 ```
 
+### FcrackZip
+
+[リンク](https://www.geeksforgeeks.org/fcrackzip-tool-crack-a-zip-file-password-in-kali-linux/)
+
+zipファイルへのパスワードに対し、総当り攻撃してくれるアプリ
+
+
+```
+
+fcrackzip -u -l 1-5 hoge.txt
+
+u: unzip
+l: 文字数
+
+```
+
+事例machine: [node](https://ranakhalil101.medium.com/hack-the-box-node-writeup-w-o-metasploit-3dfb48ee4a9)
+
+```
+
+fcrackzip -u -D -p /usr/share/wordlists/rockyou.txt myplace-decoded.backup
+
+-D: select dictionary mode
+-p: password file
+
+```
+
+
 # SQLインジェクション
 
 [CheetSheet](https://pentestlab.blog/2012/12/24/sql-injection-authentication-bypass-cheat-sheet/)
