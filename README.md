@@ -291,6 +291,21 @@ run
 とっかかりは、ps aux で良さそう。
 ps -auxww | grep vnc　とかで、細かく情報見る。
 
+
+ef オプションもありか。
+
+```
+ps -ef | grep ...
+
+e: 全てのユーザのプロセスの情報を表示。-eオプションを付けない場合、自ユーザで起動したプロセスの情報しか表示されない。
+
+f: 情報を省略せず、完全なフォーマットで出力する。
+　　　　　　UID(プロセスの実行ユーザ)、PPID(プロセスを実行した親プロセス)、C(プロセスのCPU使用率)、STIME(プロセスの開始時刻)、実行コマンドの引数
+```
+
+[記事](https://lanchesters.site/linux-ps-ef/)
+
+
 LinPEAS で、SUID ファイルがついた[ファイルを探し](https://jpn.nec.com/cybersecurity/blog/200619/index.html)ても良い。
 
 ```
