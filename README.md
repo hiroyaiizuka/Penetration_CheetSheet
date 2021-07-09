@@ -314,6 +314,10 @@ find / -perm -u=s -type f 2>/dev/null
 もあり。
 
 
+・var/log/syslog 見て、ある特定のファイルが定期実行されているなどの手がかりを見にいく。
+
+
+
 ## metasploit(local_exploit_suggester)
 
 [https://github.com/rapid7/metasploit-framework/blob/master/documentation/modules/post/multi/recon/local_exploit_suggester.md](https://github.com/rapid7/metasploit-framework/blob/master/documentation/modules/post/multi/recon/local_exploit_suggester.md)
