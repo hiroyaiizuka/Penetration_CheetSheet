@@ -398,6 +398,7 @@ cat /etc/*release
 
 linpeas.shなどでps auxだけでは確認できないものも確認できる
 
+[使い方](https://vk9-sec.com/how-to-enumerate-services-in-use-with-pspy/)
 
 
 
