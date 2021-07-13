@@ -28,7 +28,9 @@ Hack the Box の攻略や、OSCP 取得を目指すためのチートシート�
     - [Handlers](#Handlers)
 - [特権エスカレーション](#特権エスカレーション)
   - [metasploit local_exploit_suggester](#metasploit(local_exploit_suggester))
+  - [Linpeas.sh](#Linpeas.sh)
   - [LinEnum](#LinEnum)
+  - [PSPY](#PSPY)
 - [セキュリティ診断ツール](#セキュリティ診断ツール)
   - [Burp](#burp)
 - [パスワードクラック](#パスワードクラック)
@@ -347,6 +349,18 @@ migrate 1836
 meterpreterプロンプト下でmigrateコマンドを使うことで、バックドアを既存のプロセスに統合させることが出来る
 ```
 
+
+## Linpeas.sh
+
+[リンク](https://github.com/carlospolop/privilege-escalation-awesome-scripts-suite)
+
+・[LinPEAS](https://github.com/carlospolop/privilege-escalation-awesome-scripts-suite/tree/master/linPEAS) - Linux local Privilege Escalation Awesome Script (.sh)
+
+LinPEAS で不十分な時は、[linux-smart-enumeration(lse.sh)](https://github.com/diego-treitos/linux-smart-enumeration) 検討する。
+
+・[WinPEAS](https://github.com/carlospolop/privilege-escalation-awesome-scripts-suite/tree/master/winPEAS) - Windows local Privilege Escalation Awesome Script (C#.exe and .bat)
+
+
 ## LinEnum
 
 権限昇格が行える箇所がないかチェックするシェルスクリプト
@@ -373,6 +387,17 @@ cat /etc/*release
 
 
 で情報を掴み、exproit db で、local priviledge escalation などを探す。
+
+
+
+## PSPY
+
+[リンク](https://github.com/DominicBreuker/pspy)
+
+実行しているプロセスをダンプしてくれる。
+
+linpeas.shなどでps auxだけでは確認できないものも確認できる
+
 
 
 
