@@ -784,7 +784,13 @@ pip install .
 
 # その他
 
-github のremote のコードを、local に落としたい。
+- Windows で user.txt を探したい
+
+```
+where /r . user.txt
+```
+
+- github のremote のコードを、local に落としたい。
 
 → 欲しいディレクトリにあるファイルに移動
 → raw をクリック
