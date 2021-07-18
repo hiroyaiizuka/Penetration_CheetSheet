@@ -367,7 +367,7 @@ HotFix:                 N/A
 systeminfo の内容をコピーし、systeminfo.txt をつくる
 その後、以下のようなコマンドをうつ
 
-./windows-exploit-suggester.py --database 2019-10-12-mssb.xls --systeminfo /root/Desktop/htb/arctic/systeminfo.txt
+./windows-exploit-suggester.py --database 2021-07-18-mssb.xls --systeminfo ~/hackTheBox/bastard/sysinfo.txt
 
 ```
 
