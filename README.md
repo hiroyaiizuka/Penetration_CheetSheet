@@ -371,6 +371,13 @@ systeminfo の内容をコピーし、systeminfo.txt をつくる
 
 ```
 
+hit したものを、github で検索たり、
+[チートシート](https://kakyouim.hatenablog.com/entry/2020/05/27/010807)　で検索。
+
+
+[windows-kernel-exploits](https://github.com/SecWiki/windows-kernel-exploits)
+
+
 
 ## metasploit(local_exploit_suggester)
 
