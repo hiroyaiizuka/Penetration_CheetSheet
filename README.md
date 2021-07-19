@@ -377,6 +377,7 @@ hit したものを、github で検索たり、
 
 [windows-kernel-exploits](https://github.com/SecWiki/windows-kernel-exploits)
 
+ex: [MS-059](https://medium.com/@pkhadka56/hackthebox-devel-windows-46763fdd5720)
 
 
 ## metasploit(local_exploit_suggester)
