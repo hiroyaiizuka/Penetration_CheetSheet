@@ -46,6 +46,24 @@ Hack the Box の攻略や、OSCP 取得を目指すためのチートシート�
 
 # Network_scan
 
+### TLDL;
+
+1. nmapAutomator
+
+```
+nmapAutomator.sh 10.10.10.9 All
+
+```
+
+2. AutoRecon
+
+```
+
+./Autorecon.sh 10.10.10.9
+
+```
+
+
 ### Nmap
 
 オプションは、[こちら](https://www.checksite.jp/nmap-command-option/) がわかりやすい
