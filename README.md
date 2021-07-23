@@ -253,9 +253,15 @@ wpscan -url <target url> -e u -t -vp --log <output filename>
 
 API-token を設定することで、WordPress脆弱性データをリアルタイムで取得して検出できる。
 
+token取得は、[こちら](https://wpscan.com/profile)から
+
 ```
 
 wpscan --url http://XXXXXX/WordPress/ -e vp --api-token xxxxxxxxxxxxxxxxxxxxxxxx
+
+
+ex:
+wpscan --url 10.10.10.17 -e u,vp --api-token KDuAhQpTshtAEPxDLNZLiWrkszFxb8kf8t6a3IR6RKw
 
 
 ```
