@@ -251,6 +251,18 @@ wpscan -url <target url> -e u -t -vp --log <output filename>
  wpscan --url 10.10.10.37 -e u
 ```
 
+API-token を設定することで、WordPress脆弱性データをリアルタイムで取得して検出できる。
+
+```
+
+wpscan --url http://XXXXXX/WordPress/ -e vp --api-token xxxxxxxxxxxxxxxxxxxxxxxx
+
+
+```
+
+[参考記事](https://qiita.com/koujimatsuda11/items/d49e8642dea1a1b0d067)
+[実例machine](https://ranakhalil101.medium.com/hack-the-box-brainfuck-writeup-w-o-metasploit-5075c0c55e93)
+
 # 侵入
 
 ## reverse_shell
