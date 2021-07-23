@@ -39,6 +39,7 @@ Hack the Box の攻略や、OSCP 取得を目指すためのチートシート�
   - hashcat
 - [SQL injection](#SQLインジェクション)
 - [LFI](#LFI)
+- [リバースエンジニアリング](#リバースエンジニアリング)
 - [便利コマンド](#便利コマンド)
     
   
@@ -732,6 +733,37 @@ Windows
 /autoexec.bat
 /windows/system32/drivers/etc/hosts
 /windows/repair/S
+```
+
+## リバースエンジニアリング
+
+### radare2
+
+[公式](https://github.com/radareorg/radare2)
+
+[解説記事1(基礎)](https://www.bioerrorlog.work/entry/reverse-engineering-ep5-radare2)
+
+[解説記事2(応用)](https://takuzoo3868.hatenablog.com/entry/radare2_love)
+
+
+```
+
+$ radare2 rev100
+
+- 表層解析
+[0x080483a0]> iI   # i: informationコマンド、import,export,string情報をえる
+[0x080483a0]> ii  
+[0x080483a0]> iE   
+[0x080483a0]> iz   
+
+- 静的解析
+[0x080483a0]> aaa # autoname function"をすべて解析するコマンド
+[0x080483a0]> afl # main関数が見つかる
+[0x080483a0]> s main  # s(seek)コマンドでmain関数に移動
+[0x0804849d]> pdc # 逆アセンブル(C言語like  pdf でアセンブリ言語にできる)
+
+[CTF 問題](https://www.serotoninpower.club/archives/894/#q21-reversing-reversing-easy)
+
 ```
 
 # 便利コマンド
