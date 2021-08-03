@@ -377,6 +377,9 @@ find / -perm -u=s -type f 2>/dev/null
 
 ・var/log/syslog 見て、ある特定のファイルが定期実行されているなどの手がかりを見にいく。
 
+・道中、何らかのpassword が得られたら、`sudo -l` で昇格できるか検証する。
+
+
 # 特権エスカレーション基本戦略 (Windows)
 
 https://github.com/AonCyberLabs/Windows-Exploit-Suggester
