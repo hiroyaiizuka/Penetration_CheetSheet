@@ -951,3 +951,11 @@ where /r . user.txt
 → 欲しいディレクトリにあるファイルに移動
 → raw をクリック
 → ex: wget https://raw.githubusercontent.com/rebootuser/LinEnum/master/LinEnum.sh
+
+
+-　改行などがうまく表示できていない時
+
+/bin/sh^M : bad interpreter: No such file or directory 
+
+`dos2unix ファイル名`
+
