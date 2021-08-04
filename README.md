@@ -980,6 +980,7 @@ python sshng2john.py ~/Desktop/htb/brainfuck/id_rsa > ~/Desktop/htb/brainfuck/ss
 
 ```
 where /r . user.txt
+
 ```
 
 - github のremote のコードを、local に落としたい。
@@ -989,7 +990,8 @@ where /r . user.txt
 → ex: wget https://raw.githubusercontent.com/rebootuser/LinEnum/master/LinEnum.sh
 
 
--　改行などがうまく表示できていない時
+
+- 改行などがうまく表示できていない時
 
 /bin/sh^M : bad interpreter: No such file or directory 
 
