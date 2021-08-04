@@ -351,6 +351,8 @@ run
 
 [毎回必ず見る資料](https://xorond.com/posts/2020/08/linux-privilege-escalation-basics/)
 
+[上記、簡易日本語版](https://syachineko.hatenablog.com/entry/2020/09/07/213646)
+
 とっかかりは、ps aux で良さそう。
 ps -auxww | grep vnc　とかで、細かく情報見る。
 
