@@ -31,6 +31,7 @@ Hack the Box の攻略や、OSCP 取得を目指すためのチートシート�
   - [Linpeas.sh](#Linpeas.sh)
   - [LinEnum](#LinEnum)
   - [PSPY](#PSPY)
+  - [GTFOBins](#GTFOBins)
 - [セキュリティ診断ツール](#セキュリティ診断ツール)
   - [Burp](#burp)
 - [パスワードクラック](#パスワードクラック)
@@ -531,6 +532,16 @@ cat /etc/*release
 linpeas.shなどでps auxだけでは確認できないものも確認できる
 
 [使い方](https://vk9-sec.com/how-to-enumerate-services-in-use-with-pspy/)
+
+
+## GTFOBins
+
+[リンク](https://gtfobins.github.io/)
+
+ローカルのセキュリティ制限を回避する、バイナリ集
+
+見慣れないコマンドがあったら、こちらから探す。 
+(machine では、ここから、jounralctl, python　検索して root 奪取した)
 
 
 
