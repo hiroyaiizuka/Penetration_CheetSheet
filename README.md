@@ -370,7 +370,7 @@ f: 情報を省略せず、完全なフォーマットで出力する。
 
 [記事](https://lanchesters.site/linux-ps-ef/)
 
-### SUID binaries and capabilities
+### search SUID binaries and capabilities
 
 LinPEAS で、SUID ファイルがついた[ファイルを探し](https://jpn.nec.com/cybersecurity/blog/200619/index.html)ても良い。
 
@@ -394,6 +394,8 @@ getcap -r / 2>/dev/null
 python -c 'import os; os.setuid(0); os.system("/bin/bash")'
 
 ``
+
+上記でpython 以外が出てきたら、[gtfobins](https://gtfobins.github.io/) から、該当のコマンドを探す。
 
 
 ・var/log/syslog 見て、ある特定のファイルが定期実行されているなどの手がかりを見にいく。
