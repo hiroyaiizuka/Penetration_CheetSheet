@@ -41,6 +41,7 @@ Hack the Box の攻略や、OSCP 取得を目指すためのチートシート�
 - [SQL injection](#SQLインジェクション)
 - [LFI](#LFI)
 - [リバースエンジニアリング](#リバースエンジニアリング)
+- [DNS](#DNS)
 - [便利コマンド](#便利コマンド)
     
   
@@ -821,6 +822,64 @@ $ radare2 rev100
 
 [CTF 問題](https://www.serotoninpower.club/archives/894/#q21-reversing-reversing-easy)
 
+```
+
+# DNS
+
+### ドメイン名の特定
+DNSサーバー = 10.10.10.13  
+ドメイン名を調べたいIPアドレス = 10.10.10.13  
+10.10.10.13 = ns1.cronos.htb
+```
+┌──(kali㉿kali)-[~]
+└─$ nslookup
+> server 10.10.10.13　# DNSサーバーの指定
+Default server: 10.10.10.13
+Address: 10.10.10.13#53
+> 10.10.10.13　# ドメイン名を知りたいIPアドレスの指定
+13.10.10.10.in-addr.arpa        name = ns1.cronos.htb.
+```
+
+### サブドメインの列挙
+#### DNSゾーン転送
+権威DNSサーバの設定不備によってゾーン情報を取得できることがある。  
+これによりサーバーの名前、アドレス、機能などを調べることができる。
+```
+dig axfr cronos.htb @10.10.10.13
+```
+```
+host -l <domain name> <dns server address>
+```
+
+#### DNSRecon
+DNS列挙スクリプト。  
+サブドメインの列挙。(ゾーン転送とブルートフォース)
+```
+1.kali@kali:~$ dnsrecon -d megacorpone.com -t axfr
+2.kali@kali:~$ dnsrecon -d megacorpone.com -D ~/list.txt -t brt
+```
+- -d...ドメイン名の指定
+- -t...実行する列挙の種類(1つ目はゾーン転送)
+- -t...実行する列挙の種類(2つ目はブルートフォース)
+- -D...サブドメイン文字列を含むワードリストファイルの指定
+
+#### DNSmap
+サブドメインの列挙。(ブルートフォース)
+```
+┌──(root💀kali)-[/home/kali/htb/boxes/Cronos]
+└─# dnsmap cronos.htb -w /usr/share/seclists/Discovery/DNS/shubs-subdomains.txt                                                                127 ⨯
+dnsmap 0.35 - DNS Network Mapper
+
+[+] searching (sub)domains for cronos.htb using /usr/share/seclists/Discovery/DNS/shubs-subdomains.txt
+[+] using maximum random delay of 10 millisecond(s) between requests
+
+www.cronos.htb
+IP address #1: 10.10.10.13
+[+] warning: internal IP address disclosed
+
+admin.cronos.htb
+IP address #1: 10.10.10.13
+[+] warning: internal IP address disclosed
 ```
 
 # 便利コマンド
