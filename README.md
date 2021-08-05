@@ -151,7 +151,7 @@ AutoReconは、まずTCPのデフォルト1000ポートスキャンのNmapScan�
 同時並行でTCP fullNmapScanも実行し、そこで新たに見つかったサービスに対してもさらにNmapなどを実行してくれる。
 
 
-# SSH(22)
+# SSH (22)
 
 
 ### SCP
@@ -191,7 +191,7 @@ chmod 600 id_rsa
 - -f...ファイル名(id_????の?部分)
 
 
-# SMB(139,445) 
+# SMB (139,445) 
 
 ### minimum Todo
 
@@ -222,7 +222,7 @@ enum4linux -P <target ip>
 
 
 
-# DNS(53)
+# DNS (53)
 
 ### ドメイン名の特定
 DNSサーバー = 10.10.10.13  
