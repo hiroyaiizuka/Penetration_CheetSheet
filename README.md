@@ -13,7 +13,7 @@ Hack the Box の攻略や、OSCP 取得を目指すためのチートシート�
   - [AutoRecon](#autorecon)
 - [SSH(22)](#ssh)
 - [SMB(139,445)](#smb)
-- [DNS](#dns)
+
 - [Web Scan](#Web_scan)
   - [ffuf](#ffuf)
   - [gobuster](#gobuster)
@@ -46,6 +46,7 @@ Hack the Box の攻略や、OSCP 取得を目指すためのチートシート�
 - [LFI](#LFI)
 - [リバースエンジニアリング](#リバースエンジニアリング)
 - [便利コマンド](#便利コマンド)
+- [DNS(53)](#dns)
     
   
 
