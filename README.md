@@ -15,6 +15,7 @@ Hack the Box の攻略や、OSCP 取得を目指すためのチートシート�
 - [SMB(139,445)](#SMB(139,445))
 - [DNS](#DNS(53))
 - [Web Scan](#Web_scan)
+  - [ffuf](#ffuf)
   - [gobuster](#gobuster)
   - [dirb](#dirb)
   - [Nikto](#Nikto)
