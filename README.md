@@ -355,7 +355,8 @@ IP address #1: 10.10.10.13
 
 ```
 
-ffuf -c -w /usr/share/wordlists/SecLists/Discovery/Web-Content/directory-list-2.3-medium.txt -u 
+ffuf -w /usr/share/wordlists/SecLists/Discovery/Web-Content/directory-list-2.3-medium.txt -u http://10.10.10.247/FUZZ
+
 
 ```
 
