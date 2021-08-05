@@ -522,19 +522,33 @@ run
 
 ### minimum todo
 
+- SUID binaries と capabilitiesを探す
+
 ```
-// SUID binaries と capabilitiesを探す
 find / -perm -u=s -type f 2>/dev/null
 getcap -r / 2>/dev/null 
+```
 
+- ある特定のファイルが定期実行されているか
+
+```
+cat /etc/crontab 
+cat /var/log/syslog
+
+```
+
+- あやしいプロセスはないか？
+
+```
 ps aux | grep root 
 ps aux | grep <user_name> 
 ps -ef | grep <process_name> 
+```
 
-cat /etc/crontab 
-// ある特定のファイルが定期実行されているか
-cat /var/log/syslog
 
+- その他
+
+```
 ls /dev 2>/dev/null | grep -i "sd" 
 
 cat /etc/fstab 2>/dev/null | grep -v "^#" | grep -Pv "\W*\#" 2>/dev/null 
