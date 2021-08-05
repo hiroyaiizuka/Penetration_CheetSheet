@@ -11,6 +11,7 @@ Hack the Box の攻略や、OSCP 取得を目指すためのチートシート�
 - [Network Scan](#Network_scan)
   - [Nmap](#nmap)
   - [AutoRecon](#autorecon)
+- [HTTP](#http)
 - [SSH](#ssh)
 - [SMB](#smb)
 - [DNS](#dns)
@@ -220,6 +221,29 @@ enum4linux -P <target ip>
 
 ```
 
+
+# HTTP
+
+### minimum todo
+
+```
+
+- robots.txt，sitemap.xmlの確認
+- サブドメインの列挙
+- ディレクトリスキャナーの使用(ffuf, gobuster, dirb, nikto はmust)
+- CMSの特定
+- ログインの試行
+  - デフォルトパスワードの入力
+  - パスワード推測
+  - SQLインジェクションの試行
+  - Webサイト上にある情報からユーザー/パスワードリストの作成
+  - ブルートフォース
+- BurpSuiteを用いてWebの挙動の確認
+- URLを見て、LFIの脆弱性が無いか確認
+- upload機構がある場合、バイパス方法の模索
+- 掲載されている画像にヒントが無いか確認
+
+```
 
 
 # DNS
@@ -495,30 +519,37 @@ run
 
 [その他資料: HackTricks](https://book.hacktricks.xyz/linux-unix/linux-privilege-escalation-checklist)
 
-とっかかりは、ps aux で良さそう。
-ps -auxww | grep vnc　とかで、細かく情報見る。
 
-
-ef オプションもありか。
+### minimum todo
 
 ```
-ps -ef | grep ...
+// SUID binaries と capabilitiesを探す
+find / -perm -u=s -type f 2>/dev/null
+getcap -r / 2>/dev/null 
 
-e: 全てのユーザのプロセスの情報を表示。-eオプションを付けない場合、自ユーザで起動したプロセスの情報しか表示されない。
+ps aux | grep root 
+ps aux | grep <user_name> 
+ps -ef | grep <process_name> 
 
-f: 情報を省略せず、完全なフォーマットで出力する。
-　　　　　　UID(プロセスの実行ユーザ)、PPID(プロセスを実行した親プロセス)、C(プロセスのCPU使用率)、STIME(プロセスの開始時刻)、実行コマンドの引数
+cat /etc/crontab 
+// ある特定のファイルが定期実行されているか
+cat /var/log/syslog
+
+ls /dev 2>/dev/null | grep -i "sd" 
+
+cat /etc/fstab 2>/dev/null | grep -v "^#" | grep -Pv "\W*\#" 2>/dev/null 
+
+grep -E "(user|username|login|pass|password|pw|credentials)[=:]" /etc/fstab /etc/mtab 2>/dev/null 
+
+which nmap aws nc ncat netcat nc.traditional wget curl ping gcc g++ make gdb base64 socat python python2 python3 python2.7 python2.6 python3.6 python3.7 perl php ruby xterm doas sudo fetch docker lxc ctr runc rkt kubectl 2>/dev/null 
+
+dpkg --list 2>/dev/null | grep "compiler" | grep -v "decompiler\|lib" 2>/dev/null || yum list installed 'gcc*' 2>/dev/null | grep gcc 2>/dev/null; which gcc g++ 2>/dev/null || locate -r "/gcc[0-9\.-]\+$" 2>/dev/null | grep -v "/doc/" 
+
 ```
 
-[記事](https://lanchesters.site/linux-ps-ef/)
 
 ### search SUID binaries and capabilities
 
-LinPEAS で、SUID ファイルがついた[ファイルを探し](https://jpn.nec.com/cybersecurity/blog/200619/index.html)ても良い。
-
-```
-find / -perm -u=s -type f 2>/dev/null
-```
 
 ・　capability
 
