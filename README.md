@@ -11,6 +11,7 @@ Hack the Box の攻略や、OSCP 取得を目指すためのチートシート�
 - [Network Scan](#Network_scan)
   - [Nmap](#nmap)
   - [AutoRecon](#autorecon)
+  - [RustScan](#rustscan)
 - [偵察](#偵察)
   - [HTTP](#http)
   - [SSH](#ssh)
@@ -152,6 +153,17 @@ nmap -Pn -p 445 --script vuln 10.10.10.4
 AutoReconは、まずTCPのデフォルト1000ポートスキャンのNmapScanを実行し、そこで見つかったサービスに対して、個別にNmapのVulnスクリプトやNikto、enum4linuxなどを実行する。
 同時並行でTCP fullNmapScanも実行し、そこで新たに見つかったサービスに対してもさらにNmapなどを実行してくれる。
 
+
+### RustScan
+
+Nmapのスキャンを高速化したRust製ポートスキャナ
+
+Nmapで17分かかる処理を1分以内に抑える高速化を実現している
+
+```
+ rustscan -b 1000 10.10.10.197
+
+```
 
 # 偵察 
 
