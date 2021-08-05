@@ -12,8 +12,8 @@ Hack the Box の攻略や、OSCP 取得を目指すためのチートシート�
   - [Nmap](#nmap)
   - [AutoRecon](#autorecon)
 - [SSH(22)](#SSH(22))
-- [SMB(139,445)](#SMB(139,445))
-- [DNS](#DNS(53))
+- [SMB(139,445)](#smb_(139,445))
+- [DNS](#dns_(53))
 - [Web Scan](#Web_scan)
   - [ffuf](#ffuf)
   - [gobuster](#gobuster)
@@ -190,7 +190,7 @@ chmod 600 id_rsa
 - -f...ファイル名(id_????の?部分)
 
 
-# SMB(139,445)
+# SMB(139,445) 
 
 ### minimum Todo
 
