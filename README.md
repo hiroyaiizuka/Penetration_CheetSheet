@@ -151,7 +151,7 @@ nmap -Pn -p 445 --script vuln 10.10.10.4
 AutoReconは、まずTCPのデフォルト1000ポートスキャンのNmapScanを実行し、そこで見つかったサービスに対して、個別にNmapのVulnスクリプトやNikto、enum4linuxなどを実行する。
 同時並行でTCP fullNmapScanも実行し、そこで新たに見つかったサービスに対してもさらにNmapなどを実行してくれる。
 
-# SSH(22)
+# SSH
 
 
 # SSH (22)
