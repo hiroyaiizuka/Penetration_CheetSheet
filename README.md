@@ -12,9 +12,8 @@ Hack the Box の攻略や、OSCP 取得を目指すためのチートシート�
   - [Nmap](#nmap)
   - [AutoRecon](#autorecon)
 - [SSH](#ssh)
-- [SSH (22)](#ssh_(22))
-- [SMB (139,445)](#smb_(139,445))
-- [DNS (53)](#dns_(53))
+- [SMB](#smb)
+- [DNS](#dns)
 - [Web Scan](#Web_scan)
   - [ffuf](#ffuf)
   - [gobuster](#gobuster)
@@ -153,10 +152,6 @@ AutoReconは、まずTCPのデフォルト1000ポートスキャンのNmapScan�
 
 # SSH
 
-
-# SSH (22)
-
-
 ### SCP
 カレントディレクトリにsecret.zipをダウンロード
 
@@ -194,7 +189,9 @@ chmod 600 id_rsa
 - -f...ファイル名(id_????の?部分)
 
 
-# SMB (139,445) 
+# SMB
+
+Port: 139, 445
 
 ### minimum Todo
 
@@ -225,7 +222,9 @@ enum4linux -P <target ip>
 
 
 
-# DNS (53)
+# DNS
+
+Port: 53
 
 ### ドメイン名の特定
 DNSサーバー = 10.10.10.13  
