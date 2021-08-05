@@ -11,7 +11,7 @@ Hack the Box の攻略や、OSCP 取得を目指すためのチートシート�
 - [Network Scan](#Network_scan)
   - [Nmap](#nmap)
   - [AutoRecon](#autorecon)
-- [偵察 基本戦略](#偵察 基本戦略)
+- [偵察 基本戦略](#偵察_基本戦略)
 - [HTTP](#http)
 - [SSH](#ssh)
 - [SMB](#smb)
