@@ -46,6 +46,7 @@ Hack the Box の攻略や、OSCP 取得を目指すためのチートシート�
   - John the Ripper
   - hashcat
 - [SQL injection](#SQLインジェクション)
+- [XML injection](#XMLインジェクション)
 - [LFI](#LFI)
 - [リバースエンジニアリング](#リバースエンジニアリング)
 - [便利コマンド](#便利コマンド)
@@ -206,6 +207,7 @@ Nmapで17分かかる処理を1分以内に抑える高速化を実現してい�
   - ブルートフォース
 - BurpSuiteを用いてWebの挙動の確認
 - URLを見て、LFIの脆弱性が無いか確認
+- XML injection できる場所はないか確認
 - upload機構がある場合、バイパス方法の模索
 - 掲載されている画像にヒントが無いか確認
 
@@ -998,6 +1000,10 @@ sqlmap -u 'http://localhost:5000/users' --data 'name=Alice' --dump
  ```
 
 している
+
+## XML injection
+
+[PaylaodAllTheThigs リンク](https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/XXE%20Injection)
 
 ## LFI
 
