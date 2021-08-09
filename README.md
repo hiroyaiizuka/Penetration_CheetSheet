@@ -213,6 +213,14 @@ Nmapで17分かかる処理を1分以内に抑える高速化を実現してい�
 
 ```
 
+### サブドメインの列挙
+
+```
+
+ffuf -c -w /usr/share/dnsrecon/subdomains-top1mil-5000.txt -u http://schooled.htb -H "Host: FUZZ.schooled.htb" -fw 5338
+
+```
+
 # SSH
 
 ### SCP
