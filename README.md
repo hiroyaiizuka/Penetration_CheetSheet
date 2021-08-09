@@ -1005,6 +1005,8 @@ sqlmap -u 'http://localhost:5000/users' --data 'name=Alice' --dump
 
 [PaylaodAllTheThigs リンク](https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/XXE%20Injection)
 
+[XXE とは？徳丸先生の解説](https://blog.tokumaru.org/2017/)
+
 ## LFI
 
 ```
