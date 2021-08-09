@@ -1032,6 +1032,8 @@ XXE による LFI / RFI（Local File Inclusion / Remote File Inclusion）では�
 XXE による LFI では、外部実体参照の記法を用いる。
 例えば以下の XML を利用すると、脆弱なサーバ内の機密データにアクセスできる。
 
+```
+
 <!DOCTYPE data [
 <!ENTITY secretData SYSTEM "file:///etc/passwd">
 ]>
@@ -1040,7 +1042,10 @@ XXE による LFI では、外部実体参照の記法を用いる。
 </data>
 
 </data>
-ここでは、 file:// スキームを利用することで、ローカルファイル内にある /etc/passwd というセンシティブなファイルを表示させるような XML となっている。
+
+```
+
+ここでは、 file:// スキームを利用することで、ローカルファイル内にある /etc/passwd というセンシティブなファイルを表示させるようなXML となっている。
 
 
 ## LFI
