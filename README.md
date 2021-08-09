@@ -1001,7 +1001,7 @@ sqlmap -u 'http://localhost:5000/users' --data 'name=Alice' --dump
 
 している
 
-## XML injection
+## XMLインジェクション
 
 [PaylaodAllTheThigs リンク](https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/XXE%20Injection)
 
