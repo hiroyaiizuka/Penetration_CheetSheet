@@ -650,6 +650,28 @@ ps aux | grep <user_name>
 ps -ef | grep <process_name> 
 ```
 
+- PATH injection できるか？
+
+```
+
+// 環境変数にキーやパスワードがあったり、隠れたbinファイルをPATHで見つける
+echo $PATH # current value of PATH
+env # display environment information
+
+
+ex: sudo -l で、あるファイル(/opt/scripts/access_backup.sh)が、root 権限で実行できるとき、そのファイルの中身で、 gzip ... というshell script が書いてあるとする
+#!/bin/bash
+gzip -c /var/log/apache2/access.log > /var/backups/$(date --date="yesterday" +%Y%b%d)_access.gz
+gzip -c /var/www/file_access.log > /var/backups/$(date --date="yesterday" +%Y%b%d)_file_access.gz
+
+→ tmp フォルダに、名前が、gzip というファイルを作り、中にreverse shellをかく
+
+→ PATH=$(pwd):$PATH でPATH をぬりかえ。
+/usr/local/sbin:/usr/local/bin → /tmp:/usr/local/sbin:/usr/local/bin 
+
+→ sudo /opt/scripts/access_backup.sh
+
+```
 
 - その他
 
@@ -663,10 +685,7 @@ grep -Ri password $(find /etc -name '*.conf' 2>/dev/null)
 dpkg -l 2>/dev/null | grep "compiler" | grep -v "decompiler\|lib" 2>/dev/null || yum list installed 'gcc*' 2>/dev/null | grep gcc 2>/dev/null; which gcc g++ 2>/dev/null || locate -r "/gcc[0-9\.-]\+$" 2>/dev/null | grep -v "/doc/" 
 
 
-// 環境変数にキーやパスワードがあったり、隠れたbinファイルをPATHで見つける
-echo $PATH # current value of PATH
-env # display environment information
-
+// その他
 
 which nmap aws nc ncat netcat nc.traditional wget curl ping gcc g++ make gdb base64 socat python python2 python3 python2.7 python2.6 python3.6 python3.7 perl php ruby xterm doas sudo fetch docker lxc ctr runc rkt kubectl 2>/dev/null 
 
