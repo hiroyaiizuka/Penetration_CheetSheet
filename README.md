@@ -218,32 +218,23 @@ Nmapで17分かかる処理を1分以内に抑える高速化を実現してい�
 
 ```
 PHP: 
-
 exec(), shell_exec()
 　コマンド結果の最後の行を返します。
-
 system()
 　成功時はコマンド出力の最後の行を返し、失敗時は false を返します。
-
 passthru()
 　一切干渉を受けずに直接コマンドから全てのデータを受けとる。
-
 proc_open(), popen()
 
-Python:
-
-eval()
-
-Perl:
-
-exec(), system(), open(), qx/.../, `...`
+Python: eval()
+Perl: exec(), system(), open(), qx/.../, `...`
 ...
 
 ```
 
 - shellによる複数コマンド(徳丸本より抜粋)
 
-<img width="1184" alt="スクリーンショット 2021-01-28 17 39 05" src="https://user-images.githubusercontent.com/39001773/129119783-5b96d20d-addc-42b8-9a37-867df89afb7a.png">
+<img width="584" alt="スクリーンショット 2021-01-28 17 39 05" src="https://user-images.githubusercontent.com/39001773/129119783-5b96d20d-addc-42b8-9a37-867df89afb7a.png">
 
 
 ### VHOST の列挙
