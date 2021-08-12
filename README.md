@@ -219,7 +219,7 @@ Nmapで17分かかる処理を1分以内に抑える高速化を実現してい�
 ```
 PHP: 
 
-exec()
+exec(), shell_exec()
 　コマンド結果の最後の行を返します。
 
 system()
@@ -228,6 +228,7 @@ system()
 passthru()
 　一切干渉を受けずに直接コマンドから全てのデータを受けとる。
 
+proc_open(), popen()
 
 Python:
 
@@ -235,7 +236,7 @@ eval()
 
 Perl:
 
-open()
+exec(), system(), open(), qx/.../, `...`
 ...
 
 
