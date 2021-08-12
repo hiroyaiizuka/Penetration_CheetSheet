@@ -239,8 +239,11 @@ Perl:
 exec(), system(), open(), qx/.../, `...`
 ...
 
-
 ```
+
+- shellによる複数コマンド(徳丸本より抜粋)
+
+<img width="1184" alt="スクリーンショット 2021-01-28 17 39 05" src="https://user-images.githubusercontent.com/39001773/129119783-5b96d20d-addc-42b8-9a37-867df89afb7a.png">
 
 
 ### VHOST の列挙
