@@ -907,13 +907,16 @@ payload の 4つの [type](https://portswigger.net/burp/documentation/desktop/to
 
 ```
 
-1. Sniper - The most popular attack type, this cycles through our selected positions, putting the next available payload (item from our wordlist) in each position in turn. This uses only one set of payloads (one wordlist).
-
-2. Battering Ram - Similar to Sniper, Battering Ram uses only one set of payloads. Unlike Sniper, Battering Ram puts every payload into every selected position. Think about how a battering ram makes contact across a large surface with a single surface, hence the name battering ram for this attack type.
-
-3. Pitchfork - The Pitchfork attack type allows us to use multiple payload sets (one per position selected) and iterate through both payload sets simultaneously. For example, if we selected two positions (say a username field and a password field), we can provide a username and password payload list. Intruder will then cycle through the combinations of usernames and passwords, resulting in a total number of combinations equalling the smallest payload set provided. 
-
-4. Cluster Bomb - The Cluster Bomb attack type allows us to use multiple payload sets (one per position selected) and iterate through all combinations of the payload lists we provide. For example, if we selected two positions (say a username field and a password field), we can provide a username and password payload list. Intruder will then cycle through the combinations of usernames and passwords, resulting in a total number of combinations equalling usernames x passwords. Do note, this can get pretty lengthy if you are using the community edition of Burp. 
+1. Sniper: 
+positionで指定した箇所を、Payload Optionsで設定した値に1つずつ変更して送信
+2. Battering Ram: 
+positionで指定した箇所を、Payload Optionsで設定した値に全て変更して送信
+3. Pitchfork:
+positionで指定した箇所ごとに、Payload Optionsで値を設定して送信。
+name=§shin§&age=§36§&address=§chiba§があった場合、name、age、addressごとに変更するものをPayload Optionsで設定します。
+4. Cluster Bomb: 
+positionの一つを固定しながら他を変えるのを順繰り設定していきます。
+position1のPayload Optionsの値を「aaa、bbb」position2のPayload Optionsの値を「ccc, ddd」と設定した場合、始めにposition1の「aaa」が固定され、position2が「ccc, ddd」となって送信。続いてposition1が「bbb」で固定され、position2の「ccc, ddd」が送信されます
 
 ```
 
