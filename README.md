@@ -312,7 +312,7 @@ Port: 139, 445
 
 1. share の列挙
 
-nmap -p 445 --script=smb-enum-shares.nse,smb-enum-users.nse <target ip>
+nmap -p 445 --script=smb-enum-* <target ip>
 
 \\10.10.20.236\anonymous:
 Anonymous access: READ/WRITE
