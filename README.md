@@ -130,18 +130,25 @@ aggressive
 
 ```
 
- known vulnerabilitiesに対して、調査したいとき
+### NSE
+
+Nmap Scripting Engine。
+
+Nmap を単なるポートスキャナーから、脆弱性調査ツールへと変身させる機能拡張ができる。
+
+[公式一覧](https://nmap.org/nsedoc/index.html)
+
+[リンク](http://www.byakuya-shobo.co.jp/hj/moh2/pdf/moh2_p120_p131.pdf)
 
 ```
-ex: port 445 に対して、
 
+・ 既知の脆弱性調査
 nmap -Pn -p 445 --script vuln 10.10.10.4
 
--p: Set destination port(s)
 
-445: The open port we've discovered earlier
+・robots.txt で指定される巡回拒否ファイルをチェック
+nmap -Pn -p 80 --script=http.robots.txt 10.10.10.4
 
---script vuln: Check for specific known vulnerabilities and generally only report results if they are found
 ```
 
 [参考](https://www.freecodecamp.org/news/keep-calm-and-hack-the-box-legacy/)
