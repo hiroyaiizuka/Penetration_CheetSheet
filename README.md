@@ -333,6 +333,8 @@ smbget -R smb://<target ip>/anonymous
 
 - その他
 
+```
+
 // SMBによるOSの検出や列挙(smb-os-discovery)
 nmap -v -p 139, 445 --script=smb-os-discovery <target ip>
 
