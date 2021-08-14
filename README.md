@@ -298,7 +298,33 @@ Port: 139, 445
 
 ### minimum Todo
 
+
+- Try Hack Me 流
+
 ```
+
+1. share の列挙
+
+nmap -p 445 --script=smb-enum-shares.nse,smb-enum-users.nse <target ip>
+
+\\10.10.20.236\anonymous:
+Anonymous access: READ/WRITE
+
+などの情報が得られる
+
+
+2. 1で得られたshare にアクセス
+
+smbclient //<target ip>/anonymous
+
+
+3. 2で入手したいファイルがあった場合
+
+smbget -R smb://<target ip>/anonymous
+
+```
+
+- その他
 
 // SMBによるOSの検出や列挙(smb-os-discovery)
 nmap -v -p 139, 445 --script=smb-os-discovery <target ip>
