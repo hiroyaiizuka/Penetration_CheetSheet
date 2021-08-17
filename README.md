@@ -142,6 +142,11 @@ Nmap を単なるポートスキャナーから、脆弱性調査ツールへと
 
 ```
 
+・どのNSEを使うかの調査
+ls /usr/share/nmap/scripts | grep nfs
+のように、nmap の結果をみて、どのscript を使うか絞り込める。
+
+
 ・ 既知の脆弱性調査
 nmap -Pn -p 445 --script vuln 10.10.10.4
 
