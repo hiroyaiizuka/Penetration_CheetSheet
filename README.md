@@ -325,8 +325,17 @@ Anonymous access: READ/WRITE
 
 smbclient //<target ip>/anonymous
 
+smbcient -N //<target ip>/anonymous
+N: クライアントはユーザーへの パスワード入力要求をしなくなる
 
-3. 2で入手したいファイルがあった場合
+
+3. 2で入手したいファイル(ex: log.txt)があった場合
+
+smb 上で
+
+get log.txt
+
+または、kali 上で
 
 smbget -R smb://<target ip>/anonymous
 
