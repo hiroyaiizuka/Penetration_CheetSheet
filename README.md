@@ -1429,6 +1429,14 @@ where /r . user.txt
 
 ```
 
+- Windows でfileを実行したい
+
+```
+ex: filename.exe を実行
+.\filename.exe
+
+```
+
 - github のremote のコードを、local に落としたい。
 
 → 欲しいディレクトリにあるファイルに移動
