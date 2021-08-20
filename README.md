@@ -570,6 +570,8 @@ wpscan --url 10.10.10.17 -e u,vp --api-token KDuAhQpTshtAEPxDLNZLiWrkszFxb8kf8t6
 
 [PayloadAllTheThings](https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Methodology%20and%20Resources/Reverse%20Shell%20Cheatsheet.md)
 
+[pentestmonkey](https://pentestmonkey.net/cheat-sheet/shells/reverse-shell-cheat-sheet)
+
 reverse_shell 全部乗ってて、大変便利
 
 
