@@ -1439,6 +1439,23 @@ ex: filename.exe を実行
 
 ```
 
+- etc/passwd を書き換える
+
+[openssl](https://www.mkssoftware.com/docs/man1/openssl_passwd.1.asp)
+
+```
+(イエラエセキュリティ勉強会ででてきた)
+
+openssl passwd -1 -salt xxxxxxxx password;
+→  xxj31ZMTZzkVA
+
+root:x:....
+hiro:xxj31ZMTZzkVA：....
+
+そのあとに、su hiro する。
+
+```
+
 - github のremote のコードを、local に落としたい。
 
 → 欲しいディレクトリにあるファイルに移動
