@@ -676,7 +676,10 @@ dmesg | head -n1
 cat /etc/network/interfaces # show network config
 cat /etc/sysconfig/network # show network config
 iptables -xvL # show firewall rules
-netstat -antpl # which ports and connections are services exposing?
+
+netstat -ae # show service names
+netstat -antpl
+ss -tpl # resolve service name
 ss -antpl # if 'netstat' doesn't exist
 
 ```
