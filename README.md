@@ -942,6 +942,8 @@ powershell_shell
 
 PS > . .\PowerUp.ps1
 
+PS > Invoke-AllChecks
+
 ```
 
 
