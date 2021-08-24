@@ -1,8 +1,6 @@
-c## CheetSheet
+## CheetSheet
 
 Hack the Box の攻略や、OSCP 取得を目指すためのチートシートです。
-悪用厳禁でお願いします><
-
 日々更新していきます。
 
 ## 目次
