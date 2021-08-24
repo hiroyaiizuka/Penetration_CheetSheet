@@ -944,6 +944,21 @@ PS > . .\PowerUp.ps1
 
 PS > Invoke-AllChecks
 
+
+ServiceName                     : AdvancedSystemCareService9
+Path                            : C:\Program Files (x86)\IObit\Advanced SystemCare\ASCService.exe
+ModifiableFile                  : C:\Program Files (x86)\IObit\Advanced SystemCare\ASCService.exe
+ModifiableFilePermissions       : {WriteAttributes, Synchronize, ReadControl, ReadData/ListDirectory...}
+ModifiableFileIdentityReference : STEELMOUNTAIN\bill
+StartName                       : LocalSystem
+AbuseFunction                   : Install-ServiceBinary -Name 'AdvancedSystemCareService9'
+CanRestart                      : True
+Name                            : AdvancedSystemCareService9
+Check                           : Modifiable Service Files
+
+こう言う結果を見たら、CanRestart と WriteAttributes に注目。
+true　だったら、malicious コードにおきかえて、再起動できる。
+
 ```
 
 
