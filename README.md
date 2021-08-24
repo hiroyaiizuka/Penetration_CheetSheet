@@ -1382,6 +1382,16 @@ ex: filename.exe を実行
 
 ```
 
+### Windows でサービスを停止したり、開始したりしたい
+
+[sc コマンド](https://windows.command-ref.com/cmd-sc.html)
+
+```
+sc stop hogeservice
+
+
+
+```
 
 ### 権限を編集したい
 
