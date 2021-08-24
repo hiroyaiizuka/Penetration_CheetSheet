@@ -777,6 +777,76 @@ cat /etc/fstab 2>/dev/null | grep -v "^#" | grep -Pv "\W*\#" 2>/dev/null
 ```
 
 
+## Linpeas.sh
+
+[リンク](https://github.com/carlospolop/privilege-escalation-awesome-scripts-suite)
+
+・[LinPEAS](https://github.com/carlospolop/privilege-escalation-awesome-scripts-suite/tree/master/linPEAS) - Linux local Privilege Escalation Awesome Script (.sh)
+
+```
+
+実行：
+curl https://raw.githubusercontent.com/carlospolop/privilege-escalation-awesome-scripts-suite/master/linPEAS/linpeas.sh | sh
+
+
+```
+
+
+LinPEAS で不十分な時は、[linux-smart-enumeration(lse.sh)](https://github.com/diego-treitos/linux-smart-enumeration) 検討する。
+
+・[WinPEAS](https://github.com/carlospolop/privilege-escalation-awesome-scripts-suite/tree/master/winPEAS) - Windows local Privilege Escalation Awesome Script (C#.exe and .bat)
+
+
+## LinEnum
+
+権限昇格が行える箇所がないかチェックするシェルスクリプト
+
+[Linux 権限昇格ツール解説一覧](https://www.hackingarticles.in/linux-privilege-escalation-automated-script/)
+
+[Github](https://github.com/rebootuser/LinEnum/blob/master/LinEnum.sh)
+
+[リンク](https://www.shutingrz.com/post/ad_hack-linux_priv_escalation/)
+
+[machine](https://medium.com/swlh/hack-the-box-cronos-writeup-w-o-metasploit-7b9453e557d0)
+
+
+## コマンド
+
+```
+uname -a
+
+cat /etc/*release
+
+```
+
+<img width="384" alt="スクリーンショット 2021-01-28 17 39 05" src="https://user-images.githubusercontent.com/39001773/120716155-970fd080-c500-11eb-8d10-b4e7ed95910b.png">
+
+
+で情報を掴み、exproit db で、local priviledge escalation などを探す。
+
+
+
+## PSPY
+
+[リンク](https://github.com/DominicBreuker/pspy)
+
+実行しているプロセスをダンプしてくれる。
+
+linpeas.shなどでps auxだけでは確認できないものも確認できる
+
+[使い方](https://vk9-sec.com/how-to-enumerate-services-in-use-with-pspy/)
+
+
+## GTFOBins
+
+[リンク](https://gtfobins.github.io/)
+
+ローカルのセキュリティ制限を回避する、バイナリ集
+
+見慣れないコマンドがあったら、こちらから探す。 
+(machine では、ここから、jounralctl, python　検索して root 奪取した)
+
+
 
 # 特権エスカレーション基本戦略 (Windows)
 
@@ -853,75 +923,26 @@ meterpreterプロンプト下でmigrateコマンドを使うことで、バッ�
 ```
 
 
-## Linpeas.sh
+## Powersploit
 
-[リンク](https://github.com/carlospolop/privilege-escalation-awesome-scripts-suite)
+権限昇格に使う。
 
-・[LinPEAS](https://github.com/carlospolop/privilege-escalation-awesome-scripts-suite/tree/master/linPEAS) - Linux local Privilege Escalation Awesome Script (.sh)
+[Github](https://github.com/PowerShellMafia/PowerSploit)
 
-```
-
-実行：
-curl https://raw.githubusercontent.com/carlospolop/privilege-escalation-awesome-scripts-suite/master/linPEAS/linpeas.sh | sh
+[使い方](https://powersploit.readthedocs.io/en/latest/Privesc/Find-ProcessDLLHijack/)
 
 
 ```
 
+TryHackMe steel mountain:
+meterpreter から、 upload /usr/share/windows-resources/powersploit/Privesc/PowerUp.ps1
 
-LinPEAS で不十分な時は、[linux-smart-enumeration(lse.sh)](https://github.com/diego-treitos/linux-smart-enumeration) 検討する。
+load powershell
+powershell_shell
 
-・[WinPEAS](https://github.com/carlospolop/privilege-escalation-awesome-scripts-suite/tree/master/winPEAS) - Windows local Privilege Escalation Awesome Script (C#.exe and .bat)
-
-
-## LinEnum
-
-権限昇格が行える箇所がないかチェックするシェルスクリプト
-
-[Linux 権限昇格ツール解説一覧](https://www.hackingarticles.in/linux-privilege-escalation-automated-script/)
-
-[Github](https://github.com/rebootuser/LinEnum/blob/master/LinEnum.sh)
-
-[リンク](https://www.shutingrz.com/post/ad_hack-linux_priv_escalation/)
-
-[machine](https://medium.com/swlh/hack-the-box-cronos-writeup-w-o-metasploit-7b9453e557d0)
-
-
-## コマンド
+PS > . .\PowerUp.ps1
 
 ```
-uname -a
-
-cat /etc/*release
-
-```
-
-<img width="384" alt="スクリーンショット 2021-01-28 17 39 05" src="https://user-images.githubusercontent.com/39001773/120716155-970fd080-c500-11eb-8d10-b4e7ed95910b.png">
-
-
-で情報を掴み、exproit db で、local priviledge escalation などを探す。
-
-
-
-## PSPY
-
-[リンク](https://github.com/DominicBreuker/pspy)
-
-実行しているプロセスをダンプしてくれる。
-
-linpeas.shなどでps auxだけでは確認できないものも確認できる
-
-[使い方](https://vk9-sec.com/how-to-enumerate-services-in-use-with-pspy/)
-
-
-## GTFOBins
-
-[リンク](https://gtfobins.github.io/)
-
-ローカルのセキュリティ制限を回避する、バイナリ集
-
-見慣れないコマンドがあったら、こちらから探す。 
-(machine では、ここから、jounralctl, python　検索して root 奪取した)
-
 
 
 # セキュリティ診断ツール
