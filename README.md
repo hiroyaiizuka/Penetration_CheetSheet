@@ -576,7 +576,7 @@ wpscan --url 10.10.10.17 -e u,vp --api-token KDuAhQpTshtAEPxDLNZLiWrkszFxb8kf8t6
 reverse_shell 全部乗ってて、大変便利
 
 
-#### msfvenom_reverse_shell
+## msfvenom
 
 [CheetSheet recommend](https://thedarksource.com/msfvenom-cheat-sheet-create-metasploit-payloads/)
 
@@ -660,9 +660,9 @@ run
 ```
 
 
-### Nishang (Windows)
+## Nishang (Windows, Invoke-PowerShellTcp.ps1)
 
-Powershell を使って、reverse shell 可能
+Powershell を使って、reverse shell 取得可能
 
 ~/nishang/shell へ移動し、http server 起動
 
