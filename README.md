@@ -259,6 +259,14 @@ ffuf -w /usr/share/dnsrecon/subdomains-top1mil-5000.txt -u https://test-url -H "
 
 ```
 
+### ディレクトリの列挙 (深堀り)
+
+```
+ffuf -w /usr/share/dnsrecon/subdomains-top1mil-5000.txt  -u https://seal.htb/manager/FUZZ -fc 403 -recursion
+
+
+```
+
 ### サブドメインの列挙
 
 ```
