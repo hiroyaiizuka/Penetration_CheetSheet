@@ -356,6 +356,10 @@ smbcient -N //<target ip>/anonymous
 N: クライアントはユーザーへの パスワード入力要求をしなくなる
 
 
+password が見つかっている場合は、以下でアクセス(TryHackMe skynet)
+smbclient //10.10.18.82/milesdyson --user=milesdyson  
+
+
 3. 2で入手したいファイル(ex: log.txt)があった場合
 
 smb 上で
