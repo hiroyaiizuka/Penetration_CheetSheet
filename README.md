@@ -264,6 +264,7 @@ ffuf -w /usr/share/dnsrecon/subdomains-top1mil-5000.txt -u https://test-url -H "
 ```
 ffuf -w /usr/share/dnsrecon/subdomains-top1mil-5000.txt  -u https://seal.htb/manager/FUZZ -fc 403 -recursion
 
+fc: Filter HTTP status codes from response. Comma separated list of codes and ranges
 
 ```
 
