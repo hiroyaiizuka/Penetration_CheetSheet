@@ -834,10 +834,11 @@ gzip -c /var/www/file_access.log > /var/backups/$(date --date="yesterday" +%Y%b%
 
 - wildcard injection できるか？
 
+[解説動画](https://www.youtube.com/watch?v=HXikLrFVIXc)
+
 [リンク](https://materials.rangeforce.com/tutorial/2019/11/08/Linux-PrivEsc-Wildcard/)
 
 ```
-
 
 tar cf /var/backups/backup.tar *
 
