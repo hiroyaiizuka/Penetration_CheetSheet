@@ -210,7 +210,7 @@ Nmapで17分かかる処理を1分以内に抑える高速化を実現してい�
 - robots.txt，sitemap.xmlの確認
 - サブドメインの列挙
 - ディレクトリスキャナーの使用(ffuf, gobuster, dirb, nikto はmust)
-- CMSの特定 
+- CMSの特定 (version が調べたかったら、CMS名 + version checkと検索(Joomla など))
 - ログインの試行
   - デフォルトパスワードの入力
   - パスワード推測
