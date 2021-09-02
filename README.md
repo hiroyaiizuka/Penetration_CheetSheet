@@ -258,16 +258,16 @@ Perl: exec(), system(), open(), qx/.../, `...`
 ffuf -w /usr/share/dnsrecon/subdomains-top1mil-5000.txt -u https://test-url -H "Host: FUZZ"
 
 ffufはデフォルトでは、レスポンスのHTTPステータスコードが「200、204、301、302、307、401、403、405」の場合に、標準出力に結果を表示する。
-
 オプションを使えば、スキャンの目的に応じて、表示する内容を変更することが可能。
 
 オプション例：
 例1）HTTPステータスコードが200もしくは301のみを表示
 -mc 200,301
-
 例2）レスポンスサイズが4242のものを表示しない
 -fs 4242
 
+
+gobuster vhost -u http://horizontall.htb -t 50 -w /usr/share/wordlists/SecLists/Discovery/DNS/subdomains-top1million-20000.txt
 
 ```
 
