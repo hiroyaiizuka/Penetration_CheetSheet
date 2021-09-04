@@ -747,6 +747,12 @@ cat /etc/sudoers # can we read? which users have sudo privileges?
 sudo -l # can we use sudo? do we need a password?
 ls -al /root # can we read /root?
 ls -alR /home # check permissions for /home directories
+
+とくに、何らかのpassword が得られた状態で、lateral movement をしたいuser 名があるとき、
+su user名　をtry する。
+
+(Try Hackme: Daily Bulge)
+
 ```
 
 - SUID binaries と capabilitiesを探す
