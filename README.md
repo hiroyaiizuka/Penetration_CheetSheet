@@ -750,8 +750,9 @@ ls -alR /home # check permissions for /home directories
 
 とくに、何らかのpassword が得られた状態で、lateral movement をしたいuser 名があるとき、
 su user名　をtry する。
-
+lateral movement に成功したら、必ず、sudo -l をやる。
 (Try Hackme: Daily Bulge)
+
 
 ```
 
