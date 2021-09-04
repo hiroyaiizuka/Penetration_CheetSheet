@@ -1267,6 +1267,8 @@ crunch 3 5 0123456789abcdefghijklmnopqrstuvwxyz >> /usr/share/wordlists/rockyou.
 
 [hash analyzer](https://www.tunnelsup.com/hash-analyzer/) でhash の type を調べる。
 
+もしくは、[example hashes](https://hashcat.net/wiki/doku.php?id=example_hashes) から、類似のタイプを探す。
+
 [free password hash cracker](https://crackstation.net/) で、crack できるかチェック、だめそうなら、以下の hashcat を考える。
 
 [リンク1](https://www.iestudy.work/entry/2020/11/20/215526)
