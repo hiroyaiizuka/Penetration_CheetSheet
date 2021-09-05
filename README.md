@@ -270,6 +270,9 @@ ffufはデフォルトでは、レスポンスのHTTPステータスコードが
 
 gobuster vhost -u http://horizontall.htb -t 50 -w /usr/share/wordlists/SecLists/Discovery/DNS/subdomains-top1million-20000.txt
 
+上でダメなら、これやる(horizontall)
+gobuster vhosts –u http://horizontall.htb –w Seclists/Discovery/DNS/subdomains-top1million-110000.txt
+
 ```
 
 ### ディレクトリの列挙 (深堀り)
@@ -887,6 +890,13 @@ echo 'root2:WVLY0mgH0RtUI:0:0:root:/root:/bin/bash' >> source/passwd
 
 
 ```
+
+- CVE などでコマンドが実行できる時
+
+必ずしも、root のshell を奪取しなくても、cat /root/root.txt
+
+などでflag を取得することはできる。(horizontall)
+
 
 - その他
 
