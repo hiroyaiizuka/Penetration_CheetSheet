@@ -271,7 +271,7 @@ ffufはデフォルトでは、レスポンスのHTTPステータスコードが
 gobuster vhost -u http://horizontall.htb -t 50 -w /usr/share/wordlists/SecLists/Discovery/DNS/subdomains-top1million-20000.txt
 
 上でダメなら、これやる(horizontall)
-gobuster vhosts –u http://horizontall.htb –w Seclists/Discovery/DNS/subdomains-top1million-110000.txt
+gobuster vhost -u http://horizontall.htb -t 50 -w /usr/share/wordlists/SecLists/Discovery/DNS/subdomains-top1million-110000.txt  
 
 ```
 
