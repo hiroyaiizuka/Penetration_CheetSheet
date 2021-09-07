@@ -1271,7 +1271,7 @@ crunch 3 5 0123456789abcdefghijklmnopqrstuvwxyz >> /usr/share/wordlists/rockyou.
 
 ### John the Ripper
 
-[リンク](https://nekotosec.com/try-using-john-the-ripper/)
+[リンク](https://www.openwall.com/john/doc/)
 
 ### hashcat
 
