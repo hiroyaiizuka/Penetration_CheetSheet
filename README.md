@@ -1793,6 +1793,12 @@ hiro:xxj31ZMTZzkVA：....
 → ex: wget https://raw.githubusercontent.com/rebootuser/LinEnum/master/LinEnum.sh
 
 
+* releases のbinary をdownload したい場合。
+
+対象で右クリック　→ copy link location でurl 取得
+wget "url"
+
+
 - eval 関数について
 
 eval関数は、引数に指定した文字列をpythonプログラムコードとして評価・実行する機能をもつ関数となる。
