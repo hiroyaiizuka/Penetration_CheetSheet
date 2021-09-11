@@ -591,6 +591,14 @@ wpscan --url 10.10.10.17 -e u,vp --api-token KDuAhQpTshtAEPxDLNZLiWrkszFxb8kf8t6
 
 ```
 
+### ログインの検証
+
+```
+
+wpscan --url internal.thm/wordpress/ --passwords rockyou.txt --usernames admin --max-threads 50
+
+```
+
 [参考記事](https://qiita.com/koujimatsuda11/items/d49e8642dea1a1b0d067)
 [実例machine](https://ranakhalil101.medium.com/hack-the-box-brainfuck-writeup-w-o-metasploit-5075c0c55e93)
 
