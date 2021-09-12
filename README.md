@@ -922,7 +922,7 @@ grep -Ri password $(find /etc -name '*.conf' 2>/dev/null)
 // ファイル名に「○○」という文字列が含まれているファイルのリストを取得。
 find [検索対象フォルダのパス] -type f -name "*[検索したい文字列]*"
 
-// 特殊なtxtファイルはないか？ (TryHackMe [internal](https://medium.com/swlh/tryhackme-internal-walkthrough-fdc6c4b569bd), password があった)
+// 特殊なtxtファイルはないか？ (TryHackMe internal, password があった)
 locate *.txt
 
 // show installed packages and versions
