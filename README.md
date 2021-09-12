@@ -919,6 +919,9 @@ echo 'root2:WVLY0mgH0RtUI:0:0:root:/root:/bin/bash' >> source/passwd
 grep -E "(user|username|login|pass|password|pw|credentials)[=:]" /etc/fstab /etc/mtab 2>/dev/null 
 grep -Ri password $(find /etc -name '*.conf' 2>/dev/null) 
 
+// ファイル名に「○○」という文字列が含まれているファイルのリストを取得。
+find [検索対象フォルダのパス] -type f -name "*[検索したい文字列]*"
+
 // show installed packages and versions
 dpkg -l 2>/dev/null | grep "compiler" | grep -v "decompiler\|lib" 2>/dev/null || yum list installed 'gcc*' 2>/dev/null | grep gcc 2>/dev/null; which gcc g++ 2>/dev/null || locate -r "/gcc[0-9\.-]\+$" 2>/dev/null | grep -v "/doc/" 
 
