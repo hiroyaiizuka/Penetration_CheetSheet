@@ -1393,7 +1393,8 @@ fcrackzip -u -D -p /usr/share/wordlists/rockyou.txt myplace-decoded.backup
 
 ### UNION based injection
 
-[記事](https://qiita.com/y-araki-qiita/items/131efa82c4205e83fef8)
+[Medium 記事](https://medium.com/@nyomanpradipta120/sql-injection-union-attack-9c10de1a5635)
+[Qiita記事](https://qiita.com/y-araki-qiita/items/131efa82c4205e83fef8)
 
 [リンク動画](https://www.youtube.com/watch?v=TlTMDw1KD_8)
 
@@ -1428,6 +1429,9 @@ group_concat(user, 0x0a, password) from users
 
 
 ```
+
+<img src="https://user-images.githubusercontent.com/39001773/133351313-ab5e4fb5-28ab-45fa-982e-5b236e98cc47.png" width = 700 />
+
 
 
 ### sqlmap
