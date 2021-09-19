@@ -1601,6 +1601,8 @@ strapi: ./chisel client 10.10.14.23:8000 R:127.0.0.1:8001:localhost:8000
 
 ## リバースエンジニアリング
 
+[buffer overflow 解説記事](https://cd6629.gitbook.io/ctfwriteups/oscp/buffer-overflow-wlk#overwriting-function-pointers)
+
 ### radare2
 
 [公式](https://github.com/radareorg/radare2)
