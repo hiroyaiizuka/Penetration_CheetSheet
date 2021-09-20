@@ -295,6 +295,23 @@ ffuf -c -w /usr/share/dnsrecon/subdomains-top1mil-5000.txt -u http://schooled.ht
 
 # SSH
 
+### user name がわからないとき
+
+[リンク](https://yurisk.info/2010/06/04/top-10-usernames-used-in-ssh-brute-force/) や以下を順にためす
+
+```
+[contact] => 25
+[support] => 28
+[info] => 35
+[user] => 36
+[mysql] => 43
+[postgres] => 45
+[guest] => 62
+[test] => 104
+[admin] => 106
+[root] => 581
+```
+
 ### SCP
 カレントディレクトリにsecret.zipをダウンロード
 
