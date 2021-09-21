@@ -47,6 +47,7 @@ Hack the Box の攻略や、OSCP 取得を目指すためのチートシート�
 - [SQL injection](#SQLインジェクション)
 - [XML injection](#XMLインジェクション)
 - [LFI](#LFI)
+- [SSRF](#SSRF)
 - [Tunneling](#Tunneling)
 - [リバースエンジニアリング](#リバースエンジニアリング)
 - [Windowsコマンド](#Windowsコマンド)
@@ -225,6 +226,7 @@ Nmapで17分かかる処理を1分以内に抑える高速化を実現してい�
 - XML injection できる場所はないか確認
 - source codeみて、OSコマンド injection がおきそうな危険な関数が使われていないか確認
 - upload機構がある場合、バイパス方法の模索
+- uri を入力する部分があれば、SSRFがないか確認
 - template fileや 404.phpなどを reverse shell file に書き換えられない確認
 - 掲載されている画像にヒントが無いか確認
 
@@ -1593,6 +1595,12 @@ Windows
 /windows/repair/S
 ```
 
+
+## SSRF
+
+[リンク:](https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/Server%20Side%20Request%20Forgery#file) PayloadAllTheThings
+
+[TryHackMe](https://tryhackme.com/room/ssrf)
 
 ## Tunneling
 
