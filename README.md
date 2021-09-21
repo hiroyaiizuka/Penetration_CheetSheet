@@ -1598,6 +1598,8 @@ Windows
 
 ## SSRF
 
+[解説記事](https://yamory.io/blog/about-ssrf/)
+
 [リンク:](https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/Server%20Side%20Request%20Forgery#file) PayloadAllTheThings
 
 [TryHackMe](https://tryhackme.com/room/ssrf)
