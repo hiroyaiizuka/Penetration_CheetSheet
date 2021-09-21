@@ -1600,6 +1600,8 @@ Windows
 
 [解説記事](https://yamory.io/blog/about-ssrf/)
 
+[slide: SSRF基礎](https://speakerdeck.com/hasegawayosuke/ssrfji-chu?slide=9)
+
 [リンク:](https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/Server%20Side%20Request%20Forgery#file) PayloadAllTheThings
 
 [TryHackMe](https://tryhackme.com/room/ssrf)
