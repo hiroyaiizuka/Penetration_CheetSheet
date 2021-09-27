@@ -285,6 +285,8 @@ ffuf -w /usr/share/dnsrecon/subdomains-top1mil-5000.txt  -u https://seal.htb/man
 
 fc: Filter HTTP status codes from response. Comma separated list of codes and ranges
 
+fs: Size 703 とでたら、-fs 703 とフィルターして、みやすくなる(00:00Studio で視聴者さんが教えてくれた)
+
 ```
 
 ### サブドメインの列挙
