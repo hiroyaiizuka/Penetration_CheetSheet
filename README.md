@@ -1054,7 +1054,7 @@ SeImpersonatePrivilege   enabled      // Impersonate a client after authenticati
 
 →  PrintSpoofer (or Juicy Potato) 
 
- PrintSpoofer.exe -c -i cmd
+ PrintSpoofer.exe -i -c cmd
 
 ```
 
