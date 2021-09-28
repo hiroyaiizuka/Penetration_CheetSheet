@@ -372,6 +372,26 @@ Have valid credentials? Use them to connect:
 
 rpcclient -U <user> 10.10.10.193
 
+
+
+```
+接続できれば以下のクエリを試す
+
+
+```
+
+To enumerate printers:
+enumprinters
+
+To enumerate users and groups:
+enumdomusers
+enumdomgroups
+
+The above command will output user/group RIDs. You can pass those into further queries like:
+querygroup <RID>
+querygroupmem <RID>
+queryuser <RID>
+
 ```
 
 
