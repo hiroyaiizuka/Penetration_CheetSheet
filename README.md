@@ -357,7 +357,22 @@ chmod 600 id_rsa
 
 Port: 139, 445
 
+[リンク](https://infinitelogins.com/2020/06/17/enumerating-smb-for-pentesting/)
+
 ### minimum Todo
+
+- rpcclient
+
+```
+Testing for Null or Authenticated Sessions:
+
+rpcclient -U "" -N [ip]
+
+Have valid credentials? Use them to connect:
+
+rpcclient -U <user> 10.10.10.193
+
+```
 
 
 - Try Hack Me 流
