@@ -849,6 +849,20 @@ lateral movement に成功したら、必ず、sudo -l をやる。
 
 ```
 
+- id コマンドで、ユーザーの識別情報を確認
+
+```
+group で怪しいものがあった場合は、find コマンドで調査する
+
+john@writer:/etc/apt/apt.conf.d$ id
+uid=1001(john) gid=1001(john) groups=1001(john),1003(management)
+
+john@writer:/etc/apt/apt.conf.d$ cd
+john@writer:~$ find / -type d -group management 2>/dev/null
+
+
+```
+
 - SUID binaries と capabilitiesを探す
 
 [リンク、まずこれみる](https://mil0.io/linux-privesc/)
