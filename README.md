@@ -325,6 +325,12 @@ ffuf -c -w /usr/share/dnsrecon/subdomains-top1mil-5000.txt -u http://schooled.ht
 
 hydra -l kyle -P ~/rockyou.txt ssh://writer.htb -VV -f -t 60
 
+-t: 並列で実行するtask数 (defualt 16)
+
+-f: login/pass pair が見つかったら終了
+
+-VV: show login/pass for each attempt
+
 ```
 
 ### SCP
