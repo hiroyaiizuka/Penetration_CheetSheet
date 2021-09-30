@@ -1708,6 +1708,8 @@ Windows
 
 [TryHackMe](https://tryhackme.com/room/learnssti)
 
+[HackTheBox Spider](https://zenn.dev/vtuber/scraps/cc900752cefd1c)
+
 
 疑うきっかけは、 `URL や input box` をみたとき。
 
