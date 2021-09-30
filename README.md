@@ -225,6 +225,7 @@ Nmapで17分かかる処理を1分以内に抑える高速化を実現してい�
 - script を実行できそうなconsoleがないか確認
 - URLを見て、LFIの脆弱性が無いか確認
 - URLやinput Fieldを見て、 ${{<%[%'"}}%　を入力し、internal server error がでてたらSSTI を疑う。 
+- URLやinputFieldに入力した文字が動的に表示された時に、SSTIを疑う
 - XML injection できる場所はないか確認
 - source codeみて、OSコマンド injection がおきそうな危険な関数が使われていないか確認
 - upload機構がある場合、バイパス方法の模索
