@@ -244,9 +244,20 @@ passthru()
 　一切干渉を受けずに直接コマンドから全てのデータを受けとる。
 proc_open(), popen()
 
-Python: eval()
+Python: 
+eval(), 
+
+os.system(''), stream = os.popen('echo Returned output'); output = stream.read()、import subprocess
+
+process = subprocess.Popen(['echo', 'More output'],
+                     stdout=subprocess.PIPE, 
+                     stderr=subprocess.PIPE)
+stdout, stderr = process.communicate()
+
 Perl: exec(), system(), open(), qx/.../, `...`
 ...
+
+[Python 記事](https://janakiev.com/blog/python-shell-commands/)
 
 ```
 
