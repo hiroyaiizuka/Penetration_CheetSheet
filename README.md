@@ -48,6 +48,7 @@ Hack the Box の攻略や、OSCP 取得を目指すためのチートシート�
 - [XML injection](#XMLインジェクション)
 - [LFI](#LFI)
 - [SSRF](#SSRF)
+- [SSTI](#SSTI)
 - [Tunneling](#Tunneling)
 - [リバースエンジニアリング](#リバースエンジニアリング)
 - [Windowsコマンド](#Windowsコマンド)
@@ -223,6 +224,7 @@ Nmapで17分かかる処理を1分以内に抑える高速化を実現してい�
 - バージョン番号を探し、CVE がないか確認
 - script を実行できそうなconsoleがないか確認
 - URLを見て、LFIの脆弱性が無いか確認
+- URLやinput Fieldを見て、 ${{<%[%'"}}%　を入力し、internal server error がでてたらSSTI を疑う。 
 - XML injection できる場所はないか確認
 - source codeみて、OSコマンド injection がおきそうな危険な関数が使われていないか確認
 - upload機構がある場合、バイパス方法の模索
@@ -1687,6 +1689,8 @@ Windows
 
 ## SSRF
 
+[PayloadAllTheThings](https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/Server%20Side%20Template%20Injection)
+
 [解説記事](https://yamory.io/blog/about-ssrf/)
 
 [slide: SSRF基礎](https://speakerdeck.com/hasegawayosuke/ssrfji-chu?slide=9)
@@ -1694,6 +1698,31 @@ Windows
 [リンク:](https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/Server%20Side%20Request%20Forgery#file) PayloadAllTheThings
 
 [TryHackMe](https://tryhackme.com/room/ssrf)
+
+- detect
+
+```
+
+
+```
+
+- identify
+
+疑うきっかけは、 `URL や input box` をみたとき。
+
+具体的には、GET /users/profile/testしたときに、「Hello, test!」と表示されるのをみたとき。
+
+その場合、Fuzzing： `${{<%[%'"}}%` を入力し、internal server error がでたら、SSTI の
+
+- exploit
+
+
+## SSTI
+
+[記事](https://book.hacktricks.xyz/pentesting-web/ssti-server-side-template-injection)
+
+[TryHackMe](https://tryhackme.com/room/learnssti)
+
 
 ## Tunneling
 
