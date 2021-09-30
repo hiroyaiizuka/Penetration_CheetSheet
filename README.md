@@ -1690,8 +1690,6 @@ Windows
 
 ## SSRF
 
-[PayloadAllTheThings](https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/Server%20Side%20Template%20Injection)
-
 [解説記事](https://yamory.io/blog/about-ssrf/)
 
 [slide: SSRF基礎](https://speakerdeck.com/hasegawayosuke/ssrfji-chu?slide=9)
@@ -1700,29 +1698,24 @@ Windows
 
 [TryHackMe](https://tryhackme.com/room/ssrf)
 
-- detect
-
-```
 
 
-```
+## SSTI
 
-- identify
+[PayloadAllTheThings](https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/Server%20Side%20Template%20Injection)
+
+[記事](https://book.hacktricks.xyz/pentesting-web/ssti-server-side-template-injection)
+
+[TryHackMe](https://tryhackme.com/room/learnssti)
+
 
 疑うきっかけは、 `URL や input box` をみたとき。
 
 具体的には、GET /users/profile/testしたときに、「Hello, test!」と表示されるのをみたとき。
 
-その場合、Fuzzing： `${{<%[%'"}}%` を入力し、internal server error がでたら、SSTI の
+その場合、Fuzzing： `${{<%[%'"}}%` を入力し、internal server error がでたら、SSTIのサイン
 
-- exploit
-
-
-## SSTI
-
-[記事](https://book.hacktricks.xyz/pentesting-web/ssti-server-side-template-injection)
-
-[TryHackMe](https://tryhackme.com/room/learnssti)
+identity, exploitについては、PayloadAllTheThings 参照
 
 
 ## Tunneling
