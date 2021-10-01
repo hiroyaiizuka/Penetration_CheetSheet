@@ -447,6 +447,9 @@ smbclient //<target ip>/anonymous
 smbcient -N //<target ip>/anonymous
 N: クライアントはユーザーへの パスワード入力要求をしなくなる
 
+-N でうまくいかない場合は、
+smbclient -L  //<target ip>/   を試す  
+
 
 password が見つかっている場合は、以下でアクセス(TryHackMe skynet)
 smbclient //10.10.18.82/milesdyson --user=milesdyson  
