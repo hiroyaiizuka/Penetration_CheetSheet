@@ -231,6 +231,7 @@ Nmapで17分かかる処理を1分以内に抑える高速化を実現してい�
 - upload機構がある場合、バイパス方法の模索
 - uri を入力する部分、(url=http://  proxy=http:// ) などのurlがあれば、SSRFがないか確認
 - template fileや 404.phpなどを reverse shell file に書き換えられない確認
+- 画像やPDFをダウンロードできるならして、 exiftool input.jpg　でmeta情報からuser情報を取得できるか確認
 - 掲載されている画像にヒントが無いか確認
 
 ```
