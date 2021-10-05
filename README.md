@@ -224,6 +224,7 @@ Nmapで17分かかる処理を1分以内に抑える高速化を実現してい�
 - BurpSuiteを用いてWebの挙動の確認
 - バージョン番号を探し、CVE がないか確認
 - script を実行できそうなconsoleがないか確認
+- apacheとnginxが両方存在したら、nginx 設定ミスによるpath traversalできるか確認
 - URLを見て、LFIの脆弱性が無いか確認
 - URLやinput Fieldを見て、 ${{<%[%'"}}%　を入力し、internal server error がでてたらSSTI を疑う。 
 - URLやinputFieldに入力した文字が動的に表示された時に、SSTIを疑う
@@ -271,6 +272,12 @@ Perl: exec(), system(), open(), qx/.../, `...`
 
 <img width="584" alt="スクリーンショット 2021-01-28 17 39 05" src="https://user-images.githubusercontent.com/39001773/129119783-5b96d20d-addc-42b8-9a37-867df89afb7a.png">
 
+
+### nginx alias traversal
+
+[aunetix](https://www.acunetix.com/vulnerabilities/web/path-traversal-via-misconfigured-nginx-alias/)
+
+[記事](https://tkmr.hatenablog.com/entry/2019/03/05/002531)
 
 ### VHOST の列挙
 
