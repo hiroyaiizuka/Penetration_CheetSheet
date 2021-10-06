@@ -212,6 +212,7 @@ Nmapで17分かかる処理を1分以内に抑える高速化を実現してい�
 ```
 
 - robots.txt，sitemap.xml,README.txtの確認
+- VHOSTの列挙
 - サブドメインの列挙
 - ディレクトリスキャナーの使用(ffuf, gobuster, dirb, nikto はmust)
 - CMSの特定 (version が調べたかったら、CMS名 + version checkと検索(Joomla など))
@@ -221,10 +222,7 @@ Nmapで17分かかる処理を1分以内に抑える高速化を実現してい�
   - SQLインジェクションの試行 (Union based injection もちゃんと調べる)
   - Webサイト上にある情報からユーザー/パスワードリストの作成
   - ブルートフォース
-- BurpSuiteを用いてWebの挙動の確認
-- バージョン番号を探し、CVE がないか確認
 - script を実行できそうなconsoleがないか確認
-- apacheとnginxが両方存在したら、nginx 設定ミスによるpath traversalできるか確認
 - URLを見て、LFIの脆弱性が無いか確認
 - URLやinput Fieldを見て、 ${{<%[%'"}}%　を入力し、internal server error がでてたらSSTI を疑う。 
 - URLやinputFieldに入力した文字が動的に表示された時に、SSTIを疑う
@@ -232,10 +230,19 @@ Nmapで17分かかる処理を1分以内に抑える高速化を実現してい�
 - source codeみて、OSコマンド injection がおきそうな危険な関数が使われていないか確認
 - upload機構がある場合、バイパス方法の模索
 - uri を入力する部分、(url=http://  proxy=http:// ) などのurlがあれば、SSRFがないか確認
-- template fileや 404.phpなどを reverse shell file に書き換えられない確認
 - 画像やPDFをダウンロードできるならして、 exiftool input.jpg　でmeta情報からuser情報を取得できるか確認
 - 画像をuploadできるなら、画像のcommentに exiftool 使って、reverseshell 利用できるか(HackTheBox Magic)確認
 - 掲載されている画像にヒントが無いか確認
+
+```
+
+### Foothold に悩んだとき
+
+```
+- apacheとnginxが両方存在したら、nginx 設定ミスによるpath traversalできるか確認
+- emailあって、hostファイルの設定と@以下が違う場合は、追記して検証する。 ex: doctor.htb、info@doctors.htb　→ doctors.htbを追加
+- CMSなど、github sourcecode を調べ、theme やchallenge logをみて、version をチェックする。 ex:moodle など
+- template fileや 404.phpなどを reverse shell file に書き換えられない確認
 
 ```
 
