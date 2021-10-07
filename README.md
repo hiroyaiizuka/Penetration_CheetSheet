@@ -583,6 +583,13 @@ IP address #1: 10.10.10.13
 
 [解説記事](https://jpn.nec.com/cybersecurity/blog/210604/index.html)
 
+-fw...単語の量でフィルタリング
+-fl...行数でフィルタリング
+-fs...応答のサイズでフィルタリング
+-fc...ステータスコードでフィルタリング
+-fr...正規表現のパターンでフィルタリング
+
+
 ```
 
 ffuf -w /usr/share/wordlists/SecLists/Discovery/Web-Content/directory-list-2.3-medium.txt -u http://10.10.10.247/FUZZ
@@ -1666,6 +1673,8 @@ XXE による LFI では、外部実体参照の記法を用いる。
 [PayloadAllThings](https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/XSS%20Injection/README.md)
 
 [Dom Based XSS の解説記事](https://gihyo.jp/dev/serial/01/javascript-security/0006?page=1)
+
+[Filter Bypass: OWASP](https://cheatsheetseries.owasp.org/cheatsheets/XSS_Filter_Evasion_Cheat_Sheet.html)
 
 - detect のコツ
 
