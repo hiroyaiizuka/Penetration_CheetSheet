@@ -895,6 +895,9 @@ john@writer:/etc/apt/apt.conf.d$ cd
 john@writer:~$ find / -type d -group management 2>/dev/null
 
 
+たとえばこれで、log ファイルなどが表示されたら、そこのdirectoryへいき 
+grep -r password 
+
 ```
 
 - SUID binaries と capabilitiesを探す
