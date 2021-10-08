@@ -368,6 +368,10 @@ hydra -l kyle -P ~/rockyou.txt ssh://writer.htb -VV -f -t 60
 
 ### 進入先に公開鍵を、RCEで作成する
 
+[SSH基礎記事](https://qiita.com/tag1216/items/5d06bad7468f731f590e)
+[Writeup](https://0xdf.gitlab.io/2021/02/06/htb-doctor.html#beyond-root)
+
+
 ```
 ex: HackTheBox doctor
 
