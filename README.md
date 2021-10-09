@@ -939,7 +939,7 @@ john@writer:/etc/apt/apt.conf.d$ id
 uid=1001(john) gid=1001(john) groups=1001(john),1003(management)
 
 john@writer:/etc/apt/apt.conf.d$ cd
-john@writer:~$ find / -type d -group management 2>/dev/null
+john@writer:~$ find / -type d -group management 2>/dev/null   or find / -type f -group management 2>/dev/null
 
 
 たとえばこれで、log ファイルなどが表示されたら、そこのdirectoryへいき 
