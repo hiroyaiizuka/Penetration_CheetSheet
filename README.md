@@ -17,6 +17,7 @@ Hack the Box の攻略や、OSCP 取得を目指すためのチートシート�
   - [DNS](#dns)
 - [Web Scan](#Web_scan)
   - [ffuf](#ffuf)
+  - [feroxbuster](#feroxbuster)
   - [gobuster](#gobuster)
   - [dirb](#dirb)
   - [Nikto](#Nikto)
@@ -610,6 +611,29 @@ IP address #1: 10.10.10.13
 
 ffuf -w /usr/share/wordlists/SecLists/Discovery/Web-Content/directory-list-2.3-medium.txt -u http://10.10.10.247/FUZZ
 
+
+```
+
+
+### feroxbuster
+
+[公式リンク](https://www.geeksforgeeks.org/feroxbuster-recursive-content-discovery-tool-in-kali-linux/)
+
+[Usecase](https://www.geeksforgeeks.org/feroxbuster-recursive-content-discovery-tool-in-kali-linux/)
+
+recursive にdirectory scan してくれる、Rust製のツール
+
+
+```
+
+basic:
+feroxbuster -u  http://10.10.10.234
+
+Read URLs from STDIN; pipe only resulting URLs out to another tool:
+cat targets.txt | feroxbuster –stdin –silent -s 200 301 302 –redirects -x js fff -s 200 -o js-files
+
+-s, --status-codes <STATUS_CODE>:  allow list
+-x, --extensions <FILE_EXTENSION>: File extension(s) to search for (ex: -x php -x pdf js)
 
 ```
 
