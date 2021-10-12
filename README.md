@@ -1883,21 +1883,47 @@ $ radare2 rev100
 
 # ツール
 
+
 ## Kerbrute
 
 [リンク](https://github.com/ropnop/kerbrute)
 
-[動画](https://www.youtube.com/watch?v=L8fK5-oTSws)
+[動画1](https://www.youtube.com/watch?v=L8fK5-oTSws)
+
+[動画2](https://www.youtube.com/watch?v=kETrr75ps5g)
 
 [TryHackme: Attactive Directory](https://tryhackme.com/room/attacktivedirectory)
 
+![image](https://user-images.githubusercontent.com/39001773/136892854-2f073c21-547b-412b-b523-ecb2f7a99f4a.png)
+
 
 ```
+
+・ enumerate valid usernames
 
 kerbrute userenum -d spookysec.local --dc 10.10.176.6 user.txt
 
+svc-admin や、backupというアカウントは、adminアクセスできる(gain further access)ことがある。
+・
 
 ```
+
+
+## Impacket
+
+[公式](https://www.secureauth.com/labs/open-source-tools/impacket/)
+
+Active directory penetest する上での No1ツール。
+
+```
+
+・GetNPUsers.py: attempt to list and get TGTs for those users that have the property ‘Do not require Kerberos preauthentication’ set
+
+python3 /home/kali/.local/bin/GetNPUsers.py -dc-ip 10.10.176.6 spookysec.local/ -usersfile user.txt 
+
+```
+
+
 
 # Windowsコマンド
 
