@@ -1528,6 +1528,11 @@ hashcat -a 3 -m 0 5d41402abc4b2a76b9719d911017c592 --show
 # -a 3: ブルートフォース
 # hashcat --helpでハッシュの種類のIDが見れる
 
+
+passowrd がある場合 (kerberos 認証):
+
+hashcat -a 0 -m 18200 hash.txt password.txt
+
 ```
 
 ### FcrackZip
@@ -1888,6 +1893,8 @@ $ radare2 rev100
 
 [リンク](https://github.com/ropnop/kerbrute)
 
+[CheetSheet](https://gist.github.com/TarlogicSecurity/2f221924fef8c14a1d8e29f3cb5c5c4a#file-kerberos_attacks_cheatsheet-md)
+
 [動画1](https://www.youtube.com/watch?v=L8fK5-oTSws)
 
 [動画2](https://www.youtube.com/watch?v=kETrr75ps5g)
@@ -1904,6 +1911,7 @@ $ radare2 rev100
 kerbrute userenum -d spookysec.local --dc 10.10.176.6 user.txt
 
 svc-admin や、backupというアカウントは、adminアクセスできる(gain further access)ことがある。
+
 ・
 
 ```
@@ -1915,13 +1923,23 @@ svc-admin や、backupというアカウントは、adminアクセスできる(g
 
 Active directory penetest する上での No1ツール。
 
+
+### GetNPUsers.py: 
+
+<img src="https://user-images.githubusercontent.com/39001773/136898633-86477d66-afb2-45c1-8798-18f1295ed16d.png" width=600>
+
+attempt to list and get TGTs for those users that have the property ‘Do not require Kerberos preauthentication’ set.
+allow us to query ASReproastable accounts from the Key Distribution Center.
+
+ASREPRoasting: DONT_REQ_PREAUTH というのがenabled になっているアカウント(svc-admin, backup など)でrequest をおこなえば、preauth がおこらない。ゆえに、そのresponse でhashを取得できれば、password を取得できる。
+
+
+
 ```
-
-・GetNPUsers.py: attempt to list and get TGTs for those users that have the property ‘Do not require Kerberos preauthentication’ set
-
 python3 /home/kali/.local/bin/GetNPUsers.py -dc-ip 10.10.176.6 spookysec.local/ -usersfile user.txt 
-
 ```
+
+
 
 
 
