@@ -54,6 +54,7 @@ Hack the Box の攻略や、OSCP 取得を目指すためのチートシート�
 - [Tunneling](#Tunneling)
 - [リバースエンジニアリング](#リバースエンジニアリング)
 - [Windowsコマンド](#Windowsコマンド)
+- [ツール](#ツール)
 - [便利コマンド](#便利コマンド)
 - [小技テクニック](#小技テクニック)
 
@@ -1877,6 +1878,24 @@ $ radare2 rev100
 [0x0804849d]> pdc # 逆アセンブル(C言語like  pdf でアセンブリ言語にできる)
 
 [CTF 問題](https://www.serotoninpower.club/archives/894/#q21-reversing-reversing-easy)
+
+```
+
+# ツール
+
+## Kerbrute
+
+[リンク](https://github.com/ropnop/kerbrute)
+
+[動画](https://www.youtube.com/watch?v=L8fK5-oTSws)
+
+[TryHackme: Attactive Directory](https://tryhackme.com/room/attacktivedirectory)
+
+
+```
+
+kerbrute userenum -d spookysec.local --dc 10.10.176.6 user.txt
+
 
 ```
 
