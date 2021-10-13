@@ -1905,14 +1905,10 @@ $ radare2 rev100
 
 
 ```
-
 ・ enumerate valid usernames
-
 kerbrute userenum -d spookysec.local --dc 10.10.176.6 user.txt
 
 svc-admin や、backupというアカウントは、adminアクセスできる(gain further access)ことがある。
-
-・
 
 ```
 
