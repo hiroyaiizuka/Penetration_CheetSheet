@@ -1895,19 +1895,24 @@ $ radare2 rev100
 
 ![C94044F7-E7F4-4F3C-BD2D-3B6FE3F5DB22](https://user-images.githubusercontent.com/39001773/137325698-095563cf-7c6c-44d3-b6b6-b7c318695f81.png)
 
-passwordのhashがわかった時は、Pass The Hash 攻撃
-
-TGTやTGSなどがわかった時は、Pass The Ticket 攻撃
 
 ### Pass The Hash 攻撃
 
 <img src="https://user-images.githubusercontent.com/39001773/137400793-539d526a-379a-4e42-8a37-cb47dd986696.png" width = 500>
 
+パスワードハッシュだけでログインできる仕組みを利用。
 
+多くの組織で端末の展開やヘルプデスクのためにパスワードが使い回されている点を利用すれば、「1端末を侵害してハッシュを入手できれば、いとも簡単に横断的侵害ができる。
 
 ### Pass The Ticket 攻撃
 
 <img src="https://user-images.githubusercontent.com/39001773/137400793-539d526a-379a-4e42-8a37-cb47dd986696.png" width = 500>
+
+Pass-The-Ticketは、窃取したドメイン管理者権限を用いて不正な認証チケットを作成することで、サービスへのアクセスに必要な「Service Ticket」と、この入手のために必要な「TGT」を作成することを指す。
+
+TGTは「Golden Ticket」、Service Ticketは「Silver Ticket」とも呼ばれる。それぞれの有効期限が10年で、これを用いれば、どこからでも誰にでも成り済ませる。
+
+さらにシステム上は正規のチケットと区別はつかず、検知は難しい。
 
 ### Kerobroasting
 
