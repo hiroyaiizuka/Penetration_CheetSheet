@@ -53,6 +53,7 @@ Hack the Box の攻略や、OSCP 取得を目指すためのチートシート�
 - [SSTI](#SSTI)
 - [Tunneling](#Tunneling)
 - [リバースエンジニアリング](#リバースエンジニアリング)
+- [Active Directory](#ActiveDirectory)
 - [Windowsコマンド](#Windowsコマンド)
 - [ツール](#ツール)
 - [便利コマンド](#便利コマンド)
@@ -1853,6 +1854,7 @@ strapi: ./chisel client 10.10.14.23:8000 R:127.0.0.1:8001:localhost:8000
 
 ```
 
+
 ## リバースエンジニアリング
 
 [buffer overflow 解説記事](https://cd6629.gitbook.io/ctfwriteups/oscp/buffer-overflow-wlk#overwriting-function-pointers)
@@ -1885,6 +1887,27 @@ $ radare2 rev100
 [CTF 問題](https://www.serotoninpower.club/archives/894/#q21-reversing-reversing-easy)
 
 ```
+
+## ActiveDirectory
+
+[xmind map](https://www.xmind.net/m/5dypm8/)
+
+
+### Kerobroasting
+
+ドメイン管理者アカウントがサービスアカウントとして登録されている場合に、オフラインでパスワードを解析することによりパスワードが判明するパターン。
+
+サービスチケット(ネットワーク内の各種サーバへアクセスする際、認証に使用されるチケット)からツール等を用いてサービス・アカウントのパスワードをクラックする。
+
+Kerberoastingの流れ
+
+1. Active Directoryをスキャンしてサービス・アカウント(SPNがセットされているアカウント)を列挙する。
+
+2. 1.で列挙したサービス・アカウントに関連するサービスチケットをKDCから発行してもらう。
+
+3. 発行されたサービスチケットをメモリに展開してファイルに保存する。
+
+4. ツール等を用いてオフラインでサービスチケットからサービス・アカウントのパスワードをクラックする。
 
 # ツール
 
