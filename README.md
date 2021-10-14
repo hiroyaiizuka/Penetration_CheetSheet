@@ -1893,6 +1893,9 @@ $ radare2 rev100
 [xmind map](https://www.xmind.net/m/5dypm8/)
 
 
+![C94044F7-E7F4-4F3C-BD2D-3B6FE3F5DB22](https://user-images.githubusercontent.com/39001773/137325698-095563cf-7c6c-44d3-b6b6-b7c318695f81.png)
+
+
 ### Kerobroasting
 
 ドメイン管理者アカウントがサービスアカウントとして登録されている場合に、オフラインでパスワードを解析することによりパスワードが判明するパターン。
@@ -1909,7 +1912,7 @@ Kerberoastingの流れ
 
 4. ツール等を用いてオフラインでサービスチケットからサービス・アカウントのパスワードをクラックする。
 
-# ツール
+## ツール
 
 
 ## Kerbrute
@@ -1924,7 +1927,6 @@ Kerberoastingの流れ
 
 [TryHackme: Attactive Directory](https://tryhackme.com/room/attacktivedirectory)
 
-![image](https://user-images.githubusercontent.com/39001773/136892854-2f073c21-547b-412b-b523-ecb2f7a99f4a.png)
 
 
 ```
