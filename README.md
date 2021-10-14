@@ -1892,6 +1892,7 @@ $ radare2 rev100
 
 [xmind map](https://www.xmind.net/m/5dypm8/)
 
+[日本語解説良記事](https://www.mbsd.jp/blog/20190520.html)
 
 ![C94044F7-E7F4-4F3C-BD2D-3B6FE3F5DB22](https://user-images.githubusercontent.com/39001773/137325698-095563cf-7c6c-44d3-b6b6-b7c318695f81.png)
 
@@ -1900,7 +1901,7 @@ $ radare2 rev100
 
 <img src="https://user-images.githubusercontent.com/39001773/137400793-539d526a-379a-4e42-8a37-cb47dd986696.png" width = 500>
 
-パスワードハッシュだけでログインできる仕組みを利用。
+Pass the Hashは、ハッキングテクニックの１つ。攻撃者は、通常、平文のパスワードユーザが要求されるケースで、パスワードの代わりにパスワードのNTLMハッシュやLMハッシュを使用して、リモートのサーバやサービスを認証する。
 
 多くの組織で端末の展開やヘルプデスクのためにパスワードが使い回されている点を利用すれば、「1端末を侵害してハッシュを入手できれば、いとも簡単に横断的侵害ができる。
 
@@ -1908,11 +1909,29 @@ $ radare2 rev100
 
 <img src="https://user-images.githubusercontent.com/39001773/137400793-539d526a-379a-4e42-8a37-cb47dd986696.png" width = 500>
 
+[解説記事](https://www.mbsd.jp/blog/20170802.html)
+
+
 Pass-The-Ticketは、窃取したドメイン管理者権限を用いて不正な認証チケットを作成することで、サービスへのアクセスに必要な「Service Ticket」と、この入手のために必要な「TGT」を作成することを指す。
 
 TGTは「Golden Ticket」、Service Ticketは「Silver Ticket」とも呼ばれる。それぞれの有効期限が10年で、これを用いれば、どこからでも誰にでも成り済ませる。
 
-さらにシステム上は正規のチケットと区別はつかず、検知は難しい。
+さらにシステム上は正規のチケットと区別はつかず、検知は難しい。Pass the Ticketには以下3種類の手法があります。
+
+・Goldenチケット(TGT)を用いた手法
+
+・Silverチケット(Service Ticket)を用いた手法
+
+・既存のチケットを用いた手法
+
+```
+1. Golden Ticketを用いたPass the Ticketというのは任意のTGTを不正に生成し、なりすます手法であり、生成された任意のTGTはパスワード認証を求められることなく、管理者を含む任意のアカウントになりすますことができてしまう。
+
+2. Silver Ticketを用いた手法は任意のService Ticketを不正に生成し、なりすます手法であり、利用したいサービスごとにService Ticketを生成する必要がある。
+
+3. 既存のチケットを用いた手法は、管理者が使用しているクライアント端末に対してPass the Hashなどを利用してTGTやService Ticketを取得して、管理者になりすますことが可能となる。
+```
+
 
 ### Kerobroasting
 
