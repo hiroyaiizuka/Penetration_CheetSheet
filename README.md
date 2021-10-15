@@ -1971,6 +1971,10 @@ ex2: GetUserSPNs.py controller.local/Machine1:Password1 -dc-ip 10.10.127.183 -re
 
 
 
+- いつ使うか？
+
+With  Kerberos port open, we can use a tool called Kerbrute to brute force discovery of users, passwords and even password spray!
+
 ```
 ・ enumerate valid usernames
 kerbrute userenum -d spookysec.local --dc 10.10.176.6 user.txt
